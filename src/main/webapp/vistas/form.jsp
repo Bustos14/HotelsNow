@@ -13,11 +13,7 @@
 	rel="stylesheet">
 </head>
 <body>
-
-	<!-- component -->
-<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
-
-<div class="container max-w-full mx-auto md:py-24 px-6">
+<div class="container max-w-full mx-auto md:py-24 px-6 ">
 
   <div class="max-w-sm mx-auto px-6">
   
