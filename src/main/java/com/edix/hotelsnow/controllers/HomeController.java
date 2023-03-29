@@ -15,6 +15,12 @@ public class HomeController {
 	@Autowired
 	private HoteleDao hdao;
 
+	@GetMapping
+	public String inicio(Model model) {
+		model.addAttribute("listaHoteles", hdao.mostrarTodos());
+		return "index";
+	}
+	
 	@GetMapping("/listadoHoteles")
 	public String listadoHoteles(Model model) {
 		model.addAttribute("listaHoteles", hdao.mostrarTodos());

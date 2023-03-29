@@ -39,7 +39,14 @@
 				<td class="px-6 py-4 whitespace-nowrap">${hotel.ciudadHotel}</td>
 				<td class="px-6 py-4 whitespace-nowrap">${hotel.correoElectronicoHotel}</td>
 				<td class="px-6 py-4 whitespace-nowrap">${hotel.telefonoHotel}</td>
-				<td class="px-6 py-4 whitespace-nowrap">${hotel.disponible}</td>
+				<td class="px-6 py-4 whitespace-nowrap">
+					<c:if test="${hotel.disponible == 1}">
+					   Disponible
+					</c:if>
+					<c:if test="${hotel.disponible == 0}">
+					   No disponible
+					</c:if>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>
