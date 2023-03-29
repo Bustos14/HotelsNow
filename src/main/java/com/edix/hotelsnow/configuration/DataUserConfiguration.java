@@ -34,7 +34,7 @@
 		http .csrf().disable() 
 		.authorizeRequests() 
 		// Los directorios estáticos no requieren autenticacion 
-		.antMatchers("/bootstrap/**", "/images/**", "/css/**", "js/**").permitAll()
+		.antMatchers("/bootstrap/**", "/img/**", "/css/**", "js/**").permitAll()
 		.antMatchers("/rest/demo-bcrypt/**").permitAll()
   
 		// Las vistas públicas no requieren autenticación
