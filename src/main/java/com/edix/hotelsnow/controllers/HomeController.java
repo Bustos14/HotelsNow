@@ -26,4 +26,9 @@ public class HomeController {
 		model.addAttribute("listaHoteles", hdao.mostrarTodos());
 		return "listadoHoteles";
 	}
+	
+	@GetMapping("/test")
+	public String test() {
+		return "form";
+	}
 }
