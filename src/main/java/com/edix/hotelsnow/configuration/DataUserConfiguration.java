@@ -53,6 +53,9 @@
 	  
   }
 
+		/**
+		 * @return Contraseña encriptada con BCrypt
+		 */
 		@Bean
 		public PasswordEncoder passwordEncoder() {
 			return new BCryptPasswordEncoder();
