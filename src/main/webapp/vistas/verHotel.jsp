@@ -23,7 +23,7 @@
 		<div class="bg-white rounded-lg shadow overflow-hidden">
 			<div class="px-4 py-5 sm:px-6">
 				<h2 class="text-lg leading-6 font-medium text-gray-900">
-					Detalles del hotel</h2>
+					Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel }</span></h2>
 				<p class="mt-1 max-w-2xl text-sm text-gray-500">Aquí puedes
 					encontrar la información detallada del hotel.</p>
 			</div>
