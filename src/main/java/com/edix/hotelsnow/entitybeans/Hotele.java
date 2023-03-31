@@ -22,7 +22,8 @@ public class Hotele implements Serializable {
 	@Column(name="ciudad_hotel")
 	private String ciudadHotel;
 
-	@Column(name="correo_electronico_hotel")
+	// Le añado la claúsula unique = true, para evitar duplicados
+	@Column(name="correo_electronico_hotel", unique = true)
 	private String correoElectronicoHotel;
 
 	@Column(name="direccion_hotel")
