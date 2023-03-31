@@ -108,7 +108,7 @@
 								</svg>
 				           	</a>
 				    
-			</div>
+					</div>
 			</dl>
 		</div>
 	</div>
