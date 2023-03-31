@@ -18,7 +18,7 @@ public interface HoteleRepository extends JpaRepository<Hotele, Integer>{
 	 * @param ciudadHotel -> buscamos hoteles por la  ciudad pasada por parámetro
 	 * @return -> Devuelve una lista con los hoteles que coinciden con la ciudad pasada por parámetro
 	 */
-	List<Hotele> findByCiudadHotele(String ciudadHotel);
+	List<Hotele> findByCiudadHotel(String ciudadHotel);
 	
 	
     /**

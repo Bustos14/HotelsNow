@@ -40,7 +40,8 @@
 		// Las vistas públicas no requieren autenticación
 		.antMatchers("/", "/login", "/logout", "/registro","/search",
 				//provisional para probar que funciona
-				"/listadoHoteles","/test")
+				"/listadoHoteles","/test",
+				"/hotel/verUno/**", "/hotel/all")
 		.permitAll()
 		
 		//  Las autorizaciones sobre urls para ROLES

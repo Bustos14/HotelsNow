@@ -101,9 +101,9 @@ public class HoteleDaoImplMy8 implements HoteleDao{
 
 	@Override
 	public List<Hotele> findByCiudadHotele(String ciudadHotel) {
-		if(hrep.findByCiudadHotele(ciudadHotel) != null) {
+		if(hrep.findByCiudadHotel(ciudadHotel) != null) {
 			// Si la condicion no devuelve null, devolvemos la lista con los hoteles que tienen la propieda ciudadHotel que se haya buscado
-			return hrep.findByCiudadHotele(ciudadHotel);
+			return hrep.findByCiudadHotel(ciudadHotel);
 		}
 		// En caso de que la condición no se cumpla, devolvemos null
 		return null;
