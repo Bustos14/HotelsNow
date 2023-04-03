@@ -1,5 +1,8 @@
 package com.edix.hotelsnow.controllers;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
@@ -11,11 +14,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.entitybeans.Habitacione;
+import com.edix.hotelsnow.entitybeans.Hotele;
 
 @Controller
 @RequestMapping("/habitacion")
@@ -37,7 +43,7 @@ public class HabitacionController {
 		return "listadoHabitaciones";
 	}
 	
-	@GetMapping("/verUna/{id}")
+	@GetMapping("/info/{id}")
 	public String verHabitación(@PathVariable("id") int idHabitacion, Model model) {
 		Habitacione h = hdao.buscarUna(idHabitacion);
 		model.addAttribute("habitacion", h);
@@ -45,20 +51,51 @@ public class HabitacionController {
 		return "infoHabitacion";
 	}
 	
-	@GetMapping("/alta")
-	public String irAltaHabitacion(Model model) {
+	@GetMapping("/alta/{idHotel}")
+	public String irAltaHabitacion(Model model, @PathVariable("idHotel")int idHotel) {
 		model.addAttribute("hoteles", hodao.mostrarTodos());
 		model.addAttribute("tipo", getTiposHabitacion());
+		model.addAttribute("hotel", hodao.buscarUno(idHotel));
 		return "altaHabitacion";
 	}
 	
 	@PostMapping("/alta")
-	public String altaHabitacion(@ModelAttribute Habitacione h, RedirectAttributes attr) {
-		byte disponible = 1;
-		if(hdao.altaHabitacione(h)!=null) {
-			attr.addFlashAttribute("mensaje", "Habitación creada correctamente");
-			return "redirect:/";
+	public String altaHabitacion(@ModelAttribute Habitacione h, RedirectAttributes attr, @RequestParam("file") MultipartFile image, @RequestParam("hotelId") int idHotel) {
+		if(!image.isEmpty()) { 
+			String rutaAbsoluta = "C:\\Hotel\\recursos";
+			try {
+				byte[] bytesImg = image.getBytes();
+				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+				Files.write(rutaCompleta, bytesImg);
+
+				byte disponible = 1;
+				
+				Hotele hotel = hodao.buscarUno(idHotel);
+				
+				h.setHotele(hotel);
+				h.setDisponible(disponible);
+				h.setImg(image.getOriginalFilename());
+				if(hdao.altaHabitacione(h)!=null) {
+					attr.addFlashAttribute("mensaje", "Habitación creada correctamente");
+					return "redirect:/";
+				}
+			}catch(Exception e) {
+				e.printStackTrace();
+			}		
 		}
+		
 		return "redirect:/habitacion/alta";
 	}
+	
+	@PostMapping("/eliminar/{id}")
+	public String eliminarHabitacion(@PathVariable("id") int idHabitacion, RedirectAttributes attr) {
+		if(hdao.eliminarHabitacion(idHabitacion)) {
+			attr.addFlashAttribute("mensaje", "Eliminado, bien hecho");
+			return "redirect:/";
+		} else  {
+			attr.addFlashAttribute("mensaje", "No eliminado, problemas");
+			return "redirect:/";
+		}
+	}
+	
 }

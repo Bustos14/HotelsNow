@@ -42,8 +42,8 @@
 				//provisional para probar que funciona
 				"/listadoHoteles","/test","/",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
-				"/habitacion/all","/habitacion/verUna/**","/habitacion/alta",
-				"/recursos/**", "\\Hotel\\recursos")
+				"/habitacion/all","/habitacion/info/**","/habitacion/alta/**","/habitacion/eliminar/**",
+				"/recursos/**")
 		.permitAll()
 		
 		//  Las autorizaciones sobre urls para ROLES
