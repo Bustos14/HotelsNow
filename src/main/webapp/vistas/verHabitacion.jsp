@@ -25,6 +25,7 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
+	</div>
 	
 <!--  Apartid de aquí -->	
 
@@ -54,7 +55,17 @@
           <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
             <dt class="text-sm leading-5 font-medium text-gray-500">Nombre del hotel</dt>
             <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.hotele.nombreHotel }</dd>
-          </div> <div class="mt-2 flex justify-center space-x-2 mb-4">
+          </div> 
+          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+						<dt class="text-sm leading-5 font-medium text-gray-500">
+							Disponible</dt>
+						<dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">
+							<span
+								class="${habitacion.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
+								${habitacion.disponible == 1 ? 'Disponible' : 'No disponible'} </span>
+						</dd>
+					</div>
+          <div class="mt-2 flex justify-center space-x-2 mb-4">
             
     <form method="POST" action="/habitacion/info/${habitacion.idHabitacion }">
     	<button type="submit" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">

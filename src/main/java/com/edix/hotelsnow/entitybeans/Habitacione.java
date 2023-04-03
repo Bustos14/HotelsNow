@@ -25,6 +25,9 @@ public class Habitacione implements Serializable {
 
 	@Column(name="tipo_habitacion")
 	private String tipoHabitacion;
+	
+	@Column(name="disponible")
+	private byte disponible;
 
 	//uni-directional many-to-one association to Hotele
 	@ManyToOne
@@ -65,5 +68,15 @@ public class Habitacione implements Serializable {
 	public void setHotele(Hotele hotele) {
 		this.hotele = hotele;
 	}
+
+	public byte getDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(byte disponible) {
+		this.disponible = disponible;
+	}
+	
+	
 
 }

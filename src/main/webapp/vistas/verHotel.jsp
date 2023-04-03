@@ -30,6 +30,7 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
+	</div>
 	
 
 	
