@@ -43,7 +43,7 @@ public class HabitacionController {
 		return "listadoHabitaciones";
 	}
 	
-	@GetMapping("/verUna/{id}")
+	@GetMapping("/info/{id}")
 	public String verHabitación(@PathVariable("id") int idHabitacion, Model model) {
 		Habitacione h = hdao.buscarUna(idHabitacion);
 		model.addAttribute("habitacion", h);
@@ -86,4 +86,16 @@ public class HabitacionController {
 		
 		return "redirect:/habitacion/alta";
 	}
+	
+	@PostMapping("/eliminar/{id}")
+	public String eliminarHabitacion(@PathVariable("id") int idHabitacion, RedirectAttributes attr) {
+		if(hdao.eliminarHabitacion(idHabitacion)) {
+			attr.addFlashAttribute("mensaje", "Eliminado, bien hecho");
+			return "redirect:/";
+		} else  {
+			attr.addFlashAttribute("mensaje", "No eliminado, problemas");
+			return "redirect:/";
+		}
+	}
+	
 }
