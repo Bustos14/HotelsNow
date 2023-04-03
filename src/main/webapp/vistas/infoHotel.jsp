@@ -31,6 +31,9 @@
 			<div class="border-t border-gray-200">
 				<dl>
 					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+						<img class="h-auto max-w-lg rounded-lg" src="/recursos/${hotel.img}" alt="image description">
+					</div>
+					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
 						<dt class="text-sm font-medium text-gray-500">
 							Nombre:
 						</dt>

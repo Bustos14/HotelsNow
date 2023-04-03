@@ -27,7 +27,7 @@
 <!--  Apartid de aquí -->	
 
 <div class="w-4/5 mx-auto">
-    <div class="container mx-auto mt-8 max-w-3xl">
+    <div class="container mx-auto mt-8 max-w-3xl" >
         <div class="bg-white rounded-lg shadow overflow-hidden">
             <div class="px-4 py-5 sm:px-6">
                 <h2 class="text-lg leading-6 font-medium text-gray-900">
@@ -38,8 +38,18 @@
                 </p>
             </div>
             <div class="border-t border-gray-200">
-                <form method="POST" action="/hotel/editar">
+                <form method="POST" action="/hotel/editar" enctype="multipart/form-data">
                     <input type="hidden" name="idHotel" value="${hotel.idHotel}">
+                        <figure class="max-w-lg">
+				  			<img class="h-auto max-w-full rounded-lg" src="/recursos/${hotel.img}" alt="image description">
+				  			<figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Imagen anterior</figcaption>
+						</figure>
+                    <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+                        <div class="mt-1 sm:mt-0 sm:col-span-1">
+                            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white" for="img">Nueva imagen</label>
+							<input class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400" name="file" id="img" type="file">
+                        </div>
+                    </div>
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                         <label for="nombre" class="block text-sm font-medium text-gray-700">
                             Nombre
@@ -47,8 +57,7 @@
                         <div class="mt-1 sm:mt-0 sm:col-span-1">
                             <input type="text" name="nombreHotel" id="nombre" value="${hotel.nombreHotel}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                         </div>
-                    </div>
-                    
+                    </div>                     
                     
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="ciudad-hotel">

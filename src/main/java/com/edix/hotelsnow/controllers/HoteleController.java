@@ -146,7 +146,7 @@ public class HoteleController {
 	}
 	
 	@PostMapping("/editar")
-	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr /*, @RequestParam("file") MultipartFile image*/) {
+	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr , @RequestParam("file") MultipartFile image) {
 		
 		Hotele h = hdao.buscarUno(hotelEditar.getIdHotel());
 		
@@ -156,11 +156,19 @@ public class HoteleController {
 		h.setDireccionHotel(hotelEditar.getDireccionHotel());
 		h.setDisponible(hotelEditar.getDisponible());
 		h.setTelefonoHotel(hotelEditar.getTelefonoHotel());
-		
-		if(hdao.modificarHotel(hotelEditar)) {
-			attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
-		}
-		attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
+		String rutaAbsoluta = "C:\\Hotel\\recursos";
+		try {
+			byte[] bytesImg = image.getBytes();
+			Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+			Files.write(rutaCompleta, bytesImg);
+			h.setImg(image.getOriginalFilename());
+			if(hdao.modificarHotel(h)) {
+				attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
+			}
+			attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}	
 		
 		return "redirect:/";
 	}
