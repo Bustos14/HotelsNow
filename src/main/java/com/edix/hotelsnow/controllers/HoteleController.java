@@ -75,6 +75,12 @@ public class HoteleController {
 		return "altaHotel";
 	}
 	
+	/**
+	 * @param h -> Es el hotel que recibimos del formulario
+	 * @param attr -> lo usamos para redirigir información, cuando se usa POST
+	 * @return -> Si todo va bien nos redirige a la página principal y vemos como se ha creado
+	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
+	 */
 	@PostMapping("/alta")
 	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr/*, @RequestParam("file") MultipartFile image*/) {
 	
@@ -116,5 +122,46 @@ public class HoteleController {
 		return "redirect:/altaProducto";
 	}
 	
+	/**
+	 * @param idHotel -> Es el id del hotel que se desea eliminar
+	 * @param attr -> Usado para redirigir el mensaje a la vista
+	 * @return -> redireccionamos al home ("/")
+	 */
+	@PostMapping("/eliminar/{id}")
+	public String irEliminarHotel(@PathVariable("id") int idHotel, RedirectAttributes attr) {
+		if(hdao.eliminarHotel(idHotel)) {
+			attr.addFlashAttribute("mensaje", "Eliminado, bien hecho");
+			return "redirect:/";
+		} else  {
+			attr.addFlashAttribute("mensaje", "No eliminado, problemas");
+			return "redirect:/";
+		}
+	}
+	
+	@GetMapping("/info/{id}")
+	public String irInfo(@PathVariable("id") int idHotel, Model model) {
+		if(hdao.buscarUno(idHotel)!=null) {
+			model.addAttribute("hotel", hdao.buscarUno(idHotel));
+			model.addAttribute("mensaje", "Aquí tienes la información del hotel: "+hdao.buscarUno(idHotel).getNombreHotel());
+			return "infoHotel";
+		}
+		
+		model.addAttribute("mensaje", "No ha sido posible ir a información del hotel");
+		return "/";
+	}
+	
+	@GetMapping("/editar/{id}")
+	public String irEditar(@PathVariable("id") int idHotel, Model model) {
+		Hotele h = hdao.buscarUno(idHotel);
+		model.addAttribute("hotel",h);
+		
+		return "editarHotel";
+	}
+	
+	@PostMapping("/editar")
+	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr /*, @RequestParam("file") MultipartFile image*/) {
+		
+		return "";
+	}
 	
 }
