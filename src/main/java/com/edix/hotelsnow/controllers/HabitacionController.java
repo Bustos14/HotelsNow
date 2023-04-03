@@ -1,5 +1,8 @@
 package com.edix.hotelsnow.controllers;
 
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +26,10 @@ public class HabitacionController {
 	
 	@Autowired
 	private HoteleDao hodao;
+	
+	private List<String> getTiposHabitacion(){
+		return Arrays.asList("individual","doble","tripele");
+	}
 
 	@GetMapping("/all")
 	public String listadoHabitaciones(Model model) {
@@ -35,12 +42,13 @@ public class HabitacionController {
 		Habitacione h = hdao.buscarUna(idHabitacion);
 		model.addAttribute("habitacion", h);
 		
-		return "verHabitacion";
+		return "infoHabitacion";
 	}
 	
 	@GetMapping("/alta")
 	public String irAltaHabitacion(Model model) {
 		model.addAttribute("hoteles", hodao.mostrarTodos());
+		model.addAttribute("tipo", getTiposHabitacion());
 		return "altaHabitacion";
 	}
 	

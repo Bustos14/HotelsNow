@@ -29,6 +29,12 @@
 <!--  Apartid de aquí -->	
 <div class="w-full max-w-md mx-auto mt-8">
   <form action="/habitacion/alta" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <div class="mb-4">
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre-habitacion">
+        Nombre habitación
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nombre-habitacion" name="nombreHabitacion" type="text" placeholder="Ingrese el de la habitación">
+    </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="precio-noche">
         Precio por noche
@@ -37,10 +43,15 @@
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="tipo-habitacion">
-        Tipo de habitación
-      </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tipo-habitacion" name="tipoHabitacion" type="text" placeholder="Ingrese el tipo de habitación">
-    
+  Tipo de habitación
+</label>
+<select name="tipoHabitacion" id="tipo-habitacion" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+  <option value="">Seleccione el tipo de habitación</option>
+  <c:forEach items="${tipo}" var="tipoHabitacion">
+    <option value="${tipoHabitacion}">${tipoHabitacion}</option>
+  </c:forEach>
+</select>
+
     <label class="block text-gray-700 text-sm font-bold mb-2" for="img">
         Imagen de referencia
       </label>
