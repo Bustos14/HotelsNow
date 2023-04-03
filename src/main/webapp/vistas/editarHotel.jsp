@@ -53,15 +53,15 @@
                     
                     
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-                        <label for="ciudadHotel" class="block text-sm font-medium text-gray-700">
-                            Ciudad del hotel
-                        </label>
-                        <div class="mt-1 sm:mt-0 sm:col-span-1">
-                            <input type="text" name="ciudadHotel" id="ciudadHotel" value="${hotel.ciudadHotel}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-                        </div>
-                    </div>
-                    
-                    
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="ciudad-hotel">
+					        Ciudad del hotel
+					    </label>
+							<select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="ciudad-hotel" name="ciudadHotel">
+							  <c:forEach items="${provincias}" var="provincia">
+							    <option value="${provincia}" <c:if test="${provincia eq hotel.ciudadHotel}">selected</c:if>>${provincia}</option>
+							  </c:forEach>
+							</select>
+                    </div>  
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                         <label for="correoElectronicoHotel" class="block text-sm font-medium text-gray-700">
                             Correo electronico del hotel

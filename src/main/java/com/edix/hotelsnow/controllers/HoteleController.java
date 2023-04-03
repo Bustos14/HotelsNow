@@ -154,6 +154,8 @@ public class HoteleController {
 	public String irEditar(@PathVariable("id") int idHotel, Model model) {
 		Hotele h = hdao.buscarUno(idHotel);
 		model.addAttribute("hotel",h);
+		// Añadimos la lista de provincias al modelo
+        model.addAttribute("provincias", getProvincias());
 		
 		return "editarHotel";
 	}
