@@ -161,7 +161,21 @@ public class HoteleController {
 	@PostMapping("/editar")
 	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr /*, @RequestParam("file") MultipartFile image*/) {
 		
-		return "";
+		Hotele h = hdao.buscarUno(hotelEditar.getIdHotel());
+		
+		h.setNombreHotel(hotelEditar.getNombreHotel());
+		h.setCiudadHotel(hotelEditar.getCiudadHotel());
+		h.setCorreoElectronicoHotel(hotelEditar.getCorreoElectronicoHotel());
+		h.setDireccionHotel(hotelEditar.getDireccionHotel());
+		h.setDisponible(hotelEditar.getDisponible());
+		h.setTelefonoHotel(hotelEditar.getTelefonoHotel());
+		
+		if(hdao.modificarHotel(hotelEditar)) {
+			attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
+		}
+		attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
+		
+		return "redirect:/";
 	}
 	
 }
