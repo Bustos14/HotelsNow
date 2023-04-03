@@ -16,11 +16,7 @@
 </head>
 <body class="bg-gray-100">
 	<jsp:include page="navbar.jsp"></jsp:include>
-
-	<br />
-	<br />
-	<br />
-	<br />
+	
 	<div class="w-4/5 mx-auto">
 	<div class="container mx-auto mt-8 max-w-3xl">
 		<div class="bg-white rounded-lg shadow overflow-hidden">

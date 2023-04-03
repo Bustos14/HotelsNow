@@ -16,11 +16,8 @@
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
-
-	<br />
-	<br />
-	<br />
-	<br />
+	
+	
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
