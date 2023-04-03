@@ -42,7 +42,7 @@
 				//provisional para probar que funciona
 				"/listadoHoteles","/test","/",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
-				"/habitacion/all","/habitacion/verUna/**","/habitacion/alta",
+				"/habitacion/all","/habitacion/verUna/**","/habitacion/alta/**",
 				"/recursos/**")
 		.permitAll()
 		
