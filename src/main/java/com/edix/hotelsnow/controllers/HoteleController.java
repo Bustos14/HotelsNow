@@ -82,10 +82,10 @@ public class HoteleController {
 	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
 	 */
 	@PostMapping("/alta")
-	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr, @RequestParam("img") MultipartFile image) {
+	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
 	
 		  if(!image.isEmpty()) { 
-			String rutaAbsoluta = "C:/Hotel/recursos";
+			String rutaAbsoluta = "C:\\Hotel\\recursos";
 			try {
 				byte[] bytesImg = image.getBytes();
 				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());

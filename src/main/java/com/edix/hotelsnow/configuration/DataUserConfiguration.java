@@ -40,7 +40,7 @@
 		// Las vistas públicas no requieren autenticación
 		.antMatchers("/", "/login", "/logout", "/registro","/search",
 				//provisional para probar que funciona
-				"/listadoHoteles","/test",
+				"/listadoHoteles","/test","/",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**",
 				"/hotel/editar/**", "/recursos/**")
 		.permitAll()
