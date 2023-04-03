@@ -85,8 +85,20 @@
 					</div>
 					<ul>
 					 <c:forEach items="${listaHabs}" var="hab">
-					 <li>${hab.tipoHabitacion} - ${hab.precioNoche}</li>
-					 </c:forEach>
+						  <li>${hab.nombreHabitacion} - ${hab.tipoHabitacion} - ${hab.precioNoche} - 
+						    <c:if test="${hab.disponible == 1}">
+						     <span class="bg-green-200 text-green-800 font-bold py-1 px-3 rounded-full">
+					            Disponible
+					        </span>
+
+						    </c:if>
+						    <c:if test="${hab.disponible == 0}">
+						     <span class="bg-red-200 text-red-800 font-bold py-1 px-3 rounded-full">
+					          	No disponinble
+					        </span>
+						    </c:if>
+						  </li>
+					</c:forEach>
 					
 				</ul>
 				</dl>

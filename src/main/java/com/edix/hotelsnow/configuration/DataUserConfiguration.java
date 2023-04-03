@@ -43,7 +43,7 @@
 				"/listadoHoteles","/test","/",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
 				"/habitacion/all","/habitacion/verUna/**","/habitacion/alta",
-				"/recursos/**")
+				"/recursos/**", "\\Hotel\\recursos")
 		.permitAll()
 		
 		//  Las autorizaciones sobre urls para ROLES

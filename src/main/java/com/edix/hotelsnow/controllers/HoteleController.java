@@ -53,21 +53,6 @@ public class HoteleController {
 		return "listadoHoteles";
 	}
 	
-	
-	/**
-	 * @param idHotel -> Es el id del hotel que se desea buscar
-	 * @param model -> Con model, podemos enviar información a nuestros jsp, en este caso pasamos el hotel que hemos buscado
-	 * @return -> devuelve la vista verHotel.
-	 */
-	@GetMapping("/verUno/{id}")
-	public String verHotel(@PathVariable("id") int idHotel, Model model) {
-		Hotele h = hdao.buscarUno(idHotel);
-		model.addAttribute("hotel", h);
-		// Mensaje para comprobar funcionamiento
-		System.out.println("El hotel se llama: "+h.getNombreHotel());
-		return "verHotel";
-	}
-	
 	/**
 	 * @return -> Nos envía a la vista para dar alta al hotel
 	 */
@@ -89,10 +74,11 @@ public class HoteleController {
 	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
 	
 		  if(!image.isEmpty()) { 
-			String rutaAbsoluta = "C:\\Hotel\\recursos";
+			String rutaAbsoluta = "C:\\Hotel\\recursos\\";
 			try {
 				byte[] bytesImg = image.getBytes();
 				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+				Files.createDirectories(rutaCompleta.getParent());
 				Files.write(rutaCompleta, bytesImg);
 
 				byte disponible = 1;
@@ -163,16 +149,17 @@ public class HoteleController {
 		h.setDireccionHotel(hotelEditar.getDireccionHotel());
 		h.setDisponible(hotelEditar.getDisponible());
 		h.setTelefonoHotel(hotelEditar.getTelefonoHotel());
-		String rutaAbsoluta = "C:\\Hotel\\recursos";
+		String rutaAbsoluta = "C:/Hotel/recursos";
 		try {
 			byte[] bytesImg = image.getBytes();
 			Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+			Files.createDirectories(rutaCompleta.getParent());
 			Files.write(rutaCompleta, bytesImg);
 			h.setImg(image.getOriginalFilename());
 			if(hdao.modificarHotel(h)) {
-				attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
+				attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
 			}
-			attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
+			attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}	
