@@ -25,16 +25,35 @@ public class Habitacione implements Serializable {
 
 	@Column(name="tipo_habitacion")
 	private String tipoHabitacion;
-	
-	@Column(name="disponible")
-	private byte disponible;
 
 	@Column(name="disponible")
 	private byte disponible;
+	public String getNombreHabitacion() {
+		return nombreHabitacion;
+	}
+
+	public void setNombreHabitacion(String nombreHabitacion) {
+		this.nombreHabitacion = nombreHabitacion;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public byte getDisponible() {
 		return disponible;
 	}
-
+	
+	@Column(name="nombre_habitacion")
+	private String nombreHabitacion;
+	
+	@Column(name="img")
+	private String img;
+	
 	public void setDisponible(byte disponible) {
 		this.disponible = disponible;
 	}
@@ -78,15 +97,5 @@ public class Habitacione implements Serializable {
 	public void setHotele(Hotele hotele) {
 		this.hotele = hotele;
 	}
-
-	public byte getDisponible() {
-		return disponible;
-	}
-
-	public void setDisponible(byte disponible) {
-		this.disponible = disponible;
-	}
-	
-	
 
 }
