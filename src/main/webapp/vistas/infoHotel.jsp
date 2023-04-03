@@ -83,7 +83,14 @@
 					        </span>
 					    </dd>
 					</div>
+					<ul>
+					 <c:forEach items="${listaHabs}" var="hab">
+					 <li>${hab.tipoHabitacion} - ${hab.precioNoche}</li>
+					 </c:forEach>
+					
+				</ul>
 				</dl>
+				
 				</div>
 				</div>
 				</div>

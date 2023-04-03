@@ -18,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
+import com.edix.hotelsnow.entitybeans.Habitacione;
 import com.edix.hotelsnow.entitybeans.Hotele;
 
 @Controller
@@ -27,6 +29,8 @@ public class HoteleController {
 	
 	@Autowired
 	private HoteleDao hdao;
+	@Autowired
+	private HabitacioneDao habdao;
 	
 	// Método para obtener una lista de provincias españolas
     private List<String> getProvincias() {
@@ -127,6 +131,9 @@ public class HoteleController {
 	public String irInfo(@PathVariable("id") int idHotel, Model model) {
 		if(hdao.buscarUno(idHotel)!=null) {
 			model.addAttribute("hotel", hdao.buscarUno(idHotel));
+			List<Habitacione> habitacioneList = habdao.findByHotele_IdHotel(idHotel);
+			System.out.println(habitacioneList);
+			model.addAttribute("listaHabs", habitacioneList);
 			model.addAttribute("mensaje", "Aquí tienes la información del hotel: "+hdao.buscarUno(idHotel).getNombreHotel());
 			return "infoHotel";
 		}

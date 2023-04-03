@@ -29,6 +29,16 @@ public class Habitacione implements Serializable {
 	@Column(name="disponible")
 	private byte disponible;
 
+	@Column(name="disponible")
+	private byte disponible;
+	public byte getDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(byte disponible) {
+		this.disponible = disponible;
+	}
+
 	//uni-directional many-to-one association to Hotele
 	@ManyToOne
 	@JoinColumn(name="id_hotel")
