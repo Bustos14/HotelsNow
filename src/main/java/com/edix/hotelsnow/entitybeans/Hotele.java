@@ -33,6 +33,7 @@ public class Hotele implements Serializable {
 
 	@Column(name="nombre_hotel")
 	private String nombreHotel;
+	
 	@Column (name="img")
 	private String img;
 
