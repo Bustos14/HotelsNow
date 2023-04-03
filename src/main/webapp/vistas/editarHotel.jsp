@@ -41,7 +41,7 @@
                 <form method="POST" action="/hotel/editar" enctype="multipart/form-data">
                     <input type="hidden" name="idHotel" value="${hotel.idHotel}">
                         <figure class="max-w-lg">
-				  			<img class="h-auto max-w-full rounded-lg" src="/recursos/${hotel.img}" alt="image description">
+				  			<img class="h-auto max-w-full rounded-lg" src="/recursos/${hotel.img}" alt="image description" value="/recursos/${hotel.img }">
 				  			<figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Imagen anterior</figcaption>
 						</figure>
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
