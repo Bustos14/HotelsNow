@@ -40,7 +40,12 @@
         Tipo de habitación
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="tipo-habitacion" name="tipoHabitacion" type="text" placeholder="Ingrese el tipo de habitación">
-    </div>
+    
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="img">
+        Imagen de referencia
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="img" name="file" type="file">
+    </div> 
     <!-- 
     <div class="mb-4">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="disponible">
@@ -54,17 +59,6 @@
 </div>
 	-->
 
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="hotel">
-        Hotel
-      </label>
-      <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="hotel" name="idHotel">
-        <option value="" disabled selected>Seleccione un hotel</option>
-        <c:forEach items="${hoteles}" var="hotel">
-          <option value="${hotel.idHotel}">${hotel.nombreHotel}</option>
-        </c:forEach>
-      </select>
-    </div>
     <div class="flex items-center justify-between">
       <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow">Alta Habitación</button>
     </div>

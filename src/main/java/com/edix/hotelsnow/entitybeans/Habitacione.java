@@ -26,6 +26,7 @@ public class Habitacione implements Serializable {
 	@Column(name="tipo_habitacion")
 	private String tipoHabitacion;
 
+<<<<<<< Updated upstream
 	@Column(name="disponible")
 	private byte disponible;
 	public String getNombreHabitacion() {
@@ -58,6 +59,8 @@ public class Habitacione implements Serializable {
 		this.disponible = disponible;
 	}
 
+=======
+>>>>>>> Stashed changes
 	//uni-directional many-to-one association to Hotele
 	@ManyToOne
 	@JoinColumn(name="id_hotel")
