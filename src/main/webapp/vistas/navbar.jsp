@@ -26,7 +26,7 @@
 		  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
 		    <ul class="hidden md:flex md:items-center">
 			    <li>
-			      <a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Home</a>
+			      <a href="/" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Home</a>
 			    </li>
 			    <li>
 			      <a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Servicios</a>
