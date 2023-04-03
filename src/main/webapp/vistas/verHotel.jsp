@@ -21,6 +21,16 @@
 <body class="bg-gray-100">
 
 <jsp:include page="navbar.jsp"></jsp:include>
+	
+	
+	<div class="w-4/5 mx-auto">
+	<c:if test="${not empty mensaje}">
+	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	    <strong class="font-bold">¡Atención!</strong>
+	    <span class="block sm:inline">${mensaje}</span>
+	  </div>
+	</c:if>
+	
 
 	
 	<div class="w-4/5 mx-auto">

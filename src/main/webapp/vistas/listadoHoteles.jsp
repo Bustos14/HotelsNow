@@ -10,6 +10,19 @@
 	<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-gray-100">
+
+	<jsp:include page="navbar.jsp"></jsp:include>
+	
+	
+	<div class="w-4/5 mx-auto">
+	<c:if test="${not empty mensaje}">
+	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	    <strong class="font-bold">¡Atención!</strong>
+	    <span class="block sm:inline">${mensaje}</span>
+	  </div>
+	</c:if>
+	
+	
 <div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
         <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
@@ -20,7 +33,7 @@
 					<th scope="col" class="px-6 py-3">
 						Dirección
 					</th>
-					<th sscope="col" class="px-6 py-3">
+					<th scope="col" class="px-6 py-3">
 						Ciudad
 					</th>
 					<th scope="col" class="px-6 py-3">

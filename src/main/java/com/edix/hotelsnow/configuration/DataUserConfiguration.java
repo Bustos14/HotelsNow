@@ -41,8 +41,9 @@
 		.antMatchers("/", "/login", "/logout", "/registro","/search",
 				//provisional para probar que funciona
 				"/listadoHoteles","/test","/",
-				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**",
-				"/hotel/editar/**", "/recursos/**")
+				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
+				"/habitacion/all","/habitacion/verUna/**",
+				"/recursos/**")
 		.permitAll()
 		
 		//  Las autorizaciones sobre urls para ROLES
