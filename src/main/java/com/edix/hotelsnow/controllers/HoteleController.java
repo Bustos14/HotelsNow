@@ -170,9 +170,9 @@ public class HoteleController {
 			Files.write(rutaCompleta, bytesImg);
 			h.setImg(image.getOriginalFilename());
 			if(hdao.modificarHotel(h)) {
-				attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
+				attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
 			}
-			attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
+			attr.addFlashAttribute("mensaje", "Producto modificado con éxito");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}	
