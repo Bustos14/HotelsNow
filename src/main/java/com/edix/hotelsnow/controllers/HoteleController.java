@@ -82,44 +82,29 @@ public class HoteleController {
 	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
 	 */
 	@PostMapping("/alta")
-	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr/*, @RequestParam("file") MultipartFile image*/) {
+	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr, @RequestParam("img") MultipartFile image) {
 	
-		/* Implementación cuando tengamos imgs en la bbdd 
-		 * 
-		 * if(!image.isEmpty()) {
-			//Path directorioImagenes = Paths.get("src//main//resources//static/images"); 
-			String rutaAbsoluta = "C:/Producto/recursos";
+		  if(!image.isEmpty()) { 
+			String rutaAbsoluta = "C:/Hotel/recursos";
 			try {
 				byte[] bytesImg = image.getBytes();
 				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
 				Files.write(rutaCompleta, bytesImg);
+
+				byte disponible = 1;
 				
+				h.setDisponible(disponible);
 				h.setImg(image.getOriginalFilename());
-				if(pdao.nuevoProducto(h)==1) {
-					attr.addFlashAttribute("mensaje", "Hotel añadido correctamente");
+				if(hdao.altaHotel(h)!=null) {
+					attr.addFlashAttribute("mensaje", "Hotel creado correctamente");
 					return "redirect:/";
 				}
 			}catch(Exception e) {
 				e.printStackTrace();
-			}
-
-			
+			}		
 		}
 		
 		return "redirect:/altaHotel";
-		
-		 * 
-		 * */
-
-		byte disponible = 1;
-		
-		h.setDisponible(disponible);
-		if(hdao.altaHotel(h)!=null) {
-			attr.addFlashAttribute("mensaje", "Hotel creado correctamente");
-			return "redirect:/";
-		}
-		
-		return "redirect:/altaProducto";
 	}
 	
 	/**

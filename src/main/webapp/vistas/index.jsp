@@ -33,7 +33,7 @@
 		
     <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
         <a href="#">
-            <img class="rounded-t-lg " src="${pageContext.request.contextPath}/img/hotel-test.jpg" alt="imagen-hotel->${hotel.ciudadHotel}" style="width: 100%; object-fit: cover;"/>
+            <img class="rounded-t-lg " src="/recursos/${hotel.img}" alt="imagen-hotel->${hotel.ciudadHotel}" style="width: 100%; object-fit: cover;"/>
         </a>
         <div class="p-5">
             <a href="/hotel/info/${hotel.idHotel }">

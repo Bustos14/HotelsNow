@@ -25,9 +25,6 @@ public class HomeController {
 		return "index";
 	}
 	
-
-	
-	
 	/*
 	 * 
 	 * Es para probar el jsp formulario

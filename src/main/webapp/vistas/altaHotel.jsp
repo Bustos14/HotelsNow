@@ -19,7 +19,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 
 <div class="w-full max-w-md mx-auto mt-8">
-  <form action="/hotel/alta" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <form action="/hotel/alta" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre-hotel">
         Nombre del hotel
@@ -53,6 +53,10 @@
         Teléfono del hotel
       </label>
       <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telefono-hotel" name="telefonoHotel" type="text" placeholder="Ingrese el teléfono del hotel">
+       <label class="block text-gray-700 text-sm font-bold mb-2" for="img">
+        Imagen de referencia
+      </label>
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="img" name="img" type="file">
     </div>
      <!--  
     <div class="mb-4">

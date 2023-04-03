@@ -33,6 +33,16 @@ public class Hotele implements Serializable {
 
 	@Column(name="nombre_hotel")
 	private String nombreHotel;
+	@Column (name="img")
+	private String img;
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
 
 	@Column(name="telefono_hotel")
 	private String telefonoHotel;
