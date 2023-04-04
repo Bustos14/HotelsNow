@@ -1,6 +1,3 @@
-
-
-
   package com.edix.hotelsnow.configuration;
   
 	import javax.sql.DataSource;
@@ -30,6 +27,7 @@
 			"inner join Roles p on p.id_rol = ur.id_rol " +  "where u.username = ?");
 			}
 
+
 	@Override protected void configure(HttpSecurity http) throws Exception { 
 		http .csrf().disable() 
 		.authorizeRequests() 
@@ -51,9 +49,9 @@
 		//	.antMatchers("/eliminarProducto/**").hasAnyAuthority("ROLE_ADMIN")
   
 	  // Todas las demás URLs de la Aplicación requieren autenticación
-	  .anyRequest().authenticated()
-	  .and().formLogin().loginPage("/login").permitAll()  
-	  .and().logout().permitAll();
+		.anyRequest().authenticated()
+		  .and().formLogin().permitAll()  
+		  .and().logout().permitAll();
 	  
   }
 

@@ -22,8 +22,7 @@ public class Hotele implements Serializable {
 	@Column(name="ciudad_hotel")
 	private String ciudadHotel;
 
-	// Le añado la claúsula unique = true, para evitar duplicados
-	@Column(name="correo_electronico_hotel", unique = true)
+	@Column(name="correo_electronico_hotel")
 	private String correoElectronicoHotel;
 
 	@Column(name="direccion_hotel")
@@ -33,10 +32,13 @@ public class Hotele implements Serializable {
 
 	@Column(name="nombre_hotel")
 	private String nombreHotel;
-	
+
+	@Column(name="telefono_hotel")
+	private String telefonoHotel;
+
 	@Column (name="img")
 	private String img;
-
+	
 	public String getImg() {
 		return img;
 	}
@@ -44,9 +46,6 @@ public class Hotele implements Serializable {
 	public void setImg(String img) {
 		this.img = img;
 	}
-
-	@Column(name="telefono_hotel")
-	private String telefonoHotel;
 
 	public Hotele() {
 	}

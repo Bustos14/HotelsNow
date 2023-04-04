@@ -40,6 +40,12 @@
 			    <li>
 			      <a href="/contacto" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Contacto</a>
 			    </li>
+			     <li>
+			      <a href="/login" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Inicia sesión</a>
+			    </li>
+			     <li>
+			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Registrate</a>
+			    </li>
 			      <li>
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" 
             class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 

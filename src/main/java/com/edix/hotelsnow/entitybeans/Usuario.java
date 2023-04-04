@@ -2,6 +2,10 @@ package com.edix.hotelsnow.entitybeans;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.ui.Model;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -17,33 +21,43 @@ public class Usuario implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="id_usuario")
-	private int idUsuario;
+	private String username;
 
 	private String apellidos;
 
 	private String contrasena;
 
-	private String email;
+	private boolean enabled;
 
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_nacimiento")
 	private Date fechaNacimiento;
 
+	@Temporal(TemporalType.DATE)
+	@Column(name="fecha_registro")
+	private Date fechaRegistro;
+
 	private String nombre;
 
-	//uni-directional many-to-one association to Role
-	@ManyToOne
-	@JoinColumn(name="id_rol")
-	private Role role;
+	//uni-directional many-to-many association to Role
+	@ManyToMany
+	@JoinTable(
+		name="usuario_rol"
+		, joinColumns={
+			@JoinColumn(name="username")
+			}
+		, inverseJoinColumns={
+			@JoinColumn(name="id_rol")
+			}
+		)
+	private List<Role> roles;
 
 	//uni-directional many-to-many association to TarjetasBancaria
 	@ManyToMany
 	@JoinTable(
 		name="usuarios_tarjetas_bancarias"
 		, joinColumns={
-			@JoinColumn(name="id_usuario")
+			@JoinColumn(name="username")
 			}
 		, inverseJoinColumns={
 			@JoinColumn(name="id_tarjeta_bancaria")
@@ -54,12 +68,28 @@ public class Usuario implements Serializable {
 	public Usuario() {
 	}
 
-	public int getIdUsuario() {
-		return this.idUsuario;
+	
+
+	public Usuario(String username, String apellidos, String contrasena, boolean enabled, Date fechaNacimiento,
+			Date fechaRegistro, String nombre) {
+		super();
+		this.username = username;
+		this.apellidos = apellidos;
+		this.contrasena = contrasena;
+		this.enabled = enabled;
+		this.fechaNacimiento = fechaNacimiento;
+		this.fechaRegistro = fechaRegistro;
+		this.nombre = nombre;
 	}
 
-	public void setIdUsuario(int idUsuario) {
-		this.idUsuario = idUsuario;
+
+
+	public String getUsername() {
+		return this.username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getApellidos() {
@@ -78,12 +108,12 @@ public class Usuario implements Serializable {
 		this.contrasena = contrasena;
 	}
 
-	public String getEmail() {
-		return this.email;
+	public boolean getEnabled() {
+		return this.enabled;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	public Date getFechaNacimiento() {
@@ -94,6 +124,14 @@ public class Usuario implements Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
+	public Date getFechaRegistro() {
+		return this.fechaRegistro;
+	}
+
+	public void setFechaRegistro(Date fechaRegistro) {
+		this.fechaRegistro = fechaRegistro;
+	}
+
 	public String getNombre() {
 		return this.nombre;
 	}
@@ -102,12 +140,38 @@ public class Usuario implements Serializable {
 		this.nombre = nombre;
 	}
 
-	public Role getRole() {
-		return this.role;
+	public List<Role> getRoles() {
+		return this.roles;
 	}
-
-	public void setRole(Role role) {
-		this.role = role;
+	public void addRol(Role rol) {
+		if (roles == null)
+			roles = new ArrayList<>();
+		roles.add(rol);
+	}
+	
+	public void addTarjetA(TarjetasBancaria tarjeta) {
+		if(tarjetasBancarias == null)
+			tarjetasBancarias = new ArrayList<>();
+		tarjetasBancarias.add(tarjeta);
+	}
+	
+	public void removeTarjeta(int idTarjeta) {
+	    List<TarjetasBancaria> nuevasTarjetas = new ArrayList<TarjetasBancaria>();
+	    for (TarjetasBancaria tarjeta : tarjetasBancarias) {
+	        if (tarjeta.getIdTarjetaBancaria() != idTarjeta) {
+	            nuevasTarjetas.add(tarjeta);
+	        }
+	    }
+	    if (nuevasTarjetas.size() < tarjetasBancarias.size()) {
+	        tarjetasBancarias = nuevasTarjetas;
+	    } else {
+	        System.out.println("No existe esa tarjeta");
+	    }
+	}
+	
+	
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 	public List<TarjetasBancaria> getTarjetasBancarias() {
@@ -117,5 +181,7 @@ public class Usuario implements Serializable {
 	public void setTarjetasBancarias(List<TarjetasBancaria> tarjetasBancarias) {
 		this.tarjetasBancarias = tarjetasBancarias;
 	}
+	
+	
 
 }

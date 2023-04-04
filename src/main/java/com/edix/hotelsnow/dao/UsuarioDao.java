@@ -1,5 +1,7 @@
 package com.edix.hotelsnow.dao;
 
-public interface UsuarioDao {
+import com.edix.hotelsnow.entitybeans.Usuario;
 
+public interface UsuarioDao {
+	boolean registro(Usuario usuario);
 }

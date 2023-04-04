@@ -32,11 +32,6 @@ public class TarjetasBancaria implements Serializable {
 	@Column(name="numero_tarjeta")
 	private String numeroTarjeta;
 
-	//uni-directional many-to-one association to Usuario
-	@ManyToOne
-	@JoinColumn(name="id_usuario")
-	private Usuario usuario;
-
 	public TarjetasBancaria() {
 	}
 
@@ -78,14 +73,6 @@ public class TarjetasBancaria implements Serializable {
 
 	public void setNumeroTarjeta(String numeroTarjeta) {
 		this.numeroTarjeta = numeroTarjeta;
-	}
-
-	public Usuario getUsuario() {
-		return this.usuario;
-	}
-
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
 	}
 
 }

@@ -2,7 +2,6 @@ package com.edix.hotelsnow.entitybeans;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**
@@ -22,19 +21,6 @@ public class Role implements Serializable {
 
 	private String nombre;
 
-	//uni-directional many-to-many association to Usuario
-	@ManyToMany
-	@JoinTable(
-		name="usuarios_roles"
-		, joinColumns={
-			@JoinColumn(name="id_rol")
-			}
-		, inverseJoinColumns={
-			@JoinColumn(name="id_usuario")
-			}
-		)
-	private List<Usuario> usuarios;
-
 	public Role() {
 	}
 
@@ -52,14 +38,6 @@ public class Role implements Serializable {
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
-	}
-
-	public List<Usuario> getUsuarios() {
-		return this.usuarios;
-	}
-
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
 	}
 
 }
