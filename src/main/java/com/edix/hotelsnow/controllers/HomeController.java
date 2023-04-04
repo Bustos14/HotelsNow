@@ -25,6 +25,21 @@ public class HomeController {
 		return "index";
 	}
 	
+	@GetMapping("/sobreNosotros")
+	public String sobreNosotros() {
+		return "sobreNosotros";
+	}
+	
+	@GetMapping("/contacto")
+	public String contacto() {
+		return "contacto";
+	}
+	
+	@GetMapping("/servicios")
+	public String servicios() {
+		return "servicios";
+	}
+	
 	/*
 	 * 
 	 * Es para probar el jsp formulario

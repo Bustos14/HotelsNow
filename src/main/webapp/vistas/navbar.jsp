@@ -32,13 +32,13 @@
 			      <a href="/" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Home</a>
 			    </li>
 			    <li>
-			      <a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Servicios</a>
+			      <a href="/servicios" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Servicios</a>
 			    </li>
 			    <li>
-			      <a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Sobre nosotros</a>
+			      <a href="/sobreNosotros" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Sobre nosotros</a>
 			    </li>
 			    <li>
-			      <a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Contacto</a>
+			      <a href="/contacto" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Contacto</a>
 			    </li>
 			      <li>
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" 
