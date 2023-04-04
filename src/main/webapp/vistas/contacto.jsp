@@ -9,7 +9,7 @@
 <head>
 <meta charset="ISO-8859-1">
 	<title>
-
+		Contacto
 	</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
