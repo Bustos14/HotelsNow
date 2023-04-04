@@ -46,7 +46,7 @@
 					Nombre del hotel
 				</th>
 				<th scope="col" class="px-6 py-3">
-					ID del usuario
+					Nomre del usuario
 				</th>
 			</tr>
 		</thead>
@@ -56,8 +56,8 @@
 					<td class="px-6 py-4">${comentario.idComentario}</td>
 					<td class="px-6 py-4">${comentario.comentario}</td>
 					<td class="px-6 py-4">${comentario.fechaComentario}</td>
-					<td class="px-6 py-4">${comentario.hotele.idHotel}</td>
-					<td class="px-6 py-4">${comentario.usuario.idUsuario}</td>
+					<td class="px-6 py-4">${comentario.hotele.nombreHotel}</td>
+					<td class="px-6 py-4">${comentario.usuario.nombre}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
