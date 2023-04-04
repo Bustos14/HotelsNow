@@ -53,7 +53,7 @@
     			</button>
 			</form>
 			<div class="flex p-2">
-				<sec:authorize access="hasAnyAuthority('ROLE_ADMIN')">
+				<sec:authorize access="hasAnyAuthority('ROLE_SUPERADMIN')">
 					<div class="relative inline-block">
 					  <button id="dropdown-btn-${hotel.idHotel}" class="py-2 px-4 bg-gray-200 text-sm text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" 
 					    onclick="toggleDropdown('dropdown-${hotel.idHotel}')">
