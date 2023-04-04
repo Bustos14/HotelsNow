@@ -31,7 +31,7 @@ public class HabitacioneDaoImplMy8 implements HabitacioneDao{
 
 	@Override
 	public boolean eliminarHabitacion(int idHabitacion) {
-		Habitacione h = hrep.findById(idHabitacion).orElse(null);
+		Habitacione h = buscarUna(idHabitacion);
 		if(h != null) {
 			hrep.delete(h);
 			return true;
