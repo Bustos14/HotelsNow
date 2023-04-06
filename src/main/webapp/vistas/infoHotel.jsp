@@ -102,7 +102,7 @@
 						  <li>
 						  <a href="/habitacion/info/${hab.idHabitacion}"> 
 						  ${hab.nombreHabitacion}
-						  ${hab.nombreHabitacion} - ${hab.tipoHabitacion} - ${hab.precioNoche} - 
+						  ${hab.nombreHabitacion}> - ${hab.tipoHabitacion} - ${hab.precioNoche} - 
 						    <c:if test="${hab.disponible == 1}">
 						     <span class="bg-green-200 text-green-800 font-bold py-1 px-3 rounded-full">
 					            Disponible

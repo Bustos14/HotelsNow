@@ -21,7 +21,7 @@
   <form method="post" action="/comentario/altaComentario">
     <div class="mb-5">
       <label for="Mensaje" class="block font-bold mb-2">Comentario:</label>
-      <input type="text" name="mensaje" id="mensaje" rows="5" cols="30" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"/>
+      <input  name="mensaje" id="mensaje" rows="5" cols="30" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"/>
     </div>
     <input type="hidden" name="idHotel" value='${comentarioNuevo.hotele.idHotel}'/>
     <input type="hidden" name="username" value='${comentarioNuevo.usuario.username}'/>

@@ -19,7 +19,17 @@ public class Habitacione implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id_habitacion")
 	private int idHabitacion;
+	
+	@Column (name="nombre_habitacion")
+	private String nombreHabitacion;
+	
+	public String getNombreHabitacion() {
+		return nombreHabitacion;
+	}
 
+	public void setNombreHabitacion(String nombreHabitacion) {
+		this.nombreHabitacion = nombreHabitacion;
+	}
 	@Column(name="precio_noche")
 	private BigDecimal precioNoche;
 
