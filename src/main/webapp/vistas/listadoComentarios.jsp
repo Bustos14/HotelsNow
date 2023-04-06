@@ -54,7 +54,7 @@
 			<c:forEach var="comentario" items="${comentarios}">
 				<tr class="bg-blue-500 border-b border-blue-400">
 					<td class="px-6 py-4">${comentario.idComentario}</td>
-					<td class="px-6 py-4">${comentario.comentario}</td>
+					<td class="px-6 py-4">${comentario.mensaje}</td>
 					<td class="px-6 py-4">${comentario.fechaComentario}</td>
 					<td class="px-6 py-4">${comentario.hotele.nombreHotel}</td>
 					<td class="px-6 py-4">${comentario.usuario.nombre}</td>

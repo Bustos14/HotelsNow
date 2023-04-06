@@ -15,6 +15,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,7 +78,12 @@ public class ComentarioController {
 	@PostMapping("/altaComentario")
 	public String guardarComentario(@RequestParam ("mensaje") String mensaje, RedirectAttributes attr,  HttpSession session) {
 		Comentario c = new Comentario();
-		Hotele h = hdao.buscarUno(1);
+		Integer idHotel = (Integer) session.getAttribute("idHotel");
+        if (idHotel == null) {
+            // Manejar el caso en que el atributo no existe en la sesión
+            return "redirect:/";
+        }
+		Hotele h = hdao.buscarUno(idHotel);
 		
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		String username = auth.getName();
@@ -94,11 +100,19 @@ public class ComentarioController {
 		System.out.println(mensaje + user.getNombre() + h.getNombreHotel() + date);
 		if(cdao.crearComentario(c) != null) {
 			attr.addFlashAttribute("mensaje", "Comentario creado correctamente");
-			return "redirect:/";
+			return "redirect:/comentario/comentarios/"+c.getHotele().getIdHotel();
 		}
 
 		attr.addFlashAttribute("mensaje", "Comentario imposible de crear");
 		return "redirect:/alta";
+	}
+	
+	@GetMapping("/comentarios/{idHotel}")
+	public String verComentariosHotel(@PathVariable("idHotel") int idHotel, Model model) {
+		
+		model.addAttribute("listaComentarios", cdao.findByHotele_IdHotel(idHotel));
+		
+		return "comentariosHotel";
 	}
 	
 	//Método necesario para formatear fechas

@@ -21,8 +21,8 @@
   <form method="post" action="/comentario/altaComentario">
     <div class="mb-5">
       <label for="Mensaje" class="block font-bold mb-2">Comentario:</label>
-      <input  name="mensaje" id="mensaje" rows="5" cols="30" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"/>
-    </div>
+      <textarea name="mensaje" id="mensaje" rows="5" cols="30" class="w-full rounded-lg border border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"></textarea>
+	</div>
     <input type="hidden" name="idHotel" value='${comentarioNuevo.hotele.idHotel}'/>
     <input type="hidden" name="username" value='${comentarioNuevo.usuario.username}'/>
     <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">Guardar comentario</button>

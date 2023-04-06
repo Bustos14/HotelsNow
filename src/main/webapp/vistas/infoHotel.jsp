@@ -85,7 +85,15 @@
 					        </span>
 					    </dd>
 					</div>
-					<jsp:include page="altaComentario.jsp"></jsp:include>
+					
+					<div class="text-center">
+					    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+					    	<a href="/comentario/comentarios/${hotel.idHotel}">Ver comentarios</a>
+					    </button>
+					</div>
+				
+					
+					
 					<form method="GET" action = "/habitacion/alta/${hotel.idHotel}">
 					<button type="submit"
 					 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
