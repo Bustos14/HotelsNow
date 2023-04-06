@@ -13,10 +13,8 @@
 	rel="stylesheet">
 </head>
 <body>
-
-
 	<jsp:include page="navbar.jsp"></jsp:include>
-	
+	<h1>{user}</h1>
 	<c:if test="${not empty mensaje}">
 	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
 	    <strong class="font-bold">¡Atención!</strong>
@@ -44,6 +42,7 @@
             
             <div class="mt-2 flex justify-start space-x-2 mb-4">
             
+            <div class="flex p-2">
             <form method="GET" action="/hotel/info/${hotel.idHotel }">
     			<button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       					  INFO 
@@ -52,8 +51,9 @@
 	       			</svg>
     			</button>
 			</form>
+			</div>
 			<div class="flex p-2">
-				<sec:authorize access="hasAnyAuthority('ROLE_SUPERADMIN')">
+				<sec:authorize access="hasAnyAuthority('ROLE_SUPERADMIN', 'ROLE_ADMIN')">
 					<div class="relative inline-block">
 					  <button id="dropdown-btn-${hotel.idHotel}" class="py-2 px-4 bg-gray-200 text-sm text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" 
 					    onclick="toggleDropdown('dropdown-${hotel.idHotel}')">
@@ -67,7 +67,6 @@
 					</div>
 					
 					</div>
-
 				</sec:authorize>
 
 			</div>
