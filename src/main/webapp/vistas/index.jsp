@@ -57,7 +57,7 @@
 					<div class="relative inline-block">
 					  <button id="dropdown-btn-${hotel.idHotel}" class="py-2 px-4 bg-gray-200 text-sm text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" 
 					    onclick="toggleDropdown('dropdown-${hotel.idHotel}')">
-					  Dropdown
+					  Acciones
 					</button>
 					<div class="absolute z-10 mt-2py-2w-48   bg-white rounded-md shadow-xl" 
 					    id="dropdown-${hotel.idHotel}" 
