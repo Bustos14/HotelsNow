@@ -25,6 +25,7 @@ import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Comentario;
+import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
 @Controller
@@ -51,7 +52,7 @@ public class ComentarioController {
 		return "listadoComentarios";
 	}
 	
-	@GetMapping("/alta")
+	@GetMapping("/altaComentario")
 	public String irAltaComentario(Model model, HttpSession session) {
 		// Obtener el nombre de usuario del usuario autenticado
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -62,27 +63,35 @@ public class ComentarioController {
 	        return "redirect:/";
 	    }
     	System.out.println("El id del hotel es = "+idHotel);
-    	
+    	System.out.println(username);
     	Usuario user = udao.buscarUsuario(username);
 	    //Creamos comentario con algunos valores predeterminados
-	    Comentario comentarioNuevo = new Comentario();
-	    comentarioNuevo.setFechaComentario(new Date());
+    	Comentario comentarioNuevo = new Comentario();
 	    comentarioNuevo.setUsuario(user);
-	    comentarioNuevo.setHotele(hdao.buscarUno(idHotel));
-	    
-	    System.out.println(comentarioNuevo.getFechaComentario());
-	    System.out.println(comentarioNuevo.getHotele().getNombreHotel());
 	    
 	    model.addAttribute("comentarioNuevo", comentarioNuevo);
 	    
 		return "altaComentario";
 	}
 	
-	@PostMapping("/alta")
-	public String guardarComentario(@ModelAttribute Comentario c,RedirectAttributes attr) {
+	@PostMapping("/altaComentario")
+	public String guardarComentario(@RequestParam ("mensaje") String mensaje, RedirectAttributes attr,  HttpSession session) {
+		Comentario c = new Comentario();
+		Hotele h = hdao.buscarUno(1);
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String username = auth.getName();
+		Usuario user = udao.buscarUsuario(username);
 		
 		
 		
+		Date date = new Date();
+		c.setUsuario(user);
+		c.setMensaje(mensaje);
+		c.setFechaComentario(date);
+		c.setHotele(h);
+		c.setIdComentario(0);
+		System.out.println(mensaje + user.getNombre() + h.getNombreHotel() + date);
 		if(cdao.crearComentario(c) != null) {
 			attr.addFlashAttribute("mensaje", "Comentario creado correctamente");
 			return "redirect:/";

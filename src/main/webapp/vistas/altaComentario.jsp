@@ -18,12 +18,11 @@
 
 <div class="p-10">
   <h1 class="text-2xl font-bold mb-5">Dar de alta un comentario</h1>
-  <form method="post" action="${pageContext.request.contextPath}/comentario/alta">
+  <form method="post" action="/comentario/altaComentario">
     <div class="mb-5">
-      <label for="comentario" class="block font-bold mb-2">Comentario:</label>
-      <input type="text" name="comentario" id="comentario" rows="5" cols="30" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"/>
+      <label for="Mensaje" class="block font-bold mb-2">Comentario:</label>
+      <input type="text" name="mensaje" id="mensaje" rows="5" cols="30" class="w-full rounded-lg border-gray-300 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"/>
     </div>
-    <input type="hidden" name="fechaComentario" value='${comentarioNuevo.fechaComentario}'/>
     <input type="hidden" name="idHotel" value='${comentarioNuevo.hotele.idHotel}'/>
     <input type="hidden" name="username" value='${comentarioNuevo.usuario.username}'/>
     <button type="submit" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded">Guardar comentario</button>

@@ -16,7 +16,10 @@ public class ComentarioDaoImplMy8 implements ComentarioDao{
 
 	@Override
 	public Comentario crearComentario(Comentario comentario) {
-		return crep.save(comentario);
+		if(buscarUno(comentario.getIdComentario())==null) {
+			return crep.save(comentario);
+		}
+		return null;
 	}
 
 	@Override

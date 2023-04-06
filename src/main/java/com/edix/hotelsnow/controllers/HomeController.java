@@ -112,7 +112,7 @@ public class HomeController {
 		usuario.setApellidos(usuario.getNombre());
 		usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
 		if (udao.registro(usuario)) {
-	 		return "/login";
+	 		return "redirect:/login";
 	 	}
 		/*if(!mayorEdad(usuario.getFechaNacimiento())) {
 			model.addAttribute("mensaje", "Debes ser mayor de edad, para registrarte");

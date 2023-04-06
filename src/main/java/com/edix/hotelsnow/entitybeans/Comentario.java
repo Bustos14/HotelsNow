@@ -21,7 +21,7 @@ public class Comentario implements Serializable {
 	private int idComentario;
 
 	@Lob
-	private String comentario;
+	private String mensaje;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="fecha_comentario")
@@ -48,12 +48,12 @@ public class Comentario implements Serializable {
 		this.idComentario = idComentario;
 	}
 
-	public String getComentario() {
-		return this.comentario;
+	public String getMensaje() {
+		return this.mensaje;
 	}
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 
 	public Date getFechaComentario() {
