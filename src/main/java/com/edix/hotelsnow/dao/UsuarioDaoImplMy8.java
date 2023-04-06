@@ -26,5 +26,11 @@ public class UsuarioDaoImplMy8 implements UsuarioDao{
 		}
 		return false;
 	}
+
+
+	@Override
+	public Usuario buscarUsuario(String username) {
+		return urepo.findById(username).orElse(null);
+	}
 	
 }

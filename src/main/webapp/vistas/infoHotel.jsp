@@ -85,6 +85,7 @@
 					        </span>
 					    </dd>
 					</div>
+					<jsp:include page="altaComentario.jsp"></jsp:include>
 					<form method="GET" action = "/habitacion/alta/${hotel.idHotel}">
 					<button type="submit"
 					 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 

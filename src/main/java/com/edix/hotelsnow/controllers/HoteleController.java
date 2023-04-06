@@ -6,6 +6,8 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -114,11 +116,12 @@ public class HoteleController {
 	}
 	
 	@GetMapping("/info/{id}")
-	public String irInfo(@PathVariable("id") int idHotel, Model model) {
+	public String irInfo(@PathVariable("id") int idHotel, Model model, HttpSession session) {
 		if(hdao.buscarUno(idHotel)!=null) {
 			model.addAttribute("hotel", hdao.buscarUno(idHotel));
 			List<Habitacione> habitacioneList = habdao.findByHotele_IdHotel(idHotel);
 			System.out.println(habitacioneList);
+			session.setAttribute("idHotel", idHotel);
 			model.addAttribute("listaHabs", habitacioneList);
 			model.addAttribute("mensaje", "Aquí tienes la información del hotel: "+hdao.buscarUno(idHotel).getNombreHotel());
 			return "infoHotel";

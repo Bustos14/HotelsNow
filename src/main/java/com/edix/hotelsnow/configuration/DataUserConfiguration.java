@@ -41,7 +41,7 @@
 				"/listadoHoteles","/test","/","/sobreNosotros", "/servicios", "/contacto",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
 				"/habitacion/all","/habitacion/info/**","/habitacion/alta/**","/habitacion/eliminar/**",
-				"/comentario/all",
+				"/comentario/all", "/comentario/alta/**","/comentario/alta",
 				"/recursos/**")
 		.permitAll()
 		
