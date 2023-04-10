@@ -34,7 +34,7 @@
   <!-- Author: FormBold Team -->
   <!-- Learn More: https://formbold.com -->
   <div class="mx-auto w-full max-w-[550px]">
-    <form action="https://formbold.com/s/FORM_ID" method="POST">
+    <form action="/reserva/reservar" method="POST">
       <div class="-mx-3 flex flex-wrap">
       </div>
       <div class="mb-5">
@@ -46,11 +46,12 @@
         </label>
         <input
           type="number"
-          name="guest"
+          name="huesped"
           id="guest"
           placeholder="2"
-          min="0"
+          min="1"
           class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+          
         />
       </div>
 
@@ -65,9 +66,9 @@
             </label>
             <input
               type="date"
-              name="date"
               id="date"
-              class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"ç
+              name="entrada"
             />
           </div>
         </div>
@@ -81,9 +82,9 @@
             </label>
             <input
               type="date"
-              name="date"
               id="date"
               class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              name="salida"
             />
           </div>
         </div>
@@ -96,9 +97,9 @@
             </label>
             <input
               type="time"
-              name="time"
               id="time"
               class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
+              name="checkin"
             />
           </div>
         </div>

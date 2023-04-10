@@ -28,7 +28,7 @@ public class ReservaDaoImplMy8 implements ReservaDao{
 
 	@Override
 	public Reserva confirmarResera(Reserva reserva) {
-		return null;
+		return rrepo.save(reserva);
 	}
 
 	@Override
