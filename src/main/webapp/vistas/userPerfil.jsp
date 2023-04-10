@@ -54,18 +54,40 @@
 				</div>   
 			</div>    
 			<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-				<button  class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Modificar</button>    
-				<button  class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Tarjetas</button>    
+				<form method="post" action="/usuario/modificarPerfil/${usuario.username}">
+					<button disabled id="enviarCambios" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Realizar cambios</button>
+				</form>	
+				<form action="/usuario/tarjetas/${usuario.username }" method="get">   
+					<button  class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Ver mis tarjetas</button>    
+				</form>  
 			</div>  
 		</div>  
 			<div class="mt-20 text-center border-b pb-12">   
-			<c:forEach var="user" items="usuario">
-				<h1 class="text-4xl font-medium text-gray-700"> Nombre : ${usuario.nombre}</h1>    
-				<p class="font-light text-gray-600 mt-3">Username : ${usuario.username}</p>    
-				<p class="mt-8 text-gray-500"> Apellidos : ${usuario.apellidos}</p>    
-				<p class="mt-2 text-gray-500"> Fecha de registro : ${usuario.fechaRegistro}</p>  
-			</c:forEach> 
-			</div>  
+			  <c:forEach var="user" items="usuario">
+			    <div class="mb-4">
+			      <label for="nombre" class="block font-bold mb-2">Nombre:</label>
+			      <input disabled id="inputNombre" type="text" name="nombre" id="nombre" value="${usuario.nombre}" 
+			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+			    </div>
+			    <div class="mb-4">
+			      <label for="username" class="block font-bold mb-2">Username:</label>
+			      <input disabled id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
+			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+			    </div>
+			    <div class="mb-4">
+			      <label for="apellidos" class="block font-bold mb-2">Apellidos:</label>
+			      <input disabled id="inputApellidos" type="text" name="apellidos" id="apellidos" value="${usuario.apellidos}" 
+			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+			    </div>
+			    <div class="mb-4">
+			      <label for="fechaRegistro" class="block font-bold mb-2">Fecha de registro:</label>
+			      <input disabled type="text" name="fechaRegistro" id="fechaRegistro" value="${usuario.fechaRegistro}" 
+			      class="w-full rounded-lg border-none border-gray-400focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  text-center" disabled>
+			    </div>
+			  </c:forEach> 
+			</div> 
+				<button id="modify" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" onclick="cambiarEstadoCampos()">  Modificar</button>
+				
 	</div>
 </div>
 
@@ -73,6 +95,26 @@
 
 <!-- No borrar </div> -->
 	</div>
+<script>
+function cambiarEstadoCampos() {
+    var inputNombre = document.getElementById("inputNombre");
+    var inputUsername = document.getElementById("inputUsername");
+    var inputApellidos = document.getElementById("inputApellidos");
+    var enviarCambios = document.getElementById("enviarCambios");
+
+    if (inputNombre.disabled) {
+        inputNombre.disabled = false;
+        inputUsername.disabled = false;
+        inputApellidos.disabled = false;
+        enviarCambios.disabled = false;
+    } else {
+        inputNombre.disabled = true;
+        inputUsername.disabled = true;
+        inputApellidos.disabled = true;
+        enviarCambios.disabled = true;
+    }
+}
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
 </html>
