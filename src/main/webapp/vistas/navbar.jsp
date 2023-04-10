@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,14 +42,23 @@
 			    <li>
 			      <a href="/contacto" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Contacto</a>
 			    </li>
-			     <li>
+			     <sec:authorize access="isAuthenticated()">
+			    <li>
+			      <form action="/logout" method="post">
+			        <button type="submit" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cerrar sesión</button>
+			      </form>
+			    </li>
+			  </sec:authorize>
+			  <sec:authorize access="!isAuthenticated()">
+			    <li>
 			      <a href="/login" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Inicia sesión</a>
 			    </li>
-			     <li>
-			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Registrate</a>
+			    <li>
+			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Regístrate</a>
 			    </li>
-			      <li>
-			      
+			  </sec:authorize>
+			</ul>
+			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" 
             class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 
             rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white 
@@ -68,8 +79,10 @@
                 </ul>
                 <div class="py-1">
                   <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Sign out</a>
-                </div></li>
+                </div>
+                </li>
             </div>
+            </sec:authorize>
 		  	</ul>
 		  </div>
 		   <button data-collapse-toggle="navbar-dropdown" type="button" class="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-dropdown" aria-expanded="false">
