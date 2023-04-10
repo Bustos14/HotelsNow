@@ -45,10 +45,13 @@ public class HomeController {
 	 * @return vista Index (mostramos los hoteles en cards)
 	 */
 	@GetMapping
-	public String inicio(Model model) {
+	public String inicio(Model model, HttpSession session) {
 		model.addAttribute("listaHoteles", hdao.mostrarTodos());
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
+        
+        session.setAttribute("username", username);
+        
         model.addAttribute("user", username);
 		return "index";
 	}

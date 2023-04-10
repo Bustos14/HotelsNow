@@ -44,7 +44,7 @@
 			    </li>
 			     <sec:authorize access="isAuthenticated()">
 			     <li>			     
-				  <a href="/usuario/perfil/${user }" class="block py-2 px-4 text-gray-700 hover:text-gray-900">
+				  <a href="/usuario/perfil/${username }" class="block py-2 px-4 text-gray-700 hover:text-gray-900">
 				    Perfil
 				  </a>
 				  </li>
