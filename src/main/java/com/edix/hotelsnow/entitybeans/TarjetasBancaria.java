@@ -2,6 +2,8 @@ package com.edix.hotelsnow.entitybeans;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+
 import java.util.Date;
 
 
@@ -31,9 +33,28 @@ public class TarjetasBancaria implements Serializable {
 
 	@Column(name="numero_tarjeta")
 	private String numeroTarjeta;
+	
+	//uni-directional many-to-one association to Usuario
+		@ManyToOne
+		@JoinColumn(name="username")
+		private Usuario usuario;
 
 	public TarjetasBancaria() {
 	}
+
+	
+	
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
+
 
 	public int getIdTarjetaBancaria() {
 		return this.idTarjetaBancaria;
