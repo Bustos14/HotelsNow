@@ -11,6 +11,6 @@ public interface ReservaDao {
 	Reserva buscarUna (int IdReserva);
 	Reserva confirmarResera(Reserva reserva);
 	boolean cancelarReserva(int idReserva);
-	Reserva buscarPorUsuario (Usuario usuario);
+	List<Reserva> buscarPorUsuario (Usuario usuario);
 	
 }
