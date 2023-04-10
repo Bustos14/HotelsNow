@@ -54,9 +54,10 @@
 				</div>   
 			</div>    
 			<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">				
-				<form action="/usuario/tarjetas/${usuario.username }" method="get">   
+				<form action="/usuario/misTarjetas/${usuario.username }" method="get">   
 					<button  class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Ver mis tarjetas</button>    
-				</form>  <form method="post" action="/usuario/modificarPerfil">
+				</form> 
+				 <form method="post" action="/usuario/modificarPerfil">
 					<button disabled id="enviarCambios" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Realizar cambios</button>
 			
 			</div>  
