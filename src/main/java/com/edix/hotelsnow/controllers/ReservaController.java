@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
@@ -15,13 +16,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.ReservaDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
+import com.edix.hotelsnow.entitybeans.Habitacione;
 import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.entitybeans.Reserva;
 import com.edix.hotelsnow.entitybeans.Usuario;
@@ -36,31 +40,54 @@ public class ReservaController {
 	UsuarioDao udao;
 	@Autowired
 	HoteleDao hdao;
-	@GetMapping("/reservar")
-	public String reservar() {
+	@Autowired
+	HabitacioneDao habdao;
+	@GetMapping("/reservar/{id}")
+	public String reservar(HttpSession session, @PathVariable("id") int idHab) {
+		System.out.println(idHab);
+		session.setAttribute("idHab", idHab);
 		return "reservaForm";
 	}
 	@PostMapping("/reservar")
-	public String reservar(@RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session ) {
+	public String reservar(Model model, @RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session ) {
 		Reserva r = new Reserva();
 		Integer idHotel = (Integer) session.getAttribute("idHotel");
+		System.out.println((Integer) session.getAttribute("idHab"));
+		int idHabitacion =  (Integer) session.getAttribute("idHab");
+		Integer numeroHuesped = Integer.parseInt(numero);
+		Habitacione hab = habdao.buscarUna(idHabitacion);
+		BigDecimal cantidadPorNoche = hab.getPrecioNoche();
         if (idHotel == null) {
-            // Manejar el caso en que el atributo no existe en la sesión
-            return "redirect:/";
+            return "reservaForm";
         }
         Hotele h = hdao.buscarUno(idHotel);
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         String username = auth.getName();
 		Usuario user = udao.buscarUsuario(username);
-		r.setFechaLlegada(entrada);
-		r.setFechaSalida(salida);
+		if(entrada.after(salida)) {
+			model.addAttribute("mensaje", "La fecha de entrada debe ser anterior a la de salida.");
+		}else {
+			r.setFechaLlegada(entrada);
+			r.setFechaSalida(salida);
+		}
 		r.setHotele(h);
 		r.setUsuario(user);
-		r.setNumeroHabitaciones(Integer.parseInt(numero));
-		r.setTotalPagar(new BigDecimal(100.2));
+		r.setNumeroHabitaciones(numeroHuesped);
+		Double cNoche = cantidadPorNoche.doubleValue();
+		r.setTotalPagar(new BigDecimal(cNoche * (numeroHuesped)));
 		rdao.confirmarResera(r);
-		return "/";
+		return "redirect:/usuario/perfil/"+user.getUsername();
 	}
+	@GetMapping("/cancelar/{id}")
+	public String cancelar(@PathVariable("id") int idReserva, Model model) {
+		if(rdao.cancelarReserva(idReserva)) {
+			model.addAttribute("mensaje", "Reserva cancelada con exito");
+		}else {
+			model.addAttribute("mensaje", "Error al cancelar. Vuelva a intentarlo mas tarde o contacte con soporte.");
+		}
+		return "/perfil";
+	}
+	
 	//Método necesario para formatear fechas
 			@InitBinder
 			public void initBinder(WebDataBinder webdataBinder) {
