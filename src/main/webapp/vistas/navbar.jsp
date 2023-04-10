@@ -43,6 +43,11 @@
 			      <a href="/contacto" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Contacto</a>
 			    </li>
 			     <sec:authorize access="isAuthenticated()">
+			     <li>			     
+				  <a href="/usuario/perfil/${user }" class="block py-2 px-4 text-gray-700 hover:text-gray-900">
+				    Perfil
+				  </a>
+				  </li>
 			    <li>
 			      <form action="/logout" method="post">
 			        <button type="submit" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cerrar sesión</button>
@@ -57,7 +62,9 @@
 			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Regístrate</a>
 			    </li>
 			  </sec:authorize>
+
 			</ul>
+			
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" 
             class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 
