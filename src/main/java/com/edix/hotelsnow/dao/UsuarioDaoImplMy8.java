@@ -32,5 +32,21 @@ public class UsuarioDaoImplMy8 implements UsuarioDao{
 	public Usuario buscarUsuario(String username) {
 		return urepo.findById(username).orElse(null);
 	}
+
+
+	@Override
+	public int modificarUsuario(Usuario usuario) {
+		int filas = 0;
+		Usuario mod = null;
+		try {
+			mod = urepo.getOne(usuario.getUsername());
+			mod = usuario;
+			urepo.save(mod);
+			filas = 1;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return filas;
+	}
 	
 }

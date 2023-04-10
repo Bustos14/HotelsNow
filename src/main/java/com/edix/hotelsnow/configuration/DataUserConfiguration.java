@@ -43,7 +43,7 @@
 				"/habitacion/all","/habitacion/info/**","/habitacion/alta/**","/habitacion/eliminar/**",
 				"/comentario/all", "/comentario/alta/**","/comentario/alta", "/comentario/comentarios/**",
 				"/recursos/**", "/reserva/reservar",
-				"/usuario/perfil/**",
+				"/usuario/perfil/**", "/usuario/modificarPerfil",
 				"/recursos/**")
 		.permitAll()
 		

@@ -53,13 +53,12 @@
 					<path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" /></svg>      
 				</div>   
 			</div>    
-			<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">
-				<form method="post" action="/usuario/modificarPerfil/${usuario.username}">
-					<button disabled id="enviarCambios" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Realizar cambios</button>
-				</form>	
+			<div class="space-x-8 flex justify-between mt-32 md:mt-0 md:justify-center">				
 				<form action="/usuario/tarjetas/${usuario.username }" method="get">   
 					<button  class="text-white py-2 px-4 uppercase rounded bg-gray-700 hover:bg-gray-800 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Ver mis tarjetas</button>    
-				</form>  
+				</form>  <form method="post" action="/usuario/modificarPerfil">
+					<button disabled id="enviarCambios" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5">  Realizar cambios</button>
+			
 			</div>  
 		</div>  
 			<div class="mt-20 text-center border-b pb-12">   
@@ -71,7 +70,7 @@
 			    </div>
 			    <div class="mb-4">
 			      <label for="username" class="block font-bold mb-2">Username:</label>
-			      <input disabled id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
+			      <input disabed id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
 			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
 			    </div>
 			    <div class="mb-4">
@@ -80,10 +79,16 @@
 			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
 			    </div>
 			    <div class="mb-4">
+			      <label for="fechaNacimiento" class="block font-bold mb-2">Fecha de nacimiento:</label>
+			      <input disabled type="text" name="fechaNacimiento" id="fechaNacimiento" value="${usuario.fechaNacimiento}" 
+			      class="w-full rounded-lg border-none border-gray-400focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  text-center" disabled>
+			    </div>
+			    <div class="mb-4">
 			      <label for="fechaRegistro" class="block font-bold mb-2">Fecha de registro:</label>
 			      <input disabled type="text" name="fechaRegistro" id="fechaRegistro" value="${usuario.fechaRegistro}" 
 			      class="w-full rounded-lg border-none border-gray-400focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  text-center" disabled>
 			    </div>
+			    </form>
 			  </c:forEach> 
 			</div> 
 				<button id="modify" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" onclick="cambiarEstadoCampos()">  Modificar</button>
@@ -98,20 +103,20 @@
 <script>
 function cambiarEstadoCampos() {
     var inputNombre = document.getElementById("inputNombre");
-    var inputUsername = document.getElementById("inputUsername");
     var inputApellidos = document.getElementById("inputApellidos");
     var enviarCambios = document.getElementById("enviarCambios");
+    var inputFechaNac = document.getElementById("fechaNacimiento");
 
     if (inputNombre.disabled) {
         inputNombre.disabled = false;
-        inputUsername.disabled = false;
         inputApellidos.disabled = false;
         enviarCambios.disabled = false;
+        inputFechaNac.disabled = false;
     } else {
         inputNombre.disabled = true;
-        inputUsername.disabled = true;
         inputApellidos.disabled = true;
         enviarCambios.disabled = true;
+        inputFechaNac.disabled = false;
     }
 }
 </script>
