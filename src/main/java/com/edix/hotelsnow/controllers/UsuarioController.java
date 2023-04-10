@@ -19,8 +19,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.dao.ReservaDao;
 import com.edix.hotelsnow.dao.TarjetaBancariaDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
+import com.edix.hotelsnow.entitybeans.Reserva;
 import com.edix.hotelsnow.entitybeans.TarjetasBancaria;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
@@ -33,12 +35,15 @@ public class UsuarioController {
 	
 	@Autowired
 	private TarjetaBancariaDao tdao;
+	@Autowired
+	private ReservaDao rdao;
 	
 	@GetMapping("/perfil/{username}")
 	public String irPerfil(@PathVariable("username") String username, Model model) {
-		
+		Usuario u = udao.buscarUsuario(username);
+		List<Reserva> listaReservas = rdao.buscarPorUsuario(u);
 		model.addAttribute("usuario", udao.buscarUsuario(username));
-		
+		model.addAttribute("numReservas", listaReservas.size());
 		return "userPerfil";
 	}
 	
