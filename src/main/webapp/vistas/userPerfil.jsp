@@ -71,7 +71,7 @@
 			    </div>
 			    <div class="mb-4">
 			      <label for="username" class="block font-bold mb-2">Username:</label>
-			      <input disabed id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
+			      <input readonly id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
 			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
 			    </div>
 			    <div class="mb-4">
