@@ -42,11 +42,11 @@
   <tbody>
     <c:forEach var="usuario" items="${usuarios}">
       <tr class="border-b hover:bg-gray-100">
-        <td class="py-2 px-4">${usuario.username}</td>
-        <td class="py-2 px-4">${usuario.nombre}</td>
-        <td class="py-2 px-4">${usuario.apellidos}</td>
-        <td class="py-2 px-4">${usuario.fechaNacimiento}</td>
-        <td class="py-2 px-4">${usuario.fechaRegistro}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.username}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.nombre}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.apellidos}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.fechaNacimiento}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.fechaRegistro}</td>
       </tr>
     </c:forEach>
   </tbody>
@@ -66,11 +66,11 @@
   <tbody>
     <c:forEach var="usuario" items="${admins}">
       <tr class="border-b hover:bg-gray-100">
-        <td class="py-2 px-4">${usuario.username}</td>
-        <td class="py-2 px-4">${usuario.nombre}</td>
-        <td class="py-2 px-4">${usuario.apellidos}</td>
-        <td class="py-2 px-4">${usuario.fechaNacimiento}</td>
-        <td class="py-2 px-4">${usuario.fechaRegistro}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.username}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.nombre}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.apellidos}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.fechaNacimiento}</td>
+        <td class="py-2 px-4 text-center align-middle">${usuario.fechaRegistro}</td>
       </tr>
     </c:forEach>
   </tbody>
