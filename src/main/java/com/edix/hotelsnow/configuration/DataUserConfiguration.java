@@ -36,7 +36,7 @@
 		.antMatchers("/rest/demo-bcrypt/**").permitAll()
   
 		// Las vistas públicas no requieren autenticación
-		.antMatchers("/", "/login", "/logout", "/registro","/search",
+		.antMatchers("/", "/login", "/registro","/search",
 				//provisional para probar que funciona
 				"/listadoHoteles","/test","/","/sobreNosotros", "/servicios", "/contacto",
 				"/hotel/verUno/**", "/hotel/all","/hotel/alta","/hotel/eliminar/**","/hotel/info/**","/hotel/editar/**", 
@@ -53,7 +53,7 @@
 	  // Todas las demás URLs de la Aplicación requieren autenticación
 		.anyRequest().authenticated()
 		  .and().formLogin().permitAll()  
-		  .and().logout().permitAll();
+		  .and().logout().logoutSuccessUrl("/").permitAll();
 	  
   }
 
