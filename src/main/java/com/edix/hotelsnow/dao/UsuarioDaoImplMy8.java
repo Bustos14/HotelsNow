@@ -1,5 +1,7 @@
 package com.edix.hotelsnow.dao;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -47,6 +49,12 @@ public class UsuarioDaoImplMy8 implements UsuarioDao{
 			e.printStackTrace();
 		}
 		return filas;
+	}
+
+
+	@Override
+	public List<Usuario> buscarPorRol(String nombreRol) {
+		return urepo.findByRol(nombreRol);
 	}
 	
 }
