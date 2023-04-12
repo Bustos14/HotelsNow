@@ -9,4 +9,5 @@ import com.edix.hotelsnow.entitybeans.Comentario;
 public interface ComentarioRepository extends JpaRepository<Comentario, Integer>{
 
 	List<Comentario> findByHotele_IdHotel(int idHotel);
+	List<Comentario> findByUsuario_Username(String username);
 }

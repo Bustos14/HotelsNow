@@ -59,4 +59,12 @@ public class ComentarioDaoImplMy8 implements ComentarioDao{
 		return null;
 	}
 
+	@Override
+	public List<Comentario> findByUsuario_Username(String username) {
+		if(crep.findByUsuario_Username(username) != null) {
+			return crep.findByUsuario_Username(username);
+		}
+		return null;
+	}
+
 }

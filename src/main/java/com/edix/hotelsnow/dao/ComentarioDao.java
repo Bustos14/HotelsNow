@@ -12,4 +12,5 @@ public interface ComentarioDao {
 	boolean eliminarComentairo(int idComentario);
 	boolean modificarComentairo(Comentario comentario);
 	List<Comentario> findByHotele_IdHotel(int idHotel);
+	List<Comentario> findByUsuario_Username(String username);
 }

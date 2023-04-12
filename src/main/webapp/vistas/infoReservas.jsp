@@ -48,6 +48,11 @@
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${reserva.hotele.nombreHotel}"/></td>
       </tr>
     </c:forEach>
+    <c:if test="${empty comentarios}">
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="3"><c:out value="${mensaje}"/></td>
+      </tr>
+    </c:if>
   </tbody>
 </table>
 

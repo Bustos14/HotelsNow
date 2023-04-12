@@ -39,7 +39,7 @@
 					<p class="text-gray-400">Reservas</p>      
 				</div>     
 				<div>           
-					<p class="font-bold text-gray-700 text-xl">10</p>        
+					<p class="font-bold text-gray-700 text-xl"><a href="/usuario/misComentarios">${numComentarios}</a></p>        
 					<p class="text-gray-400">Comentarios</p>      
 				</div>          
 				<div>           
