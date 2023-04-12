@@ -78,8 +78,9 @@ public class UsuarioController {
 	public String verMisReservas(Model model, Authentication auth) {
 		
 		Usuario user = udao.buscarUsuario(auth.getName());
-		
-		model.addAttribute("reservas", rdao.buscarPorUsuario(user));
+		if(rdao.buscarPorUsuario(user) != null)
+			model.addAttribute("reservas", rdao.buscarPorUsuario(user));
+		model.addAttribute("mensaje", "Lo sentimos, no ha realizado ninguna reserva por ahora");
 		
 		return "infoReservas";
 	}
