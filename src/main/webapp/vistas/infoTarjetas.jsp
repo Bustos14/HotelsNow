@@ -48,7 +48,7 @@
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${tarjeta.cvv}</td>
         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
           <a href="/usuario/${username}/tarjeta/${tarjeta.idTarjetaBancaria}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
-          <a href="/usuario/${username}/eliminar/${tarjeta.idTarjetaBancaria}" class="text-red-600 hover:text-red-900 ml-4">Eliminar</a>
+          <a href="/tarjeta/eliminar/${tarjeta.idTarjetaBancaria}" class="text-red-600 hover:text-red-900 ml-4">Eliminar</a>
         </td>
       </tr>
     </c:forEach>

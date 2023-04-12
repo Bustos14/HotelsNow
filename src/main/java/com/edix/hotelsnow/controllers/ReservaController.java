@@ -87,7 +87,7 @@ public class ReservaController {
 		}else {
 			model.addAttribute("mensaje", "Error al cancelar. Vuelva a intentarlo mas tarde o contacte con soporte.");
 		}
-		return "/perfil";
+		return "redirect:/usuario/misReservas";
 	}
 	
 	//Método necesario para formatear fechas

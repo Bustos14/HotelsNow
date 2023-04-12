@@ -119,7 +119,7 @@ public class TarjetaBancariaController {
 			}
 		}
 		
-		return "redirect:/tarjeta/tarjetas";
+		return "redirect:/usuario/misTarjetas/"+userName;
 	}
 	
 	/**

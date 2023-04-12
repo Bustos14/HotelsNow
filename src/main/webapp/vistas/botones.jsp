@@ -27,4 +27,6 @@
 			</svg>
        	</button>
 	</form>
+	
+	<button type="button" class="px-8 py-3 text-white bg-gray-300 rounded focus:outline-none" disabled>Button</button>
 </div>      

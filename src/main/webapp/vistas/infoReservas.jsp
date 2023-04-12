@@ -36,6 +36,7 @@
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Número de huespedes</th>
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Total a pagar</th>
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Hotel</th>
+      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Cancelar</th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
@@ -45,7 +46,8 @@
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm font-medium text-gray-900"><c:out value="${reserva.fechaSalida}"/></td>
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${reserva.numeroHabitaciones}"/></td>
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm font-medium text-gray-900"><c:out value="${reserva.totalPagar}"/></td>
-        <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${reserva.hotele.nombreHotel}"/></td>
+        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Hotel</th>
+        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider"><a href="/reserva/cancelar/${reserva.idReserva}">Cancelar</a></th>
       </tr>
     </c:forEach>
     <c:if test="${empty comentarios}">
