@@ -35,7 +35,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-3">    
 			<div class="grid grid-cols-3 text-center order-last md:order-first mt-20 md:mt-0">      
 				<div>        
-					<p class="font-bold text-gray-700 text-xl">${numReservas}</p>
+					<p class="font-bold text-gray-700 text-xl"><a href="/usuario/misReservas">${numReservas}</a></p>
 					<p class="text-gray-400">Reservas</p>      
 				</div>     
 				<div>           

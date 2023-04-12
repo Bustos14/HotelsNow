@@ -74,6 +74,15 @@ public class UsuarioController {
 		return "listadoUsuarios";
 	}
 	
+	@GetMapping("/misReservas")
+	public String verMisReservas(Model model, Authentication auth) {
+		
+		Usuario user = udao.buscarUsuario(auth.getName());
+		
+		model.addAttribute("reservas", rdao.buscarPorUsuario(user));
+		
+		return "infoReservas";
+	}
 	
 	/* TARJETAS */
 	@GetMapping("/misTarjetas/{username}")
