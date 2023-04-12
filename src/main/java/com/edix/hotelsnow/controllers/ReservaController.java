@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
@@ -49,7 +50,7 @@ public class ReservaController {
 		return "reservaForm";
 	}
 	@PostMapping("/reservar")
-	public String reservar(Model model, @RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session ) {
+	public String reservar(Model model, @RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session, RedirectAttributes atrr ) {
 		Reserva r = new Reserva();
 		Integer idHotel = (Integer) session.getAttribute("idHotel");
 		System.out.println((Integer) session.getAttribute("idHab"));
@@ -76,6 +77,7 @@ public class ReservaController {
 		Double cNoche = cantidadPorNoche.doubleValue();
 		r.setTotalPagar(new BigDecimal(cNoche * (numeroHuesped)));
 		rdao.confirmarResera(r);
+			atrr.addFlashAttribute("mensaje", "Reserva de la habitación "+hab.getNombreHabitacion()+" del hotel " + h.getNombreHotel() + " con un total de "+r.getTotalPagar()+"€");
 		return "redirect:/usuario/perfil/"+user.getUsername();
 	}
 	@GetMapping("/cancelar/{id}")
