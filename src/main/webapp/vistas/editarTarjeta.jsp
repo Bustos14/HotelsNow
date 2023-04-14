@@ -18,9 +18,9 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
 	
-	<div id="alert" class="w-4/5 mx-auto">
+	<div  class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
-	  <div  class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	  <div id="alert"  class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
 	    <strong class="font-bold">¡Atención!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
@@ -61,9 +61,13 @@
   </div>
 
   <div class="flex items-center justify-center">
-    <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Guardar cambios" />
+    <input class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" value="Guardar cambios" />
   </div>
 </form>
+<div class="flex items-center justify-center mt-3">
+  <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver atrás</a>
+</div>
+
 
 
 
