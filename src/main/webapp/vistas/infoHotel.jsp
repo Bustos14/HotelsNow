@@ -101,87 +101,62 @@
 				
 					
 					
-					<form method="GET" action = "/habitacion/alta/${hotel.idHotel}">
-					<button type="submit"
-					 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
-					 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-					 Nueva habitación 
-			        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-			           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
-			       	</svg>
-		    		</button>
-					</form>
-      			 		
-					<ul>
 					
-					<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
-		    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-		        <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
-		            <tr>
-						<th scope="col" class="px-6 py-3">
-							Nombre habitación
-						</th>
-						<th scope="col" class="px-6 py-3">
-							Precio por noche
-						</th>
-						<th sscope="col" class="px-6 py-3">
-							Tipo de habitación
-						</th>
-						<th scope="col" class="px-6 py-3">
-							Disponiblidad
-						</th>
-						<th scope="col" class="px-6 py-3">
-							Reserva
-						</th>
-					</tr>
-			</thead>
-				<tbody>
-					<c:forEach var="habitacion" items="${listaHabs}">
-						<tr class="bg-gray-400 border-b border-blue-400">
-							<td class="px-6 py-4"><a href="/habitacion/info/${habitacion.idHabitacion}">${habitacion.nombreHabitacion}</a></td>
-							<td class="px-6 py-4">${habitacion.precioNoche}</td>
-							<td class="px-6 py-4">${habitacion.tipoHabitacion}</td>
-							<td class="px-6 py-4">
-							<c:if test="${habitacion.disponible == 1}">
-								<span class="bg-green-200 text-green-800 font-bold py-1 px-3 rounded-full">
-							            Disponible
-							        </span></td>
-							</c:if>
-							<c:if test="${habitacion.disponible == 0}">
-								   	<span class="bg-red-200 text-black font-bold py-1 px-3 rounded-full">
-							            No disponible
-							        </span>
-							 </td>   
-							</c:if>
-							<td class="px-6 py-4">
-							<c:if test="${habitacion.disponible == 1}">
+
+      			 		
+					
+			<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
+			
+	<h2 class="text-center text-3xl font-semibold mb-6">Lista de habitaciones del hotel</h2>
+	
+	<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
+	    <div class="flex justify-center">
+	        <button type="submit"
+	                class="mt-3 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
+	                focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+	            Nueva habitación 
+	            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+	                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
+	            </svg>
+	        </button>
+	    </div>
+	</form>
+	<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+		<c:forEach var="habitacion" items="${listaHabs}">
+			<div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
+				<a href="/habitacion/info/${habitacion.idHabitacion }">
+					<img class="rounded-t-lg " src="/recursos/${habitacion.img}" alt="imagen-hotel->${habitacion.nombreHabitacion}" style="max-width: 100%; height: 300px; width: 100%;"/>
+				</a> 
+				<div class="p-5">      
+					<a href="/habitacion/info/${habitacion.idHabitacion}">
+						<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >${habitacion.nombreHabitacion} </h5>
+					</a>
+					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.tipoHabitacion}</p>
+					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}</p>
+				</div>
+				<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+					<div class="mt-2 flex justify-start">    
+						<div class="flex items-center space-x-2">
+							<p class="text-gray-600 dark:text-gray-300 text-sm">
+								<span class="${hotel.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
+									${hotel.disponible == 1 ? 'Disponible' : 'No disponible'}
+								</span>
+							</p>
 							<form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
-							<button type="submit"
-								 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
-								 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-								  Reservar 
-						        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-						           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
-						       	</svg>
-				    		</button>
+								<button type="submit" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3">
+									Reservar
+								</button>
 							</form>
-							
-				    		</c:if>
-				    		<c:if test="${habitacion.disponible == 0}">
-							<button type="submit" disabled="disabled"
-								 class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white 8 py-3 text-white bg-gray-300 rounded focus:outline-none"">
-								  Reservar 
-						        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-						           <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
-						       	</svg>
-				    		</button>
-							 </td>   
-							</c:if>
-							</td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</c:forEach>
+	</div>
+</div>
+
+</div>
+
 			</div>
 					
 				</dl>
