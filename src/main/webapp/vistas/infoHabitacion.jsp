@@ -78,7 +78,7 @@
 		  </div>
           <div class="mt-2 flex justify-center space-x-2 mb-4">
             
-    <form method="POST" action="/habitacion/info/${habitacion.idHabitacion }">
+    <form method="GET" action="/habitacion/info/${habitacion.idHabitacion }">
     	<button type="submit" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
       			 INFO 
 	        <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
@@ -87,7 +87,7 @@
     	</button>
 	</form>
 
-	<form method="POST" action="/habitacion/editar/${habitacion.idHabitacion }">
+	<form method="GET" action="/habitacion/editar/${habitacion.idHabitacion }">
             
 	     <button type="submit" class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
 	                EDITAR

@@ -45,6 +45,7 @@
 				"/recursos/**", "/reserva/reservar",
 				"/usuario/perfil/**", "/usuario/modificarPerfil", "/usuario/listadoMisComentarios",
 				"/tarjeta/editar/**","/tarjeta/editar",
+				"/habitacion/editar/**", "/habitacion/editar",
 				"/recursos/**")
 		.permitAll()
 		
