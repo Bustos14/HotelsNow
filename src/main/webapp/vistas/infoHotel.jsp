@@ -21,7 +21,7 @@
 	
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">tenci髇!</strong>
+	    <strong class="font-bold">隆Atenci贸n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
@@ -34,7 +34,7 @@
 					Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel}</span>
 				</h2>
 				<p class="mt-1 max-w-2xl text-sm text-gray-500">
-					Aqu铆 puedes encontrar la informaci贸n detallada del hotel.
+					Aqu脙颅 puedes encontrar la informaci脙鲁n detallada del hotel.
 				</p>
 			</div>
 			<div class="border-t border-gray-200">
@@ -60,7 +60,7 @@
 					</div>
 					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
 						<dt class="text-sm font-medium text-gray-500">
-							Direcci贸n:
+							Direcci脙鲁n:
 						</dt>
 						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
 							<c:out value="${hotel.direccionHotel}" />
@@ -68,7 +68,7 @@
 					</div>
 					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
 						<dt class="text-sm font-medium text-gray-500">
-							Tel茅fono:
+							Tel脙漏fono:
 						</dt>
 						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
 							<c:out value="${hotel.telefonoHotel}" />
@@ -76,7 +76,7 @@
 					</div>
 					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
 						<dt class="text-sm font-medium text-gray-500">
-							Correo Electr贸nico:
+							Correo Electr脙鲁nico:
 						</dt>
 						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
 							<c:out value="${hotel.correoElectronicoHotel }" />
@@ -114,7 +114,7 @@
 	        <button type="submit"
 	                class="mt-3 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
 	                focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-	            Nueva habitaci贸n 
+	            Nueva habitaci脙鲁n 
 	            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 	                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
 	            </svg>
@@ -132,7 +132,7 @@
 						<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >${habitacion.nombreHabitacion} </h5>
 					</a>
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.tipoHabitacion}</p>
-					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}</p>
+					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}&euro;</p>
 				</div>
 				<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
     <div class="mt-2 flex justify-start">    
@@ -175,7 +175,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert despu閟 de 3 segundos (3000 ms)
+  // Ocultar el alert despu茅s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);
