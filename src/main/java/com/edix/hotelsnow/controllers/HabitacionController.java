@@ -6,6 +6,9 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -57,6 +60,44 @@ public class HabitacionController {
 		model.addAttribute("tipo", getTiposHabitacion());
 		model.addAttribute("hotel", hodao.buscarUno(idHotel));
 		return "altaHabitacion";
+	}
+	
+	@GetMapping("/editar/{idHabitacion}")
+	public String irEditarHabitacion(@PathVariable("idHabitacion") int idHabitacion, Model model, HttpSession session) {
+		
+		model.addAttribute("habitacion", hdao.buscarUna(idHabitacion));
+		session.setAttribute("idHabitacion", idHabitacion);
+		session.setAttribute("idHotel", hdao.buscarUna(idHabitacion).getHotele().getIdHotel());
+		return "editarHabitacion";
+	}
+	
+	@PostMapping("/editar")
+	public String editarHabitacion(@ModelAttribute Habitacione habitacion, HttpSession session, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
+		
+		//Habitacione h = hdao.buscarUna((int)session.getAttribute("idHabitacion"));
+		Habitacione h = hdao.buscarUna(habitacion.getIdHabitacion());
+		
+		h.setNombreHabitacion(habitacion.getNombreHabitacion());
+		h.setTipoHabitacion(habitacion.getTipoHabitacion());
+		h.setPrecioNoche(habitacion.getPrecioNoche());
+		h.setDisponible(habitacion.getDisponible());
+		h.setHotele(hodao.buscarUno((int)session.getAttribute("idHotel")));
+		String rutaAbsoluta = "C:/Hotel/recursos";
+		try {
+			byte[] bytesImg = image.getBytes();
+			Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+			Files.createDirectories(rutaCompleta.getParent());
+			Files.write(rutaCompleta, bytesImg);
+			h.setImg(image.getOriginalFilename());
+			if(hdao.modificarHabitacion(h)) {
+				attr.addFlashAttribute("mensaje", "Habitación modificada con éxito");
+			}
+			attr.addFlashAttribute("mensaje", "Habitación no modificada");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return "redirect:/habitacion/info/"+habitacion.getIdHabitacion();
 	}
 	
 	@PostMapping("/alta")
