@@ -18,7 +18,17 @@
 
 	<jsp:include page="navbar.jsp"></jsp:include>
 
+
+
 <div class="w-full max-w-md mx-auto mt-8">
+
+<c:if test="${not empty mensaje}">
+	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	    <strong class="font-bold">¡Atención!</strong>
+	    <span class="block sm:inline">${mensaje}</span>
+	  </div>
+	</c:if>
+	
   <form action="/hotel/alta" method="post" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" enctype="multipart/form-data">
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="nombre-hotel">
@@ -77,7 +87,16 @@
      </div>
     
       
+<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
 
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>

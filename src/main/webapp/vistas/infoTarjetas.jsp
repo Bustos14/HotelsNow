@@ -18,9 +18,9 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
 	
-	<div class="w-4/5 mx-auto">
+	<div  class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
-	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
 	    <strong class="font-bold">¡Atención!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
@@ -47,7 +47,7 @@
         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${tarjeta.fechaCaducidad}</td>
         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${tarjeta.cvv}</td>
         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <a href="/usuario/${username}/tarjeta/${tarjeta.idTarjetaBancaria}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
+          <a href="/tarjeta/editar/${tarjeta.idTarjetaBancaria}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
           <a href="/tarjeta/eliminar/${tarjeta.idTarjetaBancaria}" class="text-red-600 hover:text-red-900 ml-4">Eliminar</a>
         </td>
       </tr>
@@ -66,6 +66,28 @@
 
 <!-- No borrar </div> -->
 	</div>
+	
+<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
+
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
+</script>
+
+<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
+
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>
 </html>

@@ -19,6 +19,13 @@
 	
 	<div class="w-4/5 mx-auto">
 	
+	<c:if test="${not empty mensaje}">
+	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	    <strong class="font-bold">¡Atención!</strong>
+	    <span class="block sm:inline">${mensaje}</span>
+	  </div>
+	</c:if>
+	
 	<div class="container mx-auto mt-8 max-w-3xl">
 	
 		<div class="bg-white rounded-lg shadow overflow-hidden">
@@ -184,7 +191,16 @@
 				</div>
 									
 	
-	
+	<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
+
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>

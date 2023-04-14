@@ -65,21 +65,7 @@ public class TarjetaBancariaController {
 	}
 
 	
-	/**
-	 * Metodo que nos muestra la vista editar tarjeta
-	 * 
-	 * @param id
-	 * @param model
-	 * @return
-	 */
-	@GetMapping("/editar/{id}")
-	public String irEditarTarjeta(@PathVariable("id") int id, Model model) {
-		TarjetasBancaria tarjetaEditar = tdao.buscarUna(id);
-		
-		model.addAttribute("tarjetaBancaria", tarjetaEditar);
-		
-		return "editarTarjeta";
-	}
+	
 	
 	@GetMapping("/verTarjeta/{id}")
 	public String irDetalleTarjeta(@PathVariable("id") int id, Model model) {
@@ -150,6 +136,14 @@ public class TarjetaBancariaController {
 		return "redirect:/usuario/misTarjetas/"+auth.getName();
 	}
 	
+	
+	@GetMapping("/editar/{idTarjetaBancaria}")
+	public String irEditarTarjertaBancari(@PathVariable("idTarjetaBancaria") int idTarjetaBancaria, Model model) {
+
+		model.addAttribute("tarjetaEditar", tdao.buscarUna(idTarjetaBancaria));
+		
+		return "editarTarjeta";
+	}
 	
 	
 	/**

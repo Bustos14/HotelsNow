@@ -17,6 +17,13 @@
 <body>
 
 <div class="p-10">
+<c:if test="${not empty mensaje}">
+	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	    <strong class="font-bold">¡Atención!</strong>
+	    <span class="block sm:inline">${mensaje}</span>
+	  </div>
+	</c:if>
+	
   <h1 class="text-2xl font-bold mb-5">Dar de alta un comentario</h1>
   <form method="post" action="/comentario/altaComentario">
     <div class="mb-5">
@@ -46,6 +53,17 @@ function checkTextarea() {
     mensajeError.classList.remove('hidden');
   }
 }
+</script>
+
+<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
+
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 </body>

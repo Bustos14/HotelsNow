@@ -44,6 +44,7 @@
 				"/comentario/all", "/comentario/alta/**","/comentario/alta", "/comentario/comentarios/**",
 				"/recursos/**", "/reserva/reservar",
 				"/usuario/perfil/**", "/usuario/modificarPerfil", "/usuario/listadoMisComentarios",
+				"/tarjeta/editar/**","/tarjeta/editar",
 				"/recursos/**")
 		.permitAll()
 		

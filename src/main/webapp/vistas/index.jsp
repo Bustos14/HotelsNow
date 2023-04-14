@@ -16,7 +16,7 @@
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<h1>${user}</h1>
 	<c:if test="${not empty mensaje}">
-	  <div class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
+	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
 	    <strong class="font-bold">¡Atención!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
@@ -86,6 +86,17 @@
 	  dropdown.style.display = dropdown.style.display === "none" ? "block" : "none";
 	}
 
+</script>
+
+<script>
+  // Obtener el elemento del alert
+  const alert = document.getElementById('alert');
+
+  // Ocultar el alert después de 3 segundos (3000 ms)
+  setTimeout(function() {
+    alert.style.display = 'none';
+  }, 3000);
+  
 </script>
 </body>
 </html>
