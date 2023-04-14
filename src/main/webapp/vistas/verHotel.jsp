@@ -7,16 +7,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<title></title>
+<meta charset="UTF-8">
+<title>Detalles del hotel</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
 </head>
 <body>
-	<title>Detalles del hotel</title>
-	<link
-		href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css"
-		rel="stylesheet">
 </head>
 <body class="bg-gray-100">
 
