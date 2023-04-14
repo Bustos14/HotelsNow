@@ -135,21 +135,26 @@
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}</p>
 				</div>
 				<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-					<div class="mt-2 flex justify-start">    
-						<div class="flex items-center space-x-2">
-							<p class="text-gray-600 dark:text-gray-300 text-sm">
-								<span class="${hotel.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
-									${hotel.disponible == 1 ? 'Disponible' : 'No disponible'}
-								</span>
-							</p>
-							<form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
-								<button type="submit" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3">
-									Reservar
-								</button>
-							</form>
-						</div>
-					</div>
-				</div>
+    <div class="mt-2 flex justify-start">    
+        <div class="flex items-center space-x-2">
+            <p class="text-gray-600 dark:text-gray-300 text-sm ">
+                <span class="${habitacion.disponible == 1 ? 'bg-green-200 text-green-800 ' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
+                    ${habitacion.disponible == 1 ? 'Disponible' : 'No_disponible'}
+                </span>
+            </p>
+            <form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
+                <button type="submit" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3">
+                    Reservar
+                </button>
+            </form>
+            <form method="GET" action="/habitacion/info/${habitacion.idHabitacion}">
+                <button type="submit" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3 ml-2">
+                    Detalles
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
 			</div>
 		</c:forEach>
 	</div>
