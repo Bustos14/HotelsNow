@@ -39,6 +39,10 @@ public class Hotele implements Serializable {
 	@Column (name="img")
 	private String img;
 	
+	@ManyToOne
+	@JoinColumn(name="username")
+	private Usuario usuario;
+	
 	public String getImg() {
 		return img;
 	}
