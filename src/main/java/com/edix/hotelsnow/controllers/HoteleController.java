@@ -9,6 +9,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,8 +24,10 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
+import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Habitacione;
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Usuario;
 
 @Controller
 @RequestMapping("/hotel")
@@ -33,6 +37,8 @@ public class HoteleController {
 	private HoteleDao hdao;
 	@Autowired
 	private HabitacioneDao habdao;
+	@Autowired
+	private UsuarioDao udao;
 	
 	// Método para obtener una lista de provincias españolas
     private List<String> getProvincias() {
@@ -78,6 +84,9 @@ public class HoteleController {
 		  if(!image.isEmpty()) { 
 			String rutaAbsoluta = "C:\\Hotel\\recursos\\";
 			try {
+				Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		        String username = auth.getName();
+		        Usuario u = udao.buscarUsuario(username);
 				byte[] bytesImg = image.getBytes();
 				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
 				Files.createDirectories(rutaCompleta.getParent());
@@ -87,6 +96,7 @@ public class HoteleController {
 				
 				h.setDisponible(disponible);
 				h.setImg(image.getOriginalFilename());
+				h.setUsuario(u);
 				if(hdao.altaHotel(h)!=null) {
 					attr.addFlashAttribute("mensaje", "Hotel creado correctamente");
 					return "redirect:/";
