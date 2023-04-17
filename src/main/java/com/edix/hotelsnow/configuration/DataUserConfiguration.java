@@ -11,6 +11,9 @@
 	import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 	import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 	import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.firewall.DefaultHttpFirewall;
+import org.springframework.security.web.firewall.HttpFirewall;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 	@EnableWebSecurity
 
@@ -18,7 +21,8 @@
 	public class DataUserConfiguration extends WebSecurityConfigurerAdapter {
 		@Autowired
 		private DataSource dataSource;
-
+		@Autowired
+		AuthenticationManagerBuilder auth;
 		@Override
 		protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 			auth.jdbcAuthentication().dataSource(dataSource)
@@ -65,6 +69,11 @@
 		@Bean
 		public PasswordEncoder passwordEncoder() {
 			return new BCryptPasswordEncoder();
+		}
+
+		@Bean
+		public HttpFirewall getHttpFirewall() {
+		    return new DefaultHttpFirewall();
 		}
 		
 	}
