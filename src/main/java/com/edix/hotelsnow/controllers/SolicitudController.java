@@ -26,9 +26,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
+import com.edix.hotelsnow.dao.RoleDao;
+import com.edix.hotelsnow.dao.SolicitudDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Comentario;
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Role;
+import com.edix.hotelsnow.entitybeans.SolicitudHotele;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
 @Controller
@@ -47,6 +51,11 @@ public class SolicitudController {
 	@Autowired
 	private UsuarioDao udao;
 	
+	@Autowired 
+	private SolicitudDao sdao;
+	
+	@Autowired
+	private RoleDao rdao;
 	// Método para obtener una lista de provincias españolas
     private List<String> getProvincias() {
         return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
@@ -65,9 +74,23 @@ public class SolicitudController {
 	
 	@PostMapping("/altaSolicitud")
 	public String guardarComentario( RedirectAttributes attr,  HttpSession session, @ModelAttribute Hotele hotel, @ModelAttribute Usuario user) {
-		
-		
-		System.out.println(hotel.getNombreHotel()+ user.getUsername());
+		SolicitudHotele sHotel = new SolicitudHotele();
+		if(hotel!= null && user != null) {
+			sHotel.setIdHotelSolicitado(hotel.getIdHotel());
+			sHotel.setCorreoElectronicoHotel(hotel.getCorreoElectronicoHotel());
+			sHotel.setDireccionHotel(hotel.getDireccionHotel());
+			sHotel.setTelefonoHotel(hotel.getTelefonoHotel());
+			sHotel.setCiudadHotel(hotel.getCiudadHotel());
+			sHotel.setNombreHotel(hotel.getNombreHotel());
+			Role rol = rdao.findById(2);
+			user.addRol(rol);
+			sHotel.setUsuario(user);
+			if(udao.registro(user)) {
+				if(sdao.altaSolicitud(sHotel)!=null) {
+					return "redirect:/";
+				}
+			}
+		}
 		return "altaSolicitud";
 	}
 	

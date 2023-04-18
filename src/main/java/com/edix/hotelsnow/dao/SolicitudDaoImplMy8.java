@@ -18,25 +18,29 @@ public class SolicitudDaoImplMy8 implements SolicitudDao{
 
 	@Override
 	public List<SolicitudHotele> mostrarTodas() {
-		// TODO Auto-generated method stub
-		return null;
+		return srepo.findAll();
 	}
 
 	@Override
 	public SolicitudHotele buscarUno(int idSolicitud) {
-		// TODO Auto-generated method stub
-		return null;
+		return srepo.findById(idSolicitud).orElse(null);
 	}
 
 	@Override
 	public SolicitudHotele altaSolicitud(SolicitudHotele solicitud) {
-		// TODO Auto-generated method stub
+		if(buscarUno(solicitud.getIdHotelSolicitado())==null) {
+			return srepo.save(solicitud);
+		}
 		return null;
 	}
 
 	@Override
 	public boolean denegarSolicitud(int idSolicitud) {
-		// TODO Auto-generated method stub
+		SolicitudHotele solicitud = buscarUno(idSolicitud);
+		if(solicitud!=null) {
+			srepo.delete(solicitud);
+			return true;
+		}
 		return false;
 	}
 	
