@@ -39,7 +39,7 @@
             </div>
             <div class="border-t border-gray-200">
                 <form method="POST" action="/habitacion/editar" enctype="multipart/form-data">
-                    <input type="hidden" name="idHotel" value="${habitacion.hotele.idHotel}">
+                    <input type="hidden" name="idHabitacion" value="${habitacion.idHabitacion}">
                         <figure class="max-w-lg">
 				  			<img class="h-auto max-w-full rounded-lg" src="/recursos/${habitacion.img}" alt="image description" value="/recursos/${habitacion.img }">
 				  			<figcaption class="mt-2 text-sm text-center text-gray-500 dark:text-gray-400">Imagen anterior</figcaption>
@@ -55,7 +55,7 @@
                             Nombre
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-1">
-                            <input type="text" name="nombreHotel" id="nombre" value="${habitacion.nombreHabitacion}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+                            <input type="text" name="nombreHabitacion" id="nombre" value="${habitacion.nombreHabitacion}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
                         </div>
                     </div> 
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">

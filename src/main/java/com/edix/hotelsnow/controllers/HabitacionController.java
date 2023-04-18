@@ -1,5 +1,6 @@
 package com.edix.hotelsnow.controllers;
 
+import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -72,29 +73,28 @@ public class HabitacionController {
 	}
 	
 	@PostMapping("/editar")
-	public String editarHabitacion(@ModelAttribute Habitacione habitacion, HttpSession session, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
+	public String editarHabitacion(@ModelAttribute Habitacione habitacion, HttpSession session, RedirectAttributes attr, @RequestParam("file") MultipartFile image) throws AccessDeniedException {
 		
 		//Habitacione h = hdao.buscarUna((int)session.getAttribute("idHabitacion"));
-		Habitacione h = hdao.buscarUna(habitacion.getIdHabitacion());
+		Habitacione habitacionAuxiliar = hdao.buscarUna(habitacion.getIdHabitacion());
+		Hotele hotel = habitacionAuxiliar.getHotele();
+		habitacion.setHotele(hotel);
 		
-		h.setNombreHabitacion(habitacion.getNombreHabitacion());
-		h.setTipoHabitacion(habitacion.getTipoHabitacion());
-		h.setPrecioNoche(habitacion.getPrecioNoche());
-		h.setDisponible(habitacion.getDisponible());
-		h.setHotele(hodao.buscarUno((int)session.getAttribute("idHotel")));
-		String rutaAbsoluta = "C:/Hotel/recursos";
-		try {
-			byte[] bytesImg = image.getBytes();
-			Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
-			Files.createDirectories(rutaCompleta.getParent());
-			Files.write(rutaCompleta, bytesImg);
-			h.setImg(image.getOriginalFilename());
-			if(hdao.modificarHabitacion(h)) {
-				attr.addFlashAttribute("mensaje", "Habitación modificada con éxito");
+		if(image!=null) {
+			try {
+				String rutaAbsoluta = "C:/Hotel/recursos";
+				byte[] bytesImg = image.getBytes();
+				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
+				Files.write(rutaCompleta, bytesImg);
+				habitacion.setImg(image.getOriginalFilename());
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			attr.addFlashAttribute("mensaje", "Habitación no modificada");
-		} catch (Exception e) {
-			e.printStackTrace();
+		}else {
+				habitacion.setImg(habitacionAuxiliar.getImg());
+		}
+		if(hdao.modificarHabitacion(habitacion)) {
+			attr.addFlashAttribute("mensaje", "Habitación modificada con éxito");
 		}
 		
 		return "redirect:/habitacion/info/"+habitacion.getIdHabitacion();
