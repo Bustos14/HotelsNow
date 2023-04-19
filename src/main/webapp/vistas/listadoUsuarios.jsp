@@ -29,6 +29,7 @@
 <!--  Apartid de aquí -->	
 
 <h2 class="text-2xl font-bold mb-4">Usuarios con rol CLIENTE</h2>
+
 <table class="w-full">
   <thead>
     <tr class="bg-gray-200">

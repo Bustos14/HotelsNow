@@ -21,6 +21,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.ReservaDao;
+import com.edix.hotelsnow.dao.SolicitudDao;
 import com.edix.hotelsnow.dao.TarjetaBancariaDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Comentario;
@@ -42,6 +43,9 @@ public class UsuarioController {
 	
 	@Autowired
 	private ComentarioDao cdao;
+	
+	@Autowired
+	private SolicitudDao sdao;
 	
 	@GetMapping("/perfil/{username}")
 	public String irPerfil(@PathVariable("username") String username, Model model) {
@@ -79,6 +83,13 @@ public class UsuarioController {
 		model.addAttribute("admins", udao.buscarPorRol("ROLE_ADMIN"));
 		
 		return "listadoUsuarios";
+	}
+	
+	@GetMapping("/verSolicitudes")
+	public String verTodasSolicitudes(Model model) {
+		model.addAttribute("solicitudes", sdao.mostrarTodas());
+		
+		return "listadoSolicitudes";
 	}
 	
 	@GetMapping("/misReservas")

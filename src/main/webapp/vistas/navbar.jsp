@@ -87,7 +87,7 @@
                   </li>
                    <li>
                   	<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN')">
-                    	<a href="/solicitud/altaSolicitud" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver solicitudes</a>
+                    	<a href="/usuario/verSolicitudes" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver solicitudes</a>
                     </sec:authorize>
                   </li>
                 </ul>
