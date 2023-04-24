@@ -93,6 +93,20 @@ public class SolicitudController {
 		}
 		return "altaSolicitud";
 	}
+	@PostMapping("/accion")
+	public String realizarAccionSolicitud(@RequestParam("accion") String action,@RequestParam("id_solicitud") String idSolicitud ) {
+	        if (action != null) {
+	        	SolicitudHotele sHotel = sdao.buscarUno(Integer.parseInt(idSolicitud));
+	            if (action.equals("aceptar")) {	    
+	            	System.out.println(sHotel);
+	            	System.out.println("aceptar");	
+	            } else if (action.equals("denegar")) {
+	            	System.out.println("borrar");	
+	            }
+	        }
+	        // redirect back to the form
+	        return "redirect:/usuario/verSolicitudes";
+	    }
 	
 	//Método necesario para formatear fechas
 	@InitBinder
