@@ -97,16 +97,33 @@ public class SolicitudController {
 	public String realizarAccionSolicitud(@RequestParam("accion") String action,@RequestParam("id_solicitud") String idSolicitud ) {
 	        if (action != null) {
 	        	SolicitudHotele sHotel = sdao.buscarUno(Integer.parseInt(idSolicitud));
-	            if (action.equals("aceptar")) {	    
-	            	System.out.println(sHotel);
-	            	System.out.println("aceptar");	
+	            if (action.equals("aceptar")) {	
+	            	byte disponible = 1;
+	            	Hotele hotel = new Hotele();
+	            	hotel.setCiudadHotel(sHotel.getCiudadHotel());
+	            	hotel.setCorreoElectronicoHotel(sHotel.getCorreoElectronicoHotel());
+	            	hotel.setDireccionHotel(sHotel.getDireccionHotel());
+	            	hotel.setDisponible(disponible);
+	            	hotel.setNombreHotel(sHotel.getNombreHotel());
+	            	hotel.setTelefonoHotel(sHotel.getTelefonoHotel());
+	            	hotel.setUsuario(sHotel.getUsuario());
+	            	if(hdao.altaHotel(hotel)!=null) {
+	            		if(sdao.denegarSolicitud(sHotel.getIdHotelSolicitado())==true){
+	            			return "redirect:/usuario/verSolicitudes";
+	            		}
+	            		
+	            	}
 	            } else if (action.equals("denegar")) {
-	            	System.out.println("borrar");	
+	            	if(sdao.denegarSolicitud(sHotel.getIdHotelSolicitado())==true){
+	            		if(udao.eliminarUsuario(sHotel.getUsuario().getUsername())==true){
+		            		System.out.println("Solicitud eliminada");
+		            	} 
+	            	}
+	            	
 	            }
 	        }
-	        // redirect back to the form
-	        return "redirect:/usuario/verSolicitudes";
-	    }
+            return "redirect:/usuario/verSolicitudes";
+	}
 	
 	//Método necesario para formatear fechas
 	@InitBinder

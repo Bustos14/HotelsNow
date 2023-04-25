@@ -56,5 +56,16 @@ public class UsuarioDaoImplMy8 implements UsuarioDao{
 	public List<Usuario> buscarPorRol(String nombreRol) {
 		return urepo.findByRol(nombreRol);
 	}
+
+
+	@Override
+	public boolean eliminarUsuario(String username) {
+		Usuario u = buscarUsuario(username);
+		if(u != null) {
+			urepo.delete(u);
+			return true;
+		}
+		return false;
+	}
 	
 }

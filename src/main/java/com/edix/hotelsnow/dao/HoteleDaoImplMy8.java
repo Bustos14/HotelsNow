@@ -32,12 +32,12 @@ public class HoteleDaoImplMy8 implements HoteleDao{
 	 */
 	@Override
 	public Hotele altaHotel(Hotele hotel) {
-	    if (hrep.findByCorreoElectronicoHotel(hotel.getCorreoElectronicoHotel()) != null) {
+	    if (buscarUno(hotel.getIdHotel()) == null) {
 	        // Si ya existe un hotel con el mismo correo electrónico, devolvemos null
-	        return null;
+	    	return hrep.save(hotel);
 	    } else {
 	        // Si no existe, guardamos el nuevo hotel en la base de datos
-	        return hrep.save(hotel);
+	        return null;
 	    }
 	}
 

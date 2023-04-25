@@ -9,4 +9,5 @@ public interface UsuarioDao {
 	Usuario buscarUsuario(String username);
 	int modificarUsuario(Usuario usuario);
 	List<Usuario> buscarPorRol(String nombreRol);
+	boolean eliminarUsuario(String username);
 }

@@ -75,6 +75,11 @@
                   <li>
                     <a href="/solicitud/altaSolicitud" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alta hotel</a>
                   </li>
+                   <li>
+                  	<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN')">
+                    	<a href="/solicitud/altaSolicitud" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Alta solicitudes</a>
+                    </sec:authorize>
+                  </li>
                   <li>
                 	<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN')">
                     	<a href="/usuario/verTodos" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver usuarios</a>
