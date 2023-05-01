@@ -43,7 +43,7 @@
 					<p class="text-gray-400"><a href="/usuario/misComentarios">Comentarios</a></p>      
 				</div>          
 				<div>           
-					<p class="font-bold text-gray-700 text-xl">89</p>        
+					<p class="font-bold text-gray-700 text-xl">${numHoteles}</p>        
 					<p class="text-gray-400">Hoteles</p>      
 				</div>    
 			</div>    

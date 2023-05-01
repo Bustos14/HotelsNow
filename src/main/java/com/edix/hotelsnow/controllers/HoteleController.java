@@ -97,9 +97,7 @@ public class HoteleController {
 				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
 				Files.createDirectories(rutaCompleta.getParent());
 				Files.write(rutaCompleta, bytesImg);
-
 				byte disponible = 1;
-				
 				h.setDisponible(disponible);
 				h.setImg(image.getOriginalFilename());
 				h.setUsuario(u);

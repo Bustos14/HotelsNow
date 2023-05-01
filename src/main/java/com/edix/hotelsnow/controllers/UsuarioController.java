@@ -20,11 +20,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.edix.hotelsnow.dao.ComentarioDao;
+import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.ReservaDao;
 import com.edix.hotelsnow.dao.SolicitudDao;
 import com.edix.hotelsnow.dao.TarjetaBancariaDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Comentario;
+import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.entitybeans.Reserva;
 import com.edix.hotelsnow.entitybeans.TarjetasBancaria;
 import com.edix.hotelsnow.entitybeans.Usuario;
@@ -46,6 +48,8 @@ public class UsuarioController {
 	
 	@Autowired
 	private SolicitudDao sdao;
+	@Autowired
+	private HoteleDao hdao;
 	
 	/**
 	 * Método usado para mostrar la vista con el perfil de usuario, con username como parametro de busqueda
@@ -59,8 +63,17 @@ public class UsuarioController {
 		Usuario u = udao.buscarUsuario(username);
 		List<Reserva> listaReservas = rdao.buscarPorUsuario(u);
 		List<Comentario> listaComentarios = cdao.findByUsuario_Username(username);
+		
+		if(u.getRoles().get(0).getNombre().equals("ROLE_ADMIN")) {
+			List<Hotele> listadoHoteles = hdao.buscarPorUsuario(u);
+			model.addAttribute("numHoteles",listadoHoteles.size());	
+		}else {
+			model.addAttribute("numHoteles",hdao.mostrarTodos().size());	
+		}
+		
 		model.addAttribute("usuario", udao.buscarUsuario(username));
 		model.addAttribute("numReservas", listaReservas.size());
+		
 		model.addAttribute("numComentarios", listaComentarios.size());
 		return "userPerfil";
 	}
