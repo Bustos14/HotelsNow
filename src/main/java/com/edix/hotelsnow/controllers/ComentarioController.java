@@ -47,12 +47,25 @@ public class ComentarioController {
 	
 	
 	
+	/**
+	 * Método por el cual mostramos la vista donde tendremos un listado de todos los comentarios
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve la vista listadoComentarios
+	 */
 	@GetMapping("/all")
 	public String verTodosComentarios(Model model) {
 		model.addAttribute("comentarios", cdao.mostrarTodos());
 		return "listadoComentarios";
 	}
 	
+	/**
+	 * Método usado para devolver la vista del formulario para dar de alta un comentario
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
+	 * @return -> Devuelve la vista altaComentario si todo ha ido bien, si no redirige al home
+	 */
 	@GetMapping("/altaComentario")
 	public String irAltaComentario(Model model, HttpSession session) {
 		// Obtener el nombre de usuario del usuario autenticado
@@ -75,6 +88,14 @@ public class ComentarioController {
 		return "altaComentario";
 	}
 	
+	/**
+	 * Método usado en el formulario para hacer efectivo el alta de un comentario
+	 * 
+	 * @param mensaje -> Es el parámetro que recibimos a través del formulario.
+	 * @param attr -> Usado para redirigir despúes de un POST
+	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
+	 * @return
+	 */
 	@PostMapping("/altaComentario")
 	public String guardarComentario(@RequestParam ("mensaje") String mensaje, RedirectAttributes attr,  HttpSession session) {
 		Comentario c = new Comentario();
@@ -107,6 +128,13 @@ public class ComentarioController {
 		return "redirect:/alta";
 	}
 	
+	/**
+	 * Método usado para obtener los comentarios por el idHotel del hotel que se busca
+	 * 
+	 * @param idHotel -> Parámetro para realizar la búsqueda de sus comentarios
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve la vista de los comentarios de un hotel buscado por idHotel
+	 */
 	@GetMapping("/comentarios/{idHotel}")
 	public String verComentariosHotel(@PathVariable("idHotel") int idHotel, Model model) {
 		

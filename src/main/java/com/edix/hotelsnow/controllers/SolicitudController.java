@@ -60,6 +60,7 @@ public class SolicitudController {
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	
 	// Método para obtener una lista de provincias españolas
     private List<String> getProvincias() {
         return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
@@ -70,14 +71,29 @@ public class SolicitudController {
                 "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
                 "Zamora", "Zaragoza");
     }
+    
+	/**
+	 * Método usado para ir a la vista altaSolicitud
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devolvemos la vista altaSolicitud
+	 */
 	@GetMapping("/altaSolicitud")
-	public String irAltaComentario(Model model, HttpSession session) {
+	public String irAltaComentario(Model model) {
 	     model.addAttribute("provincias", getProvincias());
 		return "altaSolicitud";
 	}
 	
+	/**
+	 * Método usado para realizar efectivo el alta de un comentario
+	 * 
+	 * @param attr -> Para poder redirigir despues de un POST
+	 * @param hotel -> Entidad que se genera a partir de los campos del formulario
+	 * @param user -> Persona que realiza el comentario
+	 * @return -> Devuelve a la vista de alta comentario por si quisierasmo dejar otro nuevo
+	 */
 	@PostMapping("/altaSolicitud")
-	public String guardarComentario( RedirectAttributes attr,  HttpSession session, @ModelAttribute Hotele hotel, @ModelAttribute Usuario user) {
+	public String guardarComentario( RedirectAttributes attr, @ModelAttribute Hotele hotel, @ModelAttribute Usuario user) {
 		SolicitudHotele sHotel = new SolicitudHotele();
 		if(hotel!= null && user != null) {
 			sHotel.setIdHotelSolicitado(hotel.getIdHotel());
@@ -98,6 +114,15 @@ public class SolicitudController {
 		}
 		return "altaSolicitud";
 	}
+	
+	
+	/**
+	 * Método usado para realizar la acción del usuario
+	 * 
+	 * @param action -> La acción que ha seleccionado (aceptar o denegar)
+	 * @param idSolicitud -> con el id buscamos la solicitud que precisa de aceptar o denegar
+	 * @return -> Devolvemos la vista verSolicitudes para comprobar que se ha realizado el cambio
+	 */
 	@PostMapping("/accion")
 	public String realizarAccionSolicitud(@RequestParam("accion") String action,@RequestParam("id_solicitud") String idSolicitud ) {
 	        if (action != null) {

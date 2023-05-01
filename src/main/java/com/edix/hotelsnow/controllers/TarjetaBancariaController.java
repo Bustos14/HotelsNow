@@ -36,14 +36,10 @@ public class TarjetaBancariaController {
 	
 	/**
 	 * Metodo que nos muestra la vista alta tarjeta
-	 * 
-	 * @param auth
-	 * @param sesion
-	 * @param model
-	 * @return
+	 * @return -> Devolvemos la vista altaTarjeta
 	 */
 	@GetMapping("/alta")
-	public String irAltaTarjeta(Authentication auth, HttpSession sesion, Model model) {
+	public String irAltaTarjeta() {
 		
 		
 		return "altaTarjeta";
@@ -53,8 +49,8 @@ public class TarjetaBancariaController {
 	/**
 	 * Metodo que nos muestra todas las tarjetas que se han creado
 	 * 
-	 * @param model
-	 * @return
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve todas las tarjetas
 	 */
 	@GetMapping("/tarjetas")
 	public String todasTarjetas(Model model) {
@@ -67,6 +63,13 @@ public class TarjetaBancariaController {
 	
 	
 	
+	/**
+	 * Método para mostrar la información de una tarjeta buscada por id
+	 * 
+	 * @param id -> Parametro para buscar la tarjeta
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devolvemos la vista con la información de la tarjeta
+	 */
 	@GetMapping("/verTarjeta/{id}")
 	public String irDetalleTarjeta(@PathVariable("id") int id, Model model) {
 		
@@ -82,14 +85,12 @@ public class TarjetaBancariaController {
 	/**
 	 * Metodo para eliminar una tarjeta
 	 * 
-	 * @param auth
-	 * @param sesion
-	 * @param model
-	 * @param idTarjeta
-	 * @return
+	 * @param auth -> Para obtener el usuario
+	 * @param idTarjeta -> Parametro para buscar la tarjeta a elimianr
+	 * @return -> Devolvemos la vista de mis tarjetas
 	 */
 	@GetMapping("/eliminar/{id}")
-	public String eliminar(Authentication auth, HttpSession sesion,Model model,@PathVariable("id") int idTarjeta) {
+	public String eliminar(Authentication auth,@PathVariable("id") int idTarjeta) {
 		
 		Usuario usuario = udao.buscarUsuario(auth.getName());
 		String userName = usuario.getUsername();
@@ -111,14 +112,13 @@ public class TarjetaBancariaController {
 	/**
 	 * Método para llevar a cabo el alta de una tarjeta
 	 * 
-	 * @param auth
-	 * @param sesion
-	 * @param tarjeta
-	 * @param attr
-	 * @return
+	 * @param auth -> Para obtener el usuario que realiza el alta de la tarjeta
+	 * @param tarjeta -> Es la entidad que se rellena con los parametros del formulario de alta
+	 * @param attr -> Para redirigir despues de un POST
+	 * @return -> Devuelve la vista de mistarjetas para que las veamos
 	 */
 	@PostMapping("/alta")
-	public String altaTarjeta(Authentication auth, HttpSession sesion,TarjetasBancaria tarjeta, RedirectAttributes attr) {
+	public String altaTarjeta(Authentication auth,TarjetasBancaria tarjeta, RedirectAttributes attr) {
 		
 		Usuario usuario = udao.buscarUsuario(auth.getName());	
 		
@@ -149,10 +149,10 @@ public class TarjetaBancariaController {
 	/**
 	 * Metodo para editar la tarjeta
 	 * 
-	 * @param tarjeta
-	 * @param attr
-	 * @param auth
-	 * @return
+	 * @param tarjeta -> Entidad que queremos modificar, parametros pasados por el formulario de editar
+	 * @param attr -> Para redirigir despues de un POST
+	 * @param auth -> Para obtener el usuario
+	 * @return -> Devolvemos la vista mis tarjetas para corroborar los cambios
 	 */
 	@PostMapping("/editar")
 	public String editarTarjeta(@ModelAttribute TarjetasBancaria tarjeta, RedirectAttributes attr, Authentication auth) {

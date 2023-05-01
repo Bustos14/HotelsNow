@@ -47,6 +47,13 @@ public class UsuarioController {
 	@Autowired
 	private SolicitudDao sdao;
 	
+	/**
+	 * Método usado para mostrar la vista con el perfil de usuario, con username como parametro de busqueda
+	 * 
+	 * @param username -> Parametro para buscar el perfil a mostrar del usuario
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devolvemos la vista del perfil de usuario
+	 */
 	@GetMapping("/perfil/{username}")
 	public String irPerfil(@PathVariable("username") String username, Model model) {
 		Usuario u = udao.buscarUsuario(username);
@@ -58,6 +65,13 @@ public class UsuarioController {
 		return "userPerfil";
 	}
 	
+	/**
+	 * Método que hace efectivo la modificación del perfil de usuario
+	 * 
+	 * @param usuario -> son los parametros modificados en el formulario de modificar
+	 * @param attr -> Para redirigir despues de un POST
+	 * @return -> Devolvemos la vista del perfil de usuario
+	 */
 	@PostMapping("/modificarPerfil")
 	public String modificarPerfil(Usuario usuario, RedirectAttributes attr) {
 	    Usuario usuarioExistente = udao.buscarUsuario(usuario.getUsername());
@@ -76,6 +90,12 @@ public class UsuarioController {
 	    return "redirect:/usuario/perfil/"+usuario.getUsername();
 	}
 	
+	/**
+	 * Método para ver todos los usuarios
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve una vista con todos los usuarios
+	 */
 	@GetMapping("/verTodos")
 	public String verTodosUsuarios(Model model) {
 		
@@ -85,6 +105,12 @@ public class UsuarioController {
 		return "listadoUsuarios";
 	}
 	
+	/**
+	 * Método que devuelve la vista con las solicitudes de alta de hoteles que tenemos pendientes
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve la vista con todas las solicitudes
+	 */
 	@GetMapping("/verSolicitudes")
 	public String verTodasSolicitudes(Model model) {
 		model.addAttribute("solicitudes", sdao.mostrarTodas());
@@ -92,6 +118,13 @@ public class UsuarioController {
 		return "listadoSolicitudes";
 	}
 	
+	/**
+	 * Método para ver mis reservas
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param auth -> Para obtener el usaurio
+	 * @return -> Devuelve la vista con la información de mis reservas
+	 */
 	@GetMapping("/misReservas")
 	public String verMisReservas(Model model, Authentication auth) {
 		
@@ -102,6 +135,13 @@ public class UsuarioController {
 		return "infoReservas";
 	}
 	
+	/**
+	 * Metodo usado para devolver la vista con mis comentarios
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param auth -> Para obetner el usaurio
+	 * @return -> Devolvemos la vista con la información de mis comentarios
+	 */
 	@GetMapping("/misComentarios")
 	public String verMisComentarios(Model model, Authentication auth) {
 		
@@ -113,6 +153,14 @@ public class UsuarioController {
 	}
 	
 	/* TARJETAS */
+	/**
+	 * Método usado para devolver la información de las tarjetas con username como parametro
+	 * 
+	 * @param auth -> Para obtener al usuario
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param username -> Parametro para buscar las tarjetas del usuario por username
+	 * @return -> Devuelve la vista de la información de las tarjetas
+	 */
 	@GetMapping("/misTarjetas/{username}")
 	public String misTarjetas(Authentication auth, Model model, @PathVariable("username") String username) {
 		
@@ -124,8 +172,12 @@ public class UsuarioController {
 	}
 	
 	
+	/**
+	 * Método par devolver la vista con el formulario de alta de la tarjeta
+	 * @return -> Devolvemos la vista del formulario para el altaTarjeta
+	 */
 	@GetMapping("/alta")
-	public String irAltaTarjeta(Authentication auth, HttpSession session) {
+	public String irAltaTarjeta() {
 
 		
 		
@@ -133,8 +185,16 @@ public class UsuarioController {
 	}
 	
 	
+	/**
+	 * Método realizado para llevar acabo el altaTarjeta
+	 * 
+	 * @param auth -> Con el obtenemos el usuario que hace el alta tarjeta
+	 * @param tarjeta -> La entidad que se rellena con los campos del formulario de alta
+	 * @param attr -> Para redirigir despues de un POST
+	 * @return -> Devolvemos la visdta de mis tarjetas
+	 */
 	@PostMapping("/alta")
-	public String altaTarjeta(Authentication auth, HttpSession sesion, TarjetasBancaria tarjeta, RedirectAttributes attr) {
+	public String altaTarjeta(Authentication auth, TarjetasBancaria tarjeta, RedirectAttributes attr) {
 		
 		Usuario usuario = udao.buscarUsuario(auth.getName());
 		
