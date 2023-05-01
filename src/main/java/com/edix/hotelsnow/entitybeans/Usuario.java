@@ -149,12 +149,25 @@ public class Usuario implements Serializable {
 		roles.add(rol);
 	}
 	
+	/**
+	 * Agrega una tarjeta bancaria a la lista de tarjetas bancarias.
+	 * Si la lista aún no existe, se crea una nueva lista y se agrega la tarjeta a la lista.
+	 * Si la lista ya existe, se agrega la tarjeta a la lista existente.
+	 *
+	 * @param -> tarjeta La tarjeta bancaria que se desea agregar a la lista.
+	 */
 	public void addTarjetA(TarjetasBancaria tarjeta) {
 		if(tarjetasBancarias == null)
 			tarjetasBancarias = new ArrayList<>();
 		tarjetasBancarias.add(tarjeta);
 	}
 	
+	/**
+	 * Elimina una tarjeta bancaria de la lista de tarjetas bancarias.
+	 * El método busca la tarjeta a eliminar en la lista y la elimina de la lista si se encuentra.
+	 *
+	 * @param -> idTarjeta El ID de la tarjeta bancaria que se desea eliminar.
+	 */
 	public void removeTarjeta(int idTarjeta) {
 	    List<TarjetasBancaria> nuevasTarjetas = new ArrayList<TarjetasBancaria>();
 	    for (TarjetasBancaria tarjeta : tarjetasBancarias) {
