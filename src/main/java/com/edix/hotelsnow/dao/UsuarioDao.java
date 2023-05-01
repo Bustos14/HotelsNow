@@ -15,7 +15,7 @@ public interface UsuarioDao {
 	boolean registro(Usuario usuario);
 
 	/**
-	 * Busca y devuelve un usuario específico de la base de datos con el nombre de usuario especificado.
+	 * Busca y devuelve un usuario específico de la base de datos con el username de usuario especificado.
 	 *
 	 * @param -> username el nombre de usuario del usuario a buscar
 	 * @return -> el usuario encontrado, o null si no se encuentra ningún usuario con ese nombre de usuario
