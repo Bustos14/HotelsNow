@@ -30,8 +30,14 @@
 		<c:forEach var="hotel" items="${listaHoteles}">
 		
     <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
+ 
         <a href="/hotel/info/${hotel.idHotel }">
-            <img class="rounded-t-lg " src="/recursos/${hotel.img}" alt="imagen-hotel->${hotel.ciudadHotel}" style="max-width: 100%; height: 300px; width: 100%;"/>
+        	<c:if test="${empty hotel.img}">
+			  <img class="rounded-t-lg" src="${pageContext.request.contextPath}/img/hotel-test.png" alt="imagen-hotel-${hotel.ciudadHotel}" style="max-width: 100%; height: 300px; width: 100%;"/>
+			</c:if>
+			<c:if test="${not empty hotel.img}">
+			   <img class="rounded-t-lg" src="/recursos/${hotel.img}" alt="imagen-hotel-${hotel.ciudadHotel}" style="max-width: 100%; height: 300px; width: 100%;"/>
+			</c:if>
         </a>
         <div class="p-5">
             <a href="/hotel/info/${hotel.idHotel }">
