@@ -8,46 +8,67 @@ import com.edix.hotelsnow.entitybeans.Usuario;
 public interface HoteleDao {
 
 	/**
-	 * @return -> Devuelve la lista con todos los hoteles
+	 * Devuelve una lista de todos los hoteles almacenados en la base de datos.
+	 *
+	 * @return -> una lista de todos los hoteles, o una lista vacía si no hay hoteles en la base de datos
 	 */
 	List<Hotele> mostrarTodos();
-	
-	Hotele buscarUno(int idHotel);
-	
+
 	/**
-	 * @param disponible -> Es el parámetro que se desea buscar, pudiendo ser 0 -> no disponible; 1-> disponible
-	 * @return -> Lista con los hoteles que coincidien con la disponibilidad, pasada por parámetro
+	 * Busca y devuelve un hotel específico de la base de datos.
+	 *
+	 * @param -> idHotel el ID del hotel a buscar
+	 * @return -> el hotel encontrado, o null si no se encuentra ningún hotel con ese ID
+	 */
+	Hotele buscarUno(int idHotel);
+
+	/**
+	 * Busca y devuelve una lista de hoteles que tengan la disponibilidad especificada.
+	 *
+	 * @param -> disponible el estado de disponibilidad para buscar
+	 * @return -> una lista de hoteles que tengan la disponibilidad especificada, o una lista vacía si no hay hoteles con esa disponibilidad
 	 */
 	List<Hotele> findByDisponible(byte disponible);
-	
+
 	/**
-	 * @param hotel -> hotel que se quiere crear, esta información viene del formulario -> JSP
-	 * 
-	 * @return -> Si se puede crear el hotel, devolvemos el hotel que hemos creado, por el contrario, devolvemos null
+	 * Crea un nuevo hotel y lo agrega a la base de datos.
+	 *
+	 * @param -> hotel el hotel a crear y agregar
+	 * @return -> el hotel creado
 	 */
 	Hotele altaHotel(Hotele hotel);
-	
+
 	/**
-	 * @param idHotel -> Es el id que corresponde al hotel que se desea eliminar
-	 * @return -> devuelve true si se ha podido eliminar el hotel, false si no ha sido posible eliminar
+	 * Elimina un hotel específico de la base de datos.
+	 *
+	 * @param -> idHotel el ID del hotel a eliminar
+	 * @return -> true si se eliminó el hotel, o false si no se encontró ningún hotel con ese ID
 	 */
 	boolean eliminarHotel(int idHotel);
-	
+
 	/**
-	 * @param hotel -> Es el hotel que se desea modificar
-	 * @return -> Devolvemos true si ha sido posible modificar el hotel, false en caso de no poder modificar
+	 * Modifica un hotel existente en la base de datos.
+	 *
+	 * @param -> hotel el hotel modificado
+	 * @return -> true si se actualizó el hotel correctamente, o false si no se encontró ningún hotel con ese ID
 	 */
 	boolean modificarHotel(Hotele hotel);
-	
+
 	/**
-	 * @param ciudadHotel -> Es la ciudad en la que se desean buscar hoteles
-	 * @return -> Devolvemos una lista con los hoteles que están en la  ciudad buscada
+	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad específica.
+	 *
+	 * @param -> ciudadHotel la ciudad para buscar hoteles
+	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacía si no hay hoteles en esa ciudad
 	 */
 	List<Hotele> findByCiudadHotele(String ciudadHotel);
+
 	/**
-	 * @param admin -> El usuario administrador asociado al hotel
-	 * @return -> Devolvemos una lista con los hoteles con ese propietario
+	 * Busca y devuelve una lista de hoteles propiedad de un usuario específico.
+	 *
+	 * @param -> usuario el usuario para buscar hoteles propiedad
+	 * @return -> una lista de hoteles propiedad del usuario especificado, o una lista vacía si el usuario no tiene hoteles propiedad
 	 */
 	List<Hotele> buscarPorUsuario(Usuario usuario);
+
 	
 }
