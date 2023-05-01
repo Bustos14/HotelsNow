@@ -189,11 +189,20 @@ public class HomeController {
 			webdataBinder
 			.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
 		}
+		
+		/**
+		 * Determina si una persona es mayor de edad a partir de su fecha de nacimiento.
+		 *
+		 * @param feNac la fecha de nacimiento de la persona
+		 * @return true si la persona es mayor de edad, false si es menor de edad
+		 */
 		public boolean mayorEdad(Date feNac) {
-			 Date fechaActual = new Date();
-		        long edadEnMilisegundos = fechaActual.getTime() - feNac.getTime();
-		        long edadEnAnios = edadEnMilisegundos / (365 * 24 * 60 * 60 * 1000L);
-		        return edadEnAnios >= 18;
+			Date fechaActual = new Date();
+			
+	        long edadEnMilisegundos = fechaActual.getTime() - feNac.getTime();
+		    // Convierte la diferencia a años dividiéndola por el número de milisegundos en un año.
+	        long edadEnAnios = edadEnMilisegundos / (365 * 24 * 60 * 60 * 1000L);
+	        return edadEnAnios >= 18;
 		}
 		
 }
