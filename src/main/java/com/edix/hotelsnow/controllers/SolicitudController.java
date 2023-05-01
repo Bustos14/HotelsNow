@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
@@ -56,6 +57,9 @@ public class SolicitudController {
 	
 	@Autowired
 	private RoleDao rdao;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	// Método para obtener una lista de provincias españolas
     private List<String> getProvincias() {
         return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
@@ -84,6 +88,7 @@ public class SolicitudController {
 			sHotel.setNombreHotel(hotel.getNombreHotel());
 			Role rol = rdao.findById(2);
 			user.addRol(rol);
+			user.setContrasena(passwordEncoder.encode(user.getContrasena()));
 			sHotel.setUsuario(user);
 			if(udao.registro(user)) {
 				if(sdao.altaSolicitud(sHotel)!=null) {
@@ -108,10 +113,13 @@ public class SolicitudController {
 	            	hotel.setTelefonoHotel(sHotel.getTelefonoHotel());
 	            	hotel.setUsuario(sHotel.getUsuario());
 	            	if(hdao.altaHotel(hotel)!=null) {
+	            		if(hotel.getUsuario().getEnabled()!=true) {
+	            			hotel.getUsuario().setEnabled(true);
+		            		udao.modificarUsuario(hotel.getUsuario());
+	            		}
 	            		if(sdao.denegarSolicitud(sHotel.getIdHotelSolicitado())==true){
 	            			return "redirect:/usuario/verSolicitudes";
 	            		}
-	            		
 	            	}
 	            } else if (action.equals("denegar")) {
 	            	if(sdao.denegarSolicitud(sHotel.getIdHotelSolicitado())==true){

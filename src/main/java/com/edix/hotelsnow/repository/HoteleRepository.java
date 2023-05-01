@@ -3,11 +3,17 @@ package com.edix.hotelsnow.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Usuario;
 
 public interface HoteleRepository extends JpaRepository<Hotele, Integer>{
 
+	
+	 @Query("SELECT h FROM Hotele h WHERE h.usuario.username = :username")
+	 List<Hotele> findAllByUsuarioUsername(@Param("username") String username);
 	/**
 	 * @param correoElectronicoHotel -> buscamos por el correo electronico
 	 * @return -> Devuelve el hotel que conicide con el correoelectronico que le hemos pasado por parámetro
@@ -27,5 +33,8 @@ public interface HoteleRepository extends JpaRepository<Hotele, Integer>{
      * 				ya sea disponible o no disponible.
      */
     List<Hotele> findByDisponible(byte disponible);
+    
+    
+   
 	
 }

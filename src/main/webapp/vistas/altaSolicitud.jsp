@@ -13,7 +13,7 @@
 	rel="stylesheet">
 </head>
 <body>
-
+	<jsp:include page="navbar.jsp"></jsp:include>
 	<!-- component -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>
 

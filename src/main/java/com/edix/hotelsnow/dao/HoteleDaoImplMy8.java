@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Usuario;
 import com.edix.hotelsnow.repository.HoteleRepository;
 
 @Repository
@@ -107,6 +108,13 @@ public class HoteleDaoImplMy8 implements HoteleDao{
 		}
 		// En caso de que la condición no se cumpla, devolvemos null
 		return null;
+	}
+
+
+
+	@Override
+	public List<Hotele> buscarPorUsuario(Usuario usuario) {
+		return hrep.findAllByUsuarioUsername(usuario.getUsername());
 	}
 
 

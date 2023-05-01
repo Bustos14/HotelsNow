@@ -46,12 +46,22 @@ public class HomeController {
 	 */
 	@GetMapping
 	public String inicio(Model model, HttpSession session) {
-		model.addAttribute("listaHoteles", hdao.mostrarTodos());
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = auth.getName();
         
-        session.setAttribute("username", username);
-        
+		String username = auth.getName();
+		Usuario uActual = udao.buscarUsuario(username);
+		if(uActual != null) {
+			session.setAttribute("username", username);
+			Role rol = uActual.getRoles().get(0);
+			if(rol.getNombre().equals("ROLE_ADMIN")) {
+				model.addAttribute("listaHoteles", hdao.buscarPorUsuario(uActual));
+			}else {
+				model.addAttribute("listaHoteles", hdao.mostrarTodos());
+			}
+		}else{
+			model.addAttribute("listaHoteles", hdao.mostrarTodos());
+		}
+		
         model.addAttribute("user", username);
 		return "index";
 	}
@@ -80,8 +90,6 @@ public class HomeController {
 	public String registro(Model model) {
 		List<Role> lRoles = new ArrayList<Role>();
 		Role rol = new Role();
-		rol.setIdRol(1);
-		rol.setNombre("SuperAdmin");
 		lRoles.add(rol);
 		model.addAttribute("roles", lRoles );
 		return "/registro";
@@ -96,48 +104,33 @@ public class HomeController {
 	 * @param ratt
 	 * @return
 	 */
-	/**
-	 * Método de registrar un usuario pero sólo para usuarios que tengan el ROL Administrador
-	 * 
-	 * @param rol
-	 * @param model
-	 * @param usuario
-	 * @param ratt
-	 * @return
-	 */
 	@PostMapping("/registro")
 	public String proregistrar( Model model, Usuario usuario, RedirectAttributes ratt) {
-
-		Role rol = new Role();
-		rol.setIdRol(1);
-		rol.setNombre("SuperAdmin");
+		Role rol = rdao.findById(3);
 		usuario.addRol(rol);
-	
 		usuario.setEnabled(true);
 		usuario.setFechaRegistro(new Date());
 		usuario.setFechaNacimiento(new Date());
 		usuario.setApellidos(usuario.getNombre());
 		usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
-		if (udao.registro(usuario)) {
-	 		return "redirect:/login";
-	 	}
-		/*if(!mayorEdad(usuario.getFechaNacimiento())) {
+		
+		if(!mayorEdad(usuario.getFechaNacimiento())) {
 			model.addAttribute("mensaje", "Debes ser mayor de edad, para registrarte");
 			return "/registroUsuario";
 		}
 		if(mayorEdad(usuario.getFechaNacimiento())) {
-			
+			if (udao.registro(usuario)) {
+		 		return "redirect:/login";
+		 	}
 		 	else {
 		 		model.addAttribute("mensaje", "ya existe como usuario");
-		 		return "/registroUsuario";
-		 		
+		 		return "registro";
 		 	}
 		}else {
 			model.addAttribute("mensaje", "Debe ser mayor de edad");
-			return "/registroUsuario";
+			return "registro";
 
-		}*/
-	 	return "registro";
+		}
 	}
 	/**
 	 * Método para ir al formulario

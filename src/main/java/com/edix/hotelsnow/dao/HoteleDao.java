@@ -3,6 +3,7 @@ package com.edix.hotelsnow.dao;
 import java.util.List;
 
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Usuario;
 
 public interface HoteleDao {
 
@@ -43,4 +44,10 @@ public interface HoteleDao {
 	 * @return -> Devolvemos una lista con los hoteles que están en la  ciudad buscada
 	 */
 	List<Hotele> findByCiudadHotele(String ciudadHotel);
+	/**
+	 * @param admin -> El usuario administrador asociado al hotel
+	 * @return -> Devolvemos una lista con los hoteles con ese propietario
+	 */
+	List<Hotele> buscarPorUsuario(Usuario usuario);
+	
 }
