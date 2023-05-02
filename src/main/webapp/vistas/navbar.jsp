@@ -19,14 +19,31 @@
 		      <img src="${pageContext.request.contextPath}/img/hotel-test.png" class="h-6 mr-3 sm:h-9" alt="logo HotelsNow">
 		      <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">HotelsNow</span>
 		  </a>
-		  <div class="flex md:hidden "> <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
-		        
-		        <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-		        <path fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd">
-		        </path></svg>
-		    </button>
-		  </div>
+		  
+ <form>
+		    <div class="flex">
+		        <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
+		           <select class="flex-shrink-0 z-10 inline-flex items-center py-2.5
+		         px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4
+		         focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" 
+					id="ciudad-hotel" name="ciudadHotel">
+			        <option value="Todos">Todos</option>
+			        <option value="Ciudad">Ciudad</option>
+			        <option value="Individual">Individual</option>
+			        <option value="Doble">Doble</option>
+			    </select>
+		        <div class="relative w-full">
+		            <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Burcar por..." required>
+		            <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+		                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+		                <span class="sr-only">Search</span>
+		            </button>
+		        </div>
+		    </div>
+			</form>
+
 		  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+		  
 		    <ul class="md:flex md:items-center">
 			    <li>
 			      <a href="/" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Home</a>
@@ -48,16 +65,16 @@
 				  </li>
 			    <li>
 			      <form action="/logout" method="post">
-			        <button type="submit" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cerrar sesión</button>
+			        <button type="submit" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cerrar sesiÃ³n</button>
 			      </form>
 			    </li>
 			  </sec:authorize>
 			  <sec:authorize access="!isAuthenticated()">
 			    <li>
-			      <a href="/login" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Inicia sesión</a>
+			      <a href="/login" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Inicia sesiÃ³n</a>
 			    </li>
 			    <li>
-			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Regístrate</a>
+			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">RegÃ­strate</a>
 			    </li>
 			  </sec:authorize>
 
@@ -111,6 +128,7 @@
    	 </div>
 	  </div>
 </nav>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 
