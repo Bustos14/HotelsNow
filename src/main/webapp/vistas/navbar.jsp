@@ -87,7 +87,7 @@
                   </li>
                   <li>
                   	<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN')">
-                    	<a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver reservas</a>
+                    	<a href="/reserva/verTodas" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver reservas</a>
                     </sec:authorize>
                   </li>
                    <li>

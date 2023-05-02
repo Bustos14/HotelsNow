@@ -119,6 +119,20 @@ public class ReservaController {
 		return "redirect:/usuario/misReservas";
 	}
 	
+	/**
+	 * Método para ir a la vista, donde podemos ver todas las reservas
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Devuelve una vista con todas las reservas
+	 */
+	@GetMapping("/verTodas")
+	public String verTodasReservas(Model model) {
+		
+		model.addAttribute("reservas", rdao.buscarTodas());
+		
+		return "listadoReservas";
+	}
+	
 	//Método necesario para formatear fechas
 			@InitBinder
 			public void initBinder(WebDataBinder webdataBinder) {
