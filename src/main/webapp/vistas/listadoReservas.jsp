@@ -37,7 +37,7 @@
       <th class="py-2 px-4">Ciudad del Hotel</th>
       <th class="py-2 px-4">Fecha de llegada</th>
       <th class="py-2 px-4">Fecha de salida</th>
-      <!--<th class="py-2 px-4">Acción</th>-->
+      <th class="py-2 px-4">Acción</th>
     </tr>
   </thead>
   <tbody>
@@ -48,15 +48,11 @@
         <td class="py-2 px-4 text-center align-middle">${reserva.hotele.ciudadHotel}</td>
         <td class="py-2 px-4 text-center align-middle">${reserva.fechaLlegada}</td>
         <td class="py-2 px-4 text-center align-middle">${reserva.fechaSalida}</td>
-       <!-- 
         <td class="py-2 px-4 text-center align-middle">
-          <form action="<c:url value='/reserva/accion'/>" method="post">
-            <input type="hidden" name="id_reserva" value="${reserva.idReserva}" />
-            <button type="submit" name="accion" value="aceptar" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4">Aceptar</button>
-            <button type="submit" name="accion" value="denegar" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
+          <form action="<c:url value='/reserva/cancelar/${reserva.idReserva}'/>" method="GET">
+            <button type="submit" name="accion" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
           </form>
         </td>
-         -->
       </tr>
     </c:forEach>
   </tbody>
