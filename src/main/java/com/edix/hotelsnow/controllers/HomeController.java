@@ -19,13 +19,14 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.RoleDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
+import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.entitybeans.Role;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
@@ -40,6 +41,8 @@ public class HomeController {
 	private UsuarioDao udao;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private HabitacioneDao habdao;
 	
 	/** 
 	 * Método para devolver la vista index
@@ -182,6 +185,24 @@ public class HomeController {
             return "redirect:/login";
         }
     }
+	
+	
+	@GetMapping("/search")
+	public String busqueda(@RequestParam(name="tipo") String tipo, @RequestParam(name="inputSearch")String inputSearch, Model model) {
+		List<Hotele> listaHoteles= new ArrayList<Hotele>();
+		if(tipo.equals("Todos")) {
+			listaHoteles = hdao.mostrarTodos(); 
+		}else if(tipo.equals("Ciudad")) {
+			if(!inputSearch.isEmpty()) {
+				System.out.println(inputSearch);
+				listaHoteles = hdao.findByCiudadHotele(inputSearch);
+			}else {
+				listaHoteles = hdao.mostrarTodos();
+			}
+		}
+		model.addAttribute("listaHoteles", listaHoteles);
+		return "index";
+	}
 	//Método necesario para formatear fechas
 		@InitBinder
 		public void initBinder(WebDataBinder webdataBinder) {

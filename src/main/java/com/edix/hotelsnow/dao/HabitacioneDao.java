@@ -54,5 +54,12 @@ public interface HabitacioneDao {
 	 */
 	List<Habitacione> findByHotele_IdHotel(int idHotel);
 
+	/**
+	 * Busca y devuelve una lista de hoteles con habitaciones de un tipo especifico
+	 *
+	 * @param -> Tipo es el tipo de la habitacion.
+	 * @return -> una lista de hoteles con habitaciones de un tipo especifico
+	 */
+	List<Hotele> findByHabTipo(String tipo);
 	
 }

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.edix.hotelsnow.entitybeans.Habitacione;
+import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.repository.HabitacioneRepository;
 
 @Repository
@@ -54,6 +55,11 @@ public class HabitacioneDaoImplMy8 implements HabitacioneDao{
 			return hrep.findByHotele_IdHotel(idHotel);
 		}
 		return null;
+	}
+
+	@Override
+	public List<Hotele> findByHabTipo(String tipo) {
+		return hrep.findAllHotelesConHabitacionesTipo(tipo);
 	}
 
 }
