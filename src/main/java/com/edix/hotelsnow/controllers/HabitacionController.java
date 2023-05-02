@@ -61,7 +61,7 @@ public class HabitacionController {
 	 * @return Devuelve la vista con la informaicón de una habitación buscada por idHabitación
 	 */
 	@GetMapping("/info/{id}")
-	public String verHabitación(@PathVariable("id") int idHabitacion, Model model) {
+	public String verHabitacion(@PathVariable("id") int idHabitacion, Model model) {
 		Habitacione h = hdao.buscarUna(idHabitacion);
 		model.addAttribute("habitacion", h);
 		

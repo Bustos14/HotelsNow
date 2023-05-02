@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -36,19 +35,19 @@
                   </div>
 
                   <div class="form-outline mb-4">
-                     <label class="form-label" for="contrasena">Contraseña</label>
+                     <label class="form-label" for="contrasena">ContraseÃ±a</label>
                     <input type="password" id="contrasena" class="form-control"  name="contrasena"/>
               
                   </div>
 
                   <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">¿No tienes cuenta aún? <a href="/registroInvitado" type="button">Regístrate </a></p>          
+                    <p class="mb-0 me-2">Â¿No tienes cuenta aÃºn? <a href="/registroInvitado" type="button">RegÃ­strate </a></p>          
                   </div>
                    <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">O accede como <a href="/" type="button">Invitado</a></p>           
                   </div>
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Inicia sesión</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Inicia sesiÃ³n</button>
                   </div>
                 </form>
               </div>

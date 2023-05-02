@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,12 +20,12 @@
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">°AtenciÛn!</strong>
+	    <strong class="font-bold">¬°Atenci√≥n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	
-<!--  Apartid de aquÌ -->	
+<!--  Apartid de aqu√≠ -->	
 
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
@@ -38,8 +37,8 @@
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Ofertas exclusivas</h2>
-        <p class="leading-relaxed text-base">En nuestra aplicaciÛn, queremos ofrecerte las mejores ofertas en hoteles seleccionados. Como usuario de nuestra app, tendr·s acceso a ofertas exclusivas que estar·n limitadas en tiempo y cantidad. Esto significa que deber·s actuar r·pido para aprovechar estas oportunidades y asegurarte el mejor precio. °No dejes pasar esta oportunidad!</p>
-        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m·s
+        <p class="leading-relaxed text-base">En nuestra aplicaci√≥n, queremos ofrecerte las mejores ofertas en hoteles seleccionados. Como usuario de nuestra app, tendr√°s acceso a ofertas exclusivas que estar√°n limitadas en tiempo y cantidad. Esto significa que deber√°s actuar r√°pido para aprovechar estas oportunidades y asegurarte el mejor precio. ¬°No dejes pasar esta oportunidad!</p>
+        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m√°s
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
@@ -49,8 +48,8 @@
     <div class="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Programa de fidelidad</h2>
-        <p class="leading-relaxed text-base">Queremos recompensar a nuestros usuarios m·s fieles, por eso hemos creado un programa de fidelidad. Por cada reserva que hagas a travÈs de nuestra aplicaciÛn, acumular·s puntos que podr·s canjear por descuentos en futuras reservas. Adem·s, si llegas a cierto nivel de puntos, tendr·s acceso a ofertas exclusivas y promociones especiales.</p>
-        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m·s
+        <p class="leading-relaxed text-base">Queremos recompensar a nuestros usuarios m√°s fieles, por eso hemos creado un programa de fidelidad. Por cada reserva que hagas a trav√©s de nuestra aplicaci√≥n, acumular√°s puntos que podr√°s canjear por descuentos en futuras reservas. Adem√°s, si llegas a cierto nivel de puntos, tendr√°s acceso a ofertas exclusivas y promociones especiales.</p>
+        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m√°s
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
@@ -73,8 +72,8 @@
       </div>
       <div class="flex-grow sm:text-left text-center mt-6 sm:mt-0">
         <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Servicio de recomendaciones personalizadas</h2>
-        <p class="leading-relaxed text-base">Con nuestro servicio de recomendaciones personalizadas, podemos ayudarte a encontrar el hotel perfecto para ti. Utilizamos la informaciÛn que ingresas en la aplicaciÛn para ofrecerte opciones que se ajusten a tus gustos y necesidades. Ya sea que busques un hotel cerca de la playa, con instalaciones de spa o que permita mascotas, nosotros te ayudaremos a encontrarlo. </p>
-        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m·s
+        <p class="leading-relaxed text-base">Con nuestro servicio de recomendaciones personalizadas, podemos ayudarte a encontrar el hotel perfecto para ti. Utilizamos la informaci√≥n que ingresas en la aplicaci√≥n para ofrecerte opciones que se ajusten a tus gustos y necesidades. Ya sea que busques un hotel cerca de la playa, con instalaciones de spa o que permita mascotas, nosotros te ayudaremos a encontrarlo. </p>
+        <a class="mt-3 text-indigo-500 inline-flex items-center" href="#">Leer m√°s
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-2" viewBox="0 0 24 24">
             <path d="M5 12h14M12 5l7 7-7 7"></path>
           </svg>
@@ -95,7 +94,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert despuÈs de 3 segundos (3000 ms)
+  // Ocultar el alert despu√©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

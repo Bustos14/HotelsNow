@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -24,7 +23,7 @@
 
 <c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">tenci髇!</strong>
+	    <strong class="font-bold">隆Atenci贸n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
@@ -48,21 +47,21 @@
 	</div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="direccion-hotel">
-        Direcci髇 del hotel
+        Direcci贸n del hotel
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direccion-hotel" name="direccionHotel" type="text" placeholder="Ingrese la direcci髇 del hotel">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="direccion-hotel" name="direccionHotel" type="text" placeholder="Ingrese la direcci贸n del hotel">
     </div>    
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="correo-electronico-hotel">
-        Correo electr髇ico del hotel
+        Correo electr贸nico del hotel
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="correo-electronico-hotel" name="correoElectronicoHotel" type="email" placeholder="Ingrese el correo electr髇ico del hotel">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="correo-electronico-hotel" name="correoElectronicoHotel" type="email" placeholder="Ingrese el correo electr贸nico del hotel">
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="telefono-hotel">
-        Tel閒ono del hotel
+        Tel茅fono del hotel
       </label>
-      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telefono-hotel" name="telefonoHotel" type="text" placeholder="Ingrese el tel閒ono del hotel">
+      <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="telefono-hotel" name="telefonoHotel" type="text" placeholder="Ingrese el tel茅fono del hotel">
        <label class="block text-gray-700 text-sm font-bold mb-2" for="img">
         Imagen de referencia
       </label>
@@ -91,7 +90,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert despu閟 de 3 segundos (3000 ms)
+  // Ocultar el alert despu茅s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

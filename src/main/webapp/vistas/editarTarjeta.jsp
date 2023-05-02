@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,12 +20,12 @@
 	<div  class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert"  class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	
-<!--  Apartid de aquí -->	
+<!--  Apartid de aquÃ­ -->	
 
 <div class="flex flex-col items-center justify-center h-full">
   <h3 class="text-3xl font-bold text-gray-800 mb-4">Propietario de la tarjeta: ${tarjetaEditar.usuario.username}</h3>
@@ -52,7 +51,7 @@
   </div>
 
   <div class="mb-4">
-    <label class="block text-gray-700 font-bold mb-2" for="numeroTarjeta">Número de tarjeta:</label>
+    <label class="block text-gray-700 font-bold mb-2" for="numeroTarjeta">NÃºmero de tarjeta:</label>
     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="numeroTarjeta" value="${tarjetaEditar.numeroTarjeta}" />
   </div>
 
@@ -65,7 +64,7 @@
   </div>
 </form>
 <div class="flex items-center justify-center mt-3">
-  <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver atrás</a>
+  <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver atrÃ¡s</a>
 </div>
 
 
@@ -82,7 +81,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);
@@ -92,7 +91,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

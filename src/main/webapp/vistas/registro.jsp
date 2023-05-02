@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,7 +20,7 @@
 
 <c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
@@ -40,7 +39,7 @@
 </div>
 
                     <div class="text-center font-base text-black">
-                        ¿Todavía no te has registrado?
+                        Â¿TodavÃ­a no te has registrado?
                     </div>
                     <form class="mt-8" x-data="{password: '',password_confirm: ''}" method="POST" action="registro">
                         <div class="mx-auto max-w-lg ">
@@ -85,7 +84,7 @@
                                         </div>
                                         <span :class="{'text-green-700': password == password_confirm && password.length > 0, 'text-red-700':password != password_confirm || password.length == 0}"
                                               class="font-medium text-sm ml-3"
-                                              x-text="password == password_confirm && password.length > 0 ? 'Las contraseñas coinciden' : 'Las contraseñas no coinciden' "></span>
+                                              x-text="password == password_confirm && password.length > 0 ? 'Las contraseÃ±as coinciden' : 'Las contraseÃ±as no coinciden' "></span>
                                     </li>
                                     <li class="flex items-center py-1">
                                         <div :class="{'bg-green-200 text-green-700': password.length > 7, 'bg-red-200 text-red-700':password.length < 7 }"
@@ -102,7 +101,7 @@
                                         </div>
                                         <span :class="{'text-green-700': password.length > 7, 'text-red-700':password.length < 7 }"
                                               class="font-medium text-sm ml-3"
-                                              x-text="password.length > 7 ? 'Se alcanza la longitud mínima' : 'Se requieren al menos 8 caracteres' "></span>
+                                              x-text="password.length > 7 ? 'Se alcanza la longitud mÃ­nima' : 'Se requieren al menos 8 caracteres' "></span>
                                     </li>
                                 </ul>
                             </div>
@@ -131,7 +130,7 @@
 
                     <div class="text-sm font-semibold block  py-6 flex justify-center">
                         <a href="/login"
-                           class="text-black font-normal border-b-2 border-gray-200 hover:border-teal-500">¿Ya eres miembro?
+                           class="text-black font-normal border-b-2 border-gray-200 hover:border-teal-500">Â¿Ya eres miembro?
                             <span class="text-black font-semibold">
 					            Acceder
 					        </span>
@@ -149,7 +148,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

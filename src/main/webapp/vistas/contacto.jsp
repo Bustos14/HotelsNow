@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,17 +20,17 @@
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	
-<!--  Apartid de aquí -->	
+<!--  Apartid de aquÃ­ -->	
 <section class="text-gray-600 body-font relative">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contacte con nosotros</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Estamos aquí para ayudarte. ¡Contáctanos y déjanos saber cómo podemos hacerlo!</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Estamos aquÃ­ para ayudarte. Â¡ContÃ¡ctanos y dÃ©janos saber cÃ³mo podemos hacerlo!</p>
     </div>
     <div class="lg:w-1/2 md:w-2/3 mx-auto">
       <div class="flex flex-wrap -m-2">
@@ -96,7 +95,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

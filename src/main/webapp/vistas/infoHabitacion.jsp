@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,22 +20,22 @@
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	</div>
 	
-<!--  Apartid de aquí -->	
+<!--  Apartid de aquÃ­ -->	
 
 <div class="w-4/5 mx-auto">
   <div class="container mx-auto mt-8 max-w-3xl">
     <div class="bg-white rounded-lg shadow overflow-hidden">
       <div class="px-4 py-5 sm:px-6">
         <h2 class="text-lg leading-6 font-medium text-gray-900">
-          Detalles de la habitación <span class="text-lg font-bold">${ habitacion.tipoHabitacion }</span>
+          Detalles de la habitaciÃ³n <span class="text-lg font-bold">${ habitacion.tipoHabitacion }</span>
         </h2>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">Aquí puedes encontrar la información detallada de la habitación.</p>
+        <p class="mt-1 max-w-2xl text-sm text-gray-500">AquÃ­ puedes encontrar la informaciÃ³n detallada de la habitaciÃ³n.</p>
       </div>
       <div class="border-t border-gray-200">
         <dl>
@@ -45,18 +44,18 @@
 		</div>
 		<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
 			<dt class="text-sm font-medium text-gray-500">
-				Nombre habitación
+				Nombre habitaciÃ³n
 			</dt>
 			<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
 				<c:out value="${habitacion.nombreHabitacion}" />
 			</dd>
 		</div>
           <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">ID de la habitación</dt>
+            <dt class="text-sm leading-5 font-medium text-gray-500">ID de la habitaciÃ³n</dt>
             <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.idHabitacion }</dd>
           </div>
           <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">Tipo de habitación</dt>
+            <dt class="text-sm leading-5 font-medium text-gray-500">Tipo de habitaciÃ³n</dt>
             <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.tipoHabitacion }</dd>
           </div>
           <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
@@ -115,7 +114,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -19,12 +18,12 @@
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	
-<!--  Apartid de aquí -->	
+<!--  Apartid de aquÃ­ -->	
 
 <div class="w-4/5 mx-auto">
     <div class="container mx-auto mt-8 max-w-3xl" >
@@ -34,7 +33,7 @@
                     Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel}</span>
                 </h2>
                 <p class="mt-1 max-w-2xl text-sm text-gray-500">
-                    Aquí puedes modificar la información detallada del hotel.
+                    AquÃ­ puedes modificar la informaciÃ³n detallada del hotel.
                 </p>
             </div>
             <div class="border-t border-gray-200">
@@ -81,7 +80,7 @@
                     
                     <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
                         <label for="direccionHotel" class="block text-sm font-medium text-gray-700">
-                            Dirección del hotel
+                            DirecciÃ³n del hotel
                         </label>
                         <div class="mt-1 sm:mt-0 sm:col-span-1">
                             <input type="text" name="direccionHotel" id="direccionHotel" value="${hotel.direccionHotel}" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
@@ -117,7 +116,7 @@
                     </div>
                 </form>
                 <dl>
-                    <!-- Resto del código para mostrar detalles del hotel -->
+                    <!-- Resto del cÃ³digo para mostrar detalles del hotel -->
                 </dl>
             </div>
         </div>
@@ -134,7 +133,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);

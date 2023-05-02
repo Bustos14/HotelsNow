@@ -42,13 +42,13 @@ public class HoteleController {
 	
 	// M√©todo para obtener una lista de provincias espa√±olas
     private List<String> getProvincias() {
-        return Arrays.asList("√Ålava", "Albacete", "Alicante", "Almer√≠a", "Asturias", "√Åvila", "Badajoz", "Barcelona",
-                "Burgos", "C√°ceres", "C√°diz", "Cantabria", "Castell√≥n", "Ciudad Real", "C√≥rdoba", "Cuenca",
-                "Gerona", "Granada", "Guadalajara", "Guip√∫zcoa", "Huelva", "Huesca", "Islas Baleares", "Ja√©n",
-                "La Coru√±a", "La Rioja", "Las Palmas", "Le√≥n", "L√©rida", "Lugo", "Madrid", "M√°laga", "Murcia",
-                "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
-                "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
-                "Zamora", "Zaragoza");
+    	   return Arrays.asList("¡lava", "Albacete", "Alicante", "AlmerÌa", "Asturias", "¡Åvila", "Badajoz", "Barcelona",
+                   "Burgos", "C·ceres", "C·diz", "Cantabria", "CastellÛn", "Ciudad Real", "CÛrdoba", "Cuenca",
+                   "Gerona", "Granada", "Guadalajara", "Guip˙zcua", "Huelva", "Huesca", "Islas Baleares", "JaÈn",
+                   "La Coru√±a", "La Rioja", "Las Palmas", "LeÛn", "LÈrida", "Lugo", "Madrid", "M·laga", "Murcia",
+                   "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
+                   "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
+                   "Zamora", "Zaragoza");
     }
 	
 	/**

@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>geEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -21,27 +20,27 @@
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
-	    <strong class="font-bold">¡Atención!</strong>
+	    <strong class="font-bold">Â¡AtenciÃ³n!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
 	
-<!--  Apartid de aquí -->	
+<!--  Apartid de aquÃ­ -->	
 
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="text-2xl font-medium title-font mb-4 text-gray-900 tracking-widest">NUESTRO EQUIPO</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Encuentra tu hogar temporal en cualquier lugar del mundo con nuestro servicio web de reservas de hoteles, creado con pasión por jóvenes emprendedores.</p>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Encuentra tu hogar temporal en cualquier lugar del mundo con nuestro servicio web de reservas de hoteles, creado con pasiÃ³n por jÃ³venes emprendedores.</p>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="p-4 lg:w-1/2">
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
           <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/200x200">
           <div class="flex-grow sm:pl-8">
-            <h2 class="title-font font-medium text-lg text-gray-900">Raúl García</h2>
+            <h2 class="title-font font-medium text-lg text-gray-900">RaÃºl GarcÃ­a</h2>
             <h3 class="text-gray-500 mb-3">CEO</h3>
-            <p class="mb-4">Como CEO de la empresa, Raúl García es el líder y la mente maestra detrás de la estrategia y la visión de la compañía. Con su experiencia y habilidad para tomar decisiones acertadas, Raúl asegura que la empresa se mantenga en el camino hacia el éxito.</p>
+            <p class="mb-4">Como CEO de la empresa, RaÃºl GarcÃ­a es el lÃ­der y la mente maestra detrÃ¡s de la estrategia y la visiÃ³n de la compaÃ±Ã­a. Con su experiencia y habilidad para tomar decisiones acertadas, RaÃºl asegura que la empresa se mantenga en el camino hacia el Ã©xito.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -66,9 +65,9 @@
         <div class="h-full flex sm:flex-row flex-col items-center sm:justify-start justify-center text-center sm:text-left">
           <img alt="team" class="flex-shrink-0 rounded-lg w-48 h-48 object-cover object-center sm:mb-0 mb-4" src="https://dummyimage.com/204x204">
           <div class="flex-grow sm:pl-8">
-            <h2 class="title-font font-medium text-lg text-gray-900">Álvaro Bustos</h2>
+            <h2 class="title-font font-medium text-lg text-gray-900">Ãlvaro Bustos</h2>
             <h3 class="text-gray-500 mb-3">CTO</h3>
-            <p class="mb-4">Como CTO (Chief Technology Officer), Álvaro Bustos es el responsable de la estrategia tecnológica de la empresa. Con su experiencia y habilidad técnica, Álvaro garantiza que la empresa utilice las últimas tecnologías y herramientas para ofrecer el mejor servicio posible a sus clientes.</p>
+            <p class="mb-4">Como CTO (Chief Technology Officer), Ãlvaro Bustos es el responsable de la estrategia tecnolÃ³gica de la empresa. Con su experiencia y habilidad tÃ©cnica, Ãlvaro garantiza que la empresa utilice las Ãºltimas tecnologÃ­as y herramientas para ofrecer el mejor servicio posible a sus clientes.</p>
             <span class="inline-flex">
               <a class="text-gray-500">
                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -104,7 +103,7 @@
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
 
-  // Ocultar el alert después de 3 segundos (3000 ms)
+  // Ocultar el alert despuÃ©s de 3 segundos (3000 ms)
   setTimeout(function() {
     alert.style.display = 'none';
   }, 3000);
