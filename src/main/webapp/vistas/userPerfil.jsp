@@ -40,19 +40,16 @@
 				<div>           
 					<p class="font-bold text-gray-700 text-xl"><a href="/usuario/misComentarios">${numComentarios}</a></p>        
 					<p class="text-gray-400"><a href="/usuario/misComentarios">Comentarios</a></p>      
-				</div>  
-				<sec:authorize access="hasRole('ROLE_ADMIN')">
-				   <div>           
-				      <p class="font-bold text-gray-700 text-xl"><a href="/usuario/misHoteles">${numHoteles}</a></p>        
-				      <p class="text-gray-400"><a href="/usuario/misHoteles">Administrar mis hoteles</a></p>      
-				   </div> 
-				</sec:authorize>				
-				<sec:authorize access="hasRole('ROLE_CLIENTE') || hasRole('ROLE_SUPERADMIN')">
+				</div>  				
 				   <div>           
 				      <p class="font-bold text-gray-700 text-xl"><a href="/">${numHoteles}</a></p>        
-				      <p class="text-gray-400"><a href="/">Ver lista de hoteles disponibles</a></p>      
-				   </div> 
-				</sec:authorize> 
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+				      <p class="text-gray-400"><a href="/">Administrar mis hoteles</a></p>
+				</sec:authorize>	    				   
+				<sec:authorize access="hasRole('ROLE_CLIENTE') || hasRole('ROLE_SUPERADMIN')">
+					  <p class="text-gray-400"><a href="/">Ver lista de hoteles disponibles</a></p>
+				</sec:authorize>
+				   </div> 			 
 			</div>    
 			<div class="relative">      
 				<div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
