@@ -26,7 +26,7 @@
 		         px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4
 		         focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" 
 					id="ciudad-hotel" name="tipo">
-			        <option value="Todos">Nombre</option>
+			        <option value="Nombre">Nombre</option>
 			        <option value="Ciudad">Ciudad</option>
 			    </select>
 		        <div class="relative w-full">
