@@ -118,4 +118,12 @@ public class HoteleDaoImplMy8 implements HoteleDao{
 	}
 
 
+
+	@Override
+	public List<Hotele> findByNombreHotele(String nombreHotele) {
+		// TODO Auto-generated method stub
+		return hrep.findByNombreHotel(nombreHotele);
+	}
+
+
 }

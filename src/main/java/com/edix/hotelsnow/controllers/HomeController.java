@@ -191,7 +191,7 @@ public class HomeController {
 	public String busqueda(@RequestParam(name="tipo") String tipo, @RequestParam(name="inputSearch")String inputSearch, Model model) {
 		List<Hotele> listaHoteles= new ArrayList<Hotele>();
 		if(tipo.equals("Todos")) {
-			listaHoteles = hdao.mostrarTodos(); 
+			listaHoteles = hdao.findByNombreHotele(inputSearch);
 		}else if(tipo.equals("Ciudad")) {
 			if(!inputSearch.isEmpty()) {
 				System.out.println(inputSearch);

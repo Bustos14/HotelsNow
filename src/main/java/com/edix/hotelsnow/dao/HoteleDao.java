@@ -61,6 +61,14 @@ public interface HoteleDao {
 	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacía si no hay hoteles en esa ciudad
 	 */
 	List<Hotele> findByCiudadHotele(String ciudadHotel);
+	/**
+	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad específica.
+	 *
+	 * @param -> ciudadHotel la ciudad para buscar hoteles
+	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacía si no hay hoteles en esa ciudad
+	 */
+	List<Hotele> findByNombreHotele(String nombreHotele);
+
 
 	/**
 	 * Busca y devuelve una lista de hoteles propiedad de un usuario específico.
