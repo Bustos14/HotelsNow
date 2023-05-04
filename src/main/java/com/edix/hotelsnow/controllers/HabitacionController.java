@@ -38,7 +38,7 @@ public class HabitacionController {
 	private HoteleDao hodao;
 	
 	private List<String> getTiposHabitacion(){
-		return Arrays.asList("individual","doble","tripele");
+		return Arrays.asList("Individual","Doble","Triple");
 	}
 
 	/**

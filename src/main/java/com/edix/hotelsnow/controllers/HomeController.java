@@ -18,6 +18,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.InitBinder;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -190,7 +191,7 @@ public class HomeController {
 	@GetMapping("/search")
 	public String busqueda(@RequestParam(name="tipo") String tipo, @RequestParam(name="inputSearch")String inputSearch, Model model) {
 		List<Hotele> listaHoteles= new ArrayList<Hotele>();
-		if(tipo.equals("Todos")) {
+		if(tipo.equals("Nombre")) {
 			listaHoteles = hdao.findByNombreHotele(inputSearch);
 		}else if(tipo.equals("Ciudad")) {
 			if(!inputSearch.isEmpty()) {
@@ -200,6 +201,12 @@ public class HomeController {
 				listaHoteles = hdao.mostrarTodos();
 			}
 		}
+		model.addAttribute("listaHoteles", listaHoteles);
+		return "index";
+	}
+	@GetMapping("/tipo/{tipo}")
+	public String buscarPorTipo(@PathVariable ("tipo") String tipo, Model model) {
+		List<Hotele> listaHoteles= habdao.findByHabTipo(tipo);
 		model.addAttribute("listaHoteles", listaHoteles);
 		return "index";
 	}

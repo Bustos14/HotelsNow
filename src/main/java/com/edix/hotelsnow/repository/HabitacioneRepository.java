@@ -13,6 +13,6 @@ public interface HabitacioneRepository extends JpaRepository<Habitacione, Intege
 
 	List<Habitacione> findByHotele_IdHotel(int idHotel);
 
-	 @Query("SELECT DISTINCT hab.hotele FROM Habitacione hab WHERE hab.tipoHabitacion =:tipo")
+	 @Query("SELECT DISTINCT hab.hotele FROM Habitacione hab WHERE hab.tipoHabitacion LIKE %:tipo%")
 	 List<Hotele> findAllHotelesConHabitacionesTipo(@Param("tipo") String tipo);
 }
