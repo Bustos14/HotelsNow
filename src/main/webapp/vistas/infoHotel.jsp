@@ -33,7 +33,7 @@
 					Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel}</span>
 				</h2>
 				<p class="mt-1 max-w-2xl text-sm text-gray-500">
-					AquÃ­ puedes encontrar la informaciÃ³n detallada del hotel.
+					Aquí puedes encontrar la información detallada del hotel.
 				</p>
 			</div>
 			<div class="border-t border-gray-200">
