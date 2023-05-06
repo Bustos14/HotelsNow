@@ -10,7 +10,6 @@
 <title>Bienvenido a HotelsNow</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/charts.css/dist/charts.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body >
@@ -140,9 +139,7 @@
 	}
 
 </script>
-<script src="https://cdn.tailwindcss.com"></script>
 
-<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
