@@ -2,6 +2,7 @@ package com.edix.hotelsnow.controllers;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,9 +25,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
+import com.edix.hotelsnow.dao.ReservaDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Comentario;
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Reserva;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
 @Controller
@@ -44,6 +47,9 @@ public class ComentarioController {
 	
 	@Autowired
 	private UsuarioDao udao;
+	
+	@Autowired
+	private ReservaDao rdao;
 	
 	
 	
@@ -71,6 +77,8 @@ public class ComentarioController {
 		// Obtener el nombre de usuario del usuario autenticado
 	    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 	    String username = auth.getName();
+	    Usuario u = udao.buscarUsuario(username);
+	    List<Reserva> reserva = rdao.buscarPorUsuario(u); 
 	    Integer idHotel = (Integer) session.getAttribute("idHotel");
 	    if (idHotel == null) {
 	        // Manejar el caso en que el atributo no existe en la sesión
@@ -118,14 +126,29 @@ public class ComentarioController {
 		c.setFechaComentario(date);
 		c.setHotele(h);
 		c.setIdComentario(0);
-		System.out.println(mensaje + user.getNombre() + h.getNombreHotel() + date);
-		if(cdao.crearComentario(c) != null) {
-			attr.addFlashAttribute("mensaje", "Comentario creado correctamente");
-			return "redirect:/comentario/comentarios/"+c.getHotele().getIdHotel();
+		Reserva existeReserva = null;
+		List<Reserva> reservaList = rdao.buscarPorUsuario(user);
+		for(Reserva r : reservaList) {
+			if(r.getHotele().equals(h)) {
+				existeReserva = r;
+			}
 		}
+		List<Comentario> comentarioExistente = cdao.findByUsuario_Username(user.getUsername());
+		for(Comentario comentario : comentarioExistente) {
+			if(comentario.getHotele().equals(h)) {
+				attr.addFlashAttribute("mensaje", "Comentario imposible de crear");
+				return "redirect:/hotel/info/"+h.getIdHotel();
+			}
+		}
+		if(existeReserva!=null) {
+			if(cdao.crearComentario(c) != null && existeReserva.getFechaSalida().before(new Date())) {
+				attr.addFlashAttribute("mensaje", "Comentario creado correctamente");
+				return "redirect:/comentario/comentarios/"+c.getHotele().getIdHotel();
+			}
 
+		}
 		attr.addFlashAttribute("mensaje", "Comentario imposible de crear");
-		return "redirect:/alta";
+		return "redirect:/hotel/info/"+h.getIdHotel();
 	}
 	
 	/**
