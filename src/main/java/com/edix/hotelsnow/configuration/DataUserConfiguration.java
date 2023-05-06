@@ -59,7 +59,7 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
   
 	  // Todas las demás URLs de la Aplicación requieren autenticación
 		 .anyRequest().authenticated()
-		 .and().formLogin().loginPage("/login").permitAll()  
+		 .and().formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()  
 		 .and().logout().permitAll();
 	  
   }

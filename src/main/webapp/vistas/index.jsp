@@ -10,23 +10,27 @@
 <title>Bienvenido a HotelsNow</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
-<body>
+<body >
 	<jsp:include page="navbar.jsp"></jsp:include>
-	<h1>${user}</h1>
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
 	    <strong class="font-bold">¡Atención!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
-	
-	<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
+	<div class="p-16">
+	<div class="p-8 bg-white shadow mt-24">
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none
 	 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
 	  type="button">Buscar por:<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 	<div class="p-16">
 	<div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
 	    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+	       <li>
+	        <a class="dropdown-item" href="/tipo/Todos">Todos</a>
+	      </li>
 	      <li>
 	        <a class="dropdown-item" href="/tipo/Individual">Individual</a>
 	      </li>
@@ -38,29 +42,49 @@
 	      </li>
 	     
 	    </ul>
-	</div>
-
-	<div
-		class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
+	</div>  
+	<form method="GET" action="/search">
+		    <div class="flex">
+		        <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"></label>
+		           <select class="flex-shrink-0 z-10 inline-flex items-center py-2.5
+		         px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4
+		         focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" 
+					id="ciudad-hotel" name="tipo">
+			        <option value="Nombre">Nombre</option>
+			        <option value="Ciudad">Ciudad</option>
+			    </select>
+		        <div class="relative w-full">
+		            <input type="search" id="search-dropdown" name="inputSearch" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Burcar por..." required>
+		            <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+		                <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+		                <span class="sr-only">Search</span>
+		            </button>
+		        </div>
+		    </div>
+		</form>
+	
+	<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 
 		<c:forEach var="hotel" items="${listaHoteles}">
-		
-    <div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
- 
-        <a href="/hotel/info/${hotel.idHotel }">
+	<div >	
+	 <div class="cursor-pointer rounded-xl bg-white p-3 shadow-lg hover:shadow-xl">
+	 <a href="/hotel/info/${hotel.idHotel }">
         	<c:if test="${empty hotel.img}">
 			  <img class="rounded-t-lg" src="${pageContext.request.contextPath}/img/hotel-test.png" alt="imagen-hotel-${hotel.ciudadHotel}" style="max-width: 100%; height: 300px; width: 100%;"/>
 			</c:if>
 			<c:if test="${not empty hotel.img}">
 			   <img class="rounded-t-lg" src="/recursos/${hotel.img}" alt="imagen-hotel-${hotel.ciudadHotel}" style="max-width: 100%; height: 300px; width: 100%;"/>
 			</c:if>
-        </a>
-        <div class="p-5">
+       	 </a>
+    <div class="relative flex items-end overflow-hidden rounded-xl">
+ 	
+        
+        	<div class="mt-1 p-2">
             <a href="/hotel/info/${hotel.idHotel }">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >${hotel.nombreHotel} </h5>
+                <h2 class="text-slate-700">${hotel.nombreHotel} </h5>
             </a>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${hotel.ciudadHotel}</p>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${hotel.direccionHotel}</p>
+            <p class="mt-1 text-sm text-slate-400">${hotel.ciudadHotel}</p>
+            <p class="mt-1 text-sm text-slate-400">${hotel.direccionHotel}</p>
             
             <div class="mt-2 flex justify-start space-x-2 mb-4">
             
@@ -100,12 +124,14 @@
            	</div>           	
         </div>
     </div>
-
+</div>
+</div>
 		</c:forEach>
+		</div>
 		</div>
 	</div>
 </div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.js"></script>
 	
 <script>function toggleDropdown(dropdownId) {
 	  const dropdown = document.getElementById(dropdownId);

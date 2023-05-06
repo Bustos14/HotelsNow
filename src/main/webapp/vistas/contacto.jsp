@@ -1,4 +1,4 @@
-<%@ page contentType="text/html; charset=UTF-8" %>	pageEncoding="ISO-8859-1"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
@@ -12,6 +12,7 @@
 	</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -24,9 +25,9 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
-	
+	<div class="p-8 bg-white shadow mt-24">  
 <!--  Apartid de aquí -->	
-<section class="text-gray-600 body-font relative">
+<section class="text-gray-600 body-font relative" >
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
       <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Contacte con nosotros</h1>
@@ -84,6 +85,8 @@
     </div>
   </div>
 </section>
+</div>
+
 
 
 

@@ -185,6 +185,9 @@ public class HomeController {
 	@GetMapping("/tipo/{tipo}")
 	public String buscarPorTipo(@PathVariable ("tipo") String tipo, Model model) {
 		List<Hotele> listaHoteles= habdao.findByHabTipo(tipo);
+		if(tipo.equals("Todos")) {
+			listaHoteles =  hdao.mostrarTodos();
+		}
 		model.addAttribute("listaHoteles", listaHoteles);
 		return "index";
 	}

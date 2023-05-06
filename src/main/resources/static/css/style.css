@@ -1,0 +1,15 @@
+	.search-bar {
+	  margin-right: 100px;
+	}
+	
+	.right-elements {
+	  flex: 1;
+	}
+	
+	body {
+	 	 background-color: #eee;
+	}
+
+	section {
+		background-color: white;
+	}
