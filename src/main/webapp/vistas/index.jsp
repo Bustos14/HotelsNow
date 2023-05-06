@@ -90,7 +90,6 @@
 						 	Eliminar
 						 </button>
 					  </form>
-					  <a href="/hotel/eliminar/" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Eliminar</a>
 					</div>
 					
 					</div>

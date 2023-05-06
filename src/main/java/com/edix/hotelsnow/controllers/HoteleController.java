@@ -180,7 +180,7 @@ public class HoteleController {
 	 * M√©todo para hacer efectivo el editar Hotel
 	 * 
 	 * @param hotelEditar -> Es la entidad que hemos pasado por los parametros del formulario de editar
-	 * @param attr -> Para redirigir despu√©s de un POST
+	 * @param attr -> Para redirigir despuÈs de un POST
 	 * @param image -> Para tratar la imagen del formulario
 	 * @return -> Devuelve la vista de editar y as√≠ comprobamos que los cambios se han realizado exitosamente.
 	 */
@@ -195,20 +195,27 @@ public class HoteleController {
 		h.setDireccionHotel(hotelEditar.getDireccionHotel());
 		h.setDisponible(hotelEditar.getDisponible());
 		h.setTelefonoHotel(hotelEditar.getTelefonoHotel());
-		String rutaAbsoluta = "C:/Hotel/recursos";
+		System.out.println("holaaaa"+image.getOriginalFilename().isBlank());
+	if(!image.getOriginalFilename().isBlank()) {
 		try {
+			String rutaAbsoluta = "C:/Hotel/recursos";
 			byte[] bytesImg = image.getBytes();
 			Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
 			Files.createDirectories(rutaCompleta.getParent());
 			Files.write(rutaCompleta, bytesImg);
 			h.setImg(image.getOriginalFilename());
 			if(hdao.modificarHotel(h)) {
-				attr.addFlashAttribute("mensaje", "Producto modificado con √©xito");
+				attr.addFlashAttribute("mensaje", "Producto modificado con …xito");
 			}
 			attr.addFlashAttribute("mensaje", "Producto imposible de modificar");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}	
+	}else {
+		if(hdao.modificarHotel(h)) {
+			attr.addFlashAttribute("mensaje", "Producto modificado con …xito");
+		}
+	}
 		
 		return "redirect:/";
 	}
