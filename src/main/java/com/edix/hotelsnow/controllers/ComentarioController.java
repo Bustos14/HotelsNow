@@ -165,6 +165,16 @@ public class ComentarioController {
 		
 		return "comentariosHotel";
 	}
+	@PostMapping("/comentarios/eliminar/{id}")
+	public String eliminarComentario(@PathVariable("id") int idComentario) {
+		if(cdao.buscarUno(idComentario)!=null) {
+			if(cdao.eliminarComentairo(idComentario)) {
+				return "redirect:/usuario/misComentarios";
+			}
+		}
+		
+		return "redirect:/usuario/misComentarios";
+	}
 	
 	//Método necesario para formatear fechas
 	@InitBinder

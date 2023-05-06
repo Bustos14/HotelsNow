@@ -86,7 +86,7 @@
 					    style="display:none;">
 					  <a href="/hotel/editar/${hotel.idHotel}" class="block px-4 py-2 text-gray-800 hover:bg-gray-100">Modificar</a>
 					  <form action="/hotel/eliminar/${hotel.idHotel}" method="POST">
-						 <button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">	
+						 <button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-blue-800">	
 						 	Eliminar
 						 </button>
 					  </form>

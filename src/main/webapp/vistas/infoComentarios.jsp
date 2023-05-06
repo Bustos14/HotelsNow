@@ -34,6 +34,7 @@
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Mensaje</th>
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de comentario</th>
       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Hotel</th>
+       <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Eliminar</th>
     </tr>
   </thead>
   <tbody class="bg-white divide-y divide-gray-200">
@@ -42,6 +43,13 @@
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${comentario.mensaje}"/></td>
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${comentario.fechaComentario}"/></td>
         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500"><c:out value="${comentario.hotele.nombreHotel}"/></td>
+         <td class="px-6 py-4 text-center whitespace-nowrap text-sm text-gray-500">
+        <form action="/comentario/comentarios/eliminar/${comentario.idComentario}" method="POST">
+         <button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">	
+						 	Eliminar
+		</button>
+        </form>
+        </td>
       </tr>
     </c:forEach>
   </tbody>
