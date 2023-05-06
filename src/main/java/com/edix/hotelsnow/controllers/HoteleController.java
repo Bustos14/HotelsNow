@@ -153,7 +153,7 @@ public class HoteleController {
 		
 		model.addAttribute("mensaje", "No ha sido posible ir a información del hotel");
 		return "/";
-	}
+	} 
 	@GetMapping("/verHotel")
 	public String ver() {
 		return "verHotel";
