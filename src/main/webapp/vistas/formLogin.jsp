@@ -12,49 +12,36 @@
 	rel="stylesheet">
 </head>
 <body style="background-color: #eee;">
-<section class="h-100 gradient-form" >
-  <div class="container py-5 h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-xl-10">
-        <div class="card rounded-3 text-black">
-              <div class="card-body p-md-5 mx-md-4">
-
-                <div class="text-center">
-                  <img src="${pageContext.request.contextPath}/img/logo.png" 
-                    style="width: 185px;" alt="logo">
-                  <h4 class="mt-1 mb-5 pb-1">Bienvenido</h4>
-					<h3 class="text-danger">${mensaje }</h3>
-                </div>
-
-                <form name="form" action="/login" method="POST">
-
-                  <div class="form-outline mb-4">
-                  <label class="form-label" for="email">Nombre de usuario</label>
-                  <input type="text" name="email" class="form-control" id="username">
-              
+<section class="bg-gray-50 dark:bg-gray-900">
+  <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+      <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+          <img class="w-8 h-8 mr-2" src="${pageContext.request.contextPath}/img/hotel-test.png" alt="logo">
+          HotelsNow    
+      </a>
+      <div class="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
+              <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                  Accede con tu cuenta
+              </h1>
+              <form class="space-y-4 md:space-y-6" action="/login" method="POST">
+                  <div>
+                      <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Usuario</label>
+                      <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="ElHoteles89" required="">
                   </div>
-
-                  <div class="form-outline mb-4">
-                     <label class="form-label" for="contrasena">Contraseña</label>
-                    <input type="password" id="contrasena" class="form-control"  name="contrasena"/>
-              
+                  <div>
+                      <label for="password" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Contraseña</label>
+                      <input type="password" name="password" id="password" placeholder="••••••••" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required="">
                   </div>
-
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">¿No tienes cuenta aún? <a href="/registroInvitado" type="button">Regístrate </a></p>          
+                  <div class="flex items-center justify-between">
+                      <a href="#" class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">¿Olvidaste la contraseña?</a>
                   </div>
-                   <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">O accede como <a href="/" type="button">Invitado</a></p>           
-                  </div>
-                  <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">Inicia sesión</button>
-                  </div>
-                </form>
-              </div>
-            </div>
-            </div>
+                  <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Iniciar sesión</button>
+                  <p class="text-sm font-light text-gray-500 dark:text-gray-400">
+                      Don’t have an account yet? <a href="/registro" class="font-medium text-primary-600 hover:underline dark:text-primary-500">Registrate ahora</a>
+                  </p>
+              </form>
           </div>
-        </div>
+      </div>
   </div>
 </section>
 </body>

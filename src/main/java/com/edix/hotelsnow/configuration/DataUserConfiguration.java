@@ -32,7 +32,7 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 			}
 
 
-	@Override protected void configure(HttpSecurity http) throws Exception { 
+	@Override protected void configure(HttpSecurity http) throws Exception {		
 		http .csrf().disable() 
 		.authorizeRequests() 
 		// Los directorios estáticos no requieren autenticacion 
@@ -58,9 +58,9 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 		//	.antMatchers("/eliminarProducto/**").hasAnyAuthority("ROLE_ADMIN")
   
 	  // Todas las demás URLs de la Aplicación requieren autenticación
-		.anyRequest().authenticated()
-		  .and().formLogin().permitAll()  
-		  .and().logout().logoutSuccessUrl("/").permitAll();
+		 .anyRequest().authenticated()
+		 .and().formLogin().loginPage("/login").permitAll()  
+		 .and().logout().permitAll();
 	  
   }
 

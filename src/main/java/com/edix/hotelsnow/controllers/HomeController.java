@@ -163,30 +163,6 @@ public class HomeController {
 	public String mostrarLogin() {
 		return "formLogin";
 	}
-	/**
-	 * Método encargado de procesar el login, comprueba si existe y si es así manda a la url que estabamos buscando
-	 * 
-	 * @param username -> Parametro con el username para acceder a la aplicación
-	 * @param password -> Parametro con el password para acceder a la aplicación
-	 * @param redirectAttributes -> Para redirigir después de un POST
-	 * @param misession -> Para poder meter en sesión ese usuario y ser reconocido durante el tiempo que dure la conexión.
-	 * @return -> Devuelve la vista de inicio
-	 */
-	@PostMapping("/login")
-    public String login(@RequestParam("email") String username,
-                        @RequestParam("password") String password,
-                        RedirectAttributes redirectAttributes, HttpSession misession) {
-        if (username.equals("usuario") && password.equals("clave")) {
-            SecurityContextHolder.getContext().setAuthentication(new UsernamePasswordAuthenticationToken(username, password, new ArrayList<>()));
-            Usuario uSession = (Usuario) misession.getAttribute("invitado");
-            return "redirect:/";
-        } else {
-
-            redirectAttributes.addFlashAttribute("error", "Nombre de usuario o contraseña incorrectos.");
-            return "redirect:/login";
-        }
-    }
-	
 	
 	@GetMapping("/search")
 	public String busqueda(@RequestParam(name="tipo") String tipo, @RequestParam(name="inputSearch")String inputSearch, Model model) {
