@@ -49,7 +49,7 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 				"/recursos/**", "/reserva/reservar",
 				"/usuario/perfil/**", "/usuario/modificarPerfil", "/usuario/listadoMisComentarios",
 				"/tarjeta/editar/**","/tarjeta/editar",
-				"/habitacion/editar/**", "/habitacion/editar",
+				"/habitacion/editar/**", "/habitacion/editar","/comentario/verComentarios","/comentario/procederEliminar/**",
 				"/reserva/verTodas",
 				"/recursos/**")
 		.permitAll()

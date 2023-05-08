@@ -176,6 +176,42 @@ public class ComentarioController {
 		return "redirect:/usuario/misComentarios";
 	}
 	
+	/**
+	 * Método para obtener todos los comentarios y poder pintarlos en la vista
+	 * 
+	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @return -> Se devuelve la vista para que el superAdming pueda gestionar los comentarios de la web.
+	 */
+	@GetMapping("/verComentarios")
+	public String verTodosComentariosSuperAdmin(Model model) {
+		
+		model.addAttribute("hotelesConComentarios", cdao.mostrarTodos());
+		model.addAttribute("mensaje", "Todos los comentarios");
+		
+		return "comentariosHotel";
+	}
+	
+	/**
+	 * Método usado para eliminar un comentario del hotel desde la vista del superadmin
+	 * 
+	 * @param idComentario -> Parámetro para poder localizar el comentario por id
+	 * @param attr -> Se usa para poder redirigir información despues de usar un POST
+	 * @return -> Devuelve la vista donde mostramos los comentarios en tarjetas
+	 */
+	@PostMapping("/procederEliminar/{id}")
+	public String eliminarComentarioSuperAdmin(@RequestParam("idComentario") int idComentario, RedirectAttributes attr) {
+		
+		if(cdao.buscarUno(idComentario) != null) {
+			cdao.eliminarComentairo(idComentario);
+			attr.addFlashAttribute("borrado", "Comentario con id : "+ idComentario + " ha sido eliminado");
+		} else {
+			attr.addFlashAttribute("borrado", "Comentario imposible de eliminar");			
+		}
+		
+		
+		return "redirect:/comentario/verComentarios";
+	}
+	
 	//Método necesario para formatear fechas
 	@InitBinder
 	public void initBinder(WebDataBinder webdataBinder) {

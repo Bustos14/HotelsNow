@@ -109,6 +109,11 @@
                     	<a href="/usuario/verSolicitudes" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver solicitudes</a>
                     </sec:authorize>
                   </li>
+                  <li>
+                  	<sec:authorize access="hasAnyRole('ROLE_SUPERADMIN')">
+                    	<a href="/comentario/verComentarios" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Ver comentarios</a>
+                    </sec:authorize>
+                  </li>
                 </ul>
                 <div class="py-1">
                   <a href="/logout" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-400 dark:hover:text-white">Salir</a>

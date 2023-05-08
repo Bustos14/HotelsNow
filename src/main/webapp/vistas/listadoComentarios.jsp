@@ -14,8 +14,6 @@
 	rel="stylesheet">
 </head>
 <body>
-	<jsp:include page="navbar.jsp"></jsp:include>
-	
 	
 	<div class="w-4/5 mx-auto">
 	<c:if test="${not empty mensaje}">
@@ -28,40 +26,40 @@
 <!--  Apartid de aquí -->	
 
 
-<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
-    <table class="w-full text-sm text-left text-blue-100 dark:text-blue-100">
-        <thead class="text-xs text-white uppercase bg-blue-600 dark:text-white">
-            <tr>
-				<th scope="col" class="px-6 py-3">
-					ID del comentario
-				</th>
-				<th scope="col" class="px-6 py-3">
-					Comentario
-				</th>
-				<th scope="col" class="px-6 py-3">
-					Fecha de comentario
-				</th>
-				<th scope="col" class="px-6 py-3">
-					Nombre del hotel
-				</th>
-				<th scope="col" class="px-6 py-3">
-					Nomre del usuario
-				</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="comentario" items="${comentarios}">
-				<tr class="bg-blue-500 border-b border-blue-400">
-					<td class="px-6 py-4">${comentario.idComentario}</td>
-					<td class="px-6 py-4">${comentario.mensaje}</td>
-					<td class="px-6 py-4">${comentario.fechaComentario}</td>
-					<td class="px-6 py-4">${comentario.hotele.nombreHotel}</td>
-					<td class="px-6 py-4">${comentario.usuario.nombre}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+<table class="mt-6 min-w-full divide-y divide-gray-200">
+  <thead class="bg-gray-50">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hotel</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usuario</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <c:forEach items="${listaComentarios}" var="comentario">
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${comentario.idComentario}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.mensaje}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.fechaComentario}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.hotele.nombreHotel}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.usuario.username}</td>
+      </tr>
+    </c:forEach>
+  </tbody>
+</table>
+<div class="text-center">
+    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+    	<a href="/comentario/altaComentario">Nuevo comentario</a>
+    </button>
 </div>
+<div class="mt-4 text-center">
+    <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+    	<a href="/">Ir inicio</a>
+    </button>
+</div>
+
+
 
 
 
@@ -69,7 +67,6 @@
 
 <!-- No borrar </div> -->
 	</div>
-	
 	<script>
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
