@@ -119,9 +119,7 @@
                                     </span>
                                 </label>
                             </div>
-                           <button class="mt-3 text-lg font-semibold
-            bg-gray-800 w-full text-white rounded-lg
-            px-6 py-3 block shadow-xl hover:text-white hover:bg-black"
+                           <button class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
         x-bind:disabled="password.length < 8 || password.length > 20 || password != password_confirm" type ="submit">
                                 Registrate
                             </button>

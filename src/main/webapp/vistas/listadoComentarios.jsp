@@ -49,12 +49,12 @@
   </tbody>
 </table>
 <div class="text-center">
-    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+    <button class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
     	<a href="/comentario/altaComentario">Nuevo comentario</a>
     </button>
 </div>
 <div class="mt-4 text-center">
-    <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">
+    <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
     	<a href="/">Ir inicio</a>
     </button>
 </div>

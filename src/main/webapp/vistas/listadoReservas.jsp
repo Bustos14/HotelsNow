@@ -49,7 +49,7 @@
         <td class="py-2 px-4 text-center align-middle">${reserva.fechaSalida}</td>
         <td class="py-2 px-4 text-center align-middle">
           <form action="<c:url value='/reserva/cancelar/${reserva.idReserva}'/>" method="GET">
-            <button type="submit" name="accion" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Cancelar</button>
+            <button type="submit" name="accion" class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Cancelar</button>
           </form>
         </td>
       </tr>

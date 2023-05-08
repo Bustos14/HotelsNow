@@ -97,7 +97,7 @@
 			    </form>
 			  </c:forEach> 
 			</div> 
-				<button id="modify" class="text-white py-2 px-4 uppercase rounded bg-blue-400 hover:bg-blue-500 shadow hover:shadow-lg font-medium transition transform hover:-translate-y-0.5" onclick="cambiarEstadoCampos()">  Modificar</button>
+				<button id="modify" class="flex mx-auto mt-20 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg transition transform hover:-translate-y-0.5" onclick="cambiarEstadoCampos()">  Modificar</button>
 				
 	</div>
 </div>

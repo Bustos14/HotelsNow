@@ -92,7 +92,7 @@
 					</div>
 					
 					<div class="text-center">
-					    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+					    <button class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
 					    	<a href="/comentario/comentarios/${hotel.idHotel}">Ver comentarios</a>
 					    </button>
 					</div>
@@ -110,12 +110,8 @@
 	<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
 	    <div class="flex justify-center">
 	        <button type="submit"
-	                class="mt-3 inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 
-	                focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+	                class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
 	            Nueva habitación 
-	            <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-	                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>	
-	            </svg>
 	        </button>
 	    </div>
 	</form>
@@ -132,7 +128,7 @@
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.tipoHabitacion}</p>
 					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}&euro;</p>
 				</div>
-				<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
+<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
     <div class="mt-2 flex justify-start">    
         <div class="flex items-center space-x-2">
             <p class="text-gray-600 dark:text-gray-300 text-sm ">
@@ -140,16 +136,18 @@
                     ${habitacion.disponible == 1 ? 'Disponible' : 'No_disponible'}
                 </span>
             </p>
+            <div class="flex flex-col justify-center">
             <form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
-                <button type="submit" class="inline-block bg-blue-700 hover:bg-blue-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3">
+                <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
                     Reservar
                 </button>
             </form>
             <form method="GET" action="/habitacion/info/${habitacion.idHabitacion}">
-                <button type="submit" class="inline-block bg-green-700 hover:bg-green-800 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:shadow-outline mt-3 ml-2">
+                <button type="submit" class="flex mx-auto mt-2 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
                     Detalles
                 </button>
             </form>
+            </div>
         </div>
     </div>
 </div>

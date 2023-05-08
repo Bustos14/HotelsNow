@@ -55,7 +55,7 @@
 </table>
 
 <div class="text-center">
-    <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded">
+    <button class="flex mx-auto mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
     	<a href="/tarjeta/alta">Nueva tarjeta</a>
     </button>
 </div>

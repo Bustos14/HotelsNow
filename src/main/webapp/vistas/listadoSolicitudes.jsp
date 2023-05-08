@@ -50,8 +50,8 @@
         <td class="py-2 px-4 text-center align-middle">
           <form action="<c:url value='/solicitud/accion'/>" method="post">
             <input type="hidden" name="id_solicitud" value="${solicitud.idHotelSolicitado}" />
-            <button type="submit" name="accion" value="aceptar" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-4">Aceptar</button>
-            <button type="submit" name="accion" value="denegar" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Denegar</button>
+            <button type="submit" name="accion" value="aceptar" class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Aceptar</button>
+            <button type="submit" name="accion" value="denegar" class="flex mx-auto mt-5 text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">Denegar</button>
           </form>
         </td>
       </tr>
