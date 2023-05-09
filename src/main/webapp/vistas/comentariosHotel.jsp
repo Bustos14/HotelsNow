@@ -33,31 +33,37 @@
 	  </div>
 	
 <!--  Apartid de aquí -->	
-<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg">
-	<hr>
-	<c:forEach var="comentario" items="${hotelesConComentarios}">
-		<h2 class="text-xl font-bold">${comentario.hotele.nombreHotel}</h2>
-		<hr>
-		<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
-			<div class="w-1/3">
-				<a href="/hotel/info/${comentario.hotele.idHotel }">
-					<c:if test="${empty hotel.img}">
-        				<img class="h-full rounded-t-lg object-cover" src="/recursos/${comentario.hotele.img}" alt="imagen-hotel-${hotel.ciudadHotel}"/>
-      				</c:if>
-       			</a>
-			</div>
-			<div class="w-2/3 p-4">
-				<p class="text-sm text-gray-500">Comentario de ${comentario.usuario.username} el ${comentario.fechaComentario}</p>
-				<p class="text-base">${comentario.mensaje}</p>
-			</div>
-			<div class="w-3/3 p-4">
-				<form action="<c:url value='/comentario/procederEliminar/${comentario.idComentario}'/>" method="POST">
-            		 <input type="hidden" name="idComentario" value="${comentario.idComentario}">
-            		<button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Eliminar</button>
-          		</form>
-          	</div>
-		</div>
-	</c:forEach>
+<table class="mt-6 min-w-full divide-y divide-gray-200">
+  <thead class="bg-gray-50">
+    <tr>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ID Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha Comentario</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Hotel</th>
+      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Usuario</th>
+    </tr>
+  </thead>
+  <tbody class="bg-white divide-y divide-gray-200">
+    <c:forEach items="${listaComentarios}" var="comentario">
+      <tr>
+        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${comentario.idComentario}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.mensaje}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.fechaComentario}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.hotele.nombreHotel}</td>
+        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${comentario.usuario.username}</td>
+      </tr>
+    </c:forEach>
+  </tbody>
+</table>
+<div class="text-center">
+    <button class="mt-10 flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
+    	<a href="/comentario/altaComentario">Nuevo comentario</a>
+    </button>
+</div>
+<div class="mt-4 text-center">
+    <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+    	<a href="/">Ir inicio</a>
+    </button>
 </div>
 
 

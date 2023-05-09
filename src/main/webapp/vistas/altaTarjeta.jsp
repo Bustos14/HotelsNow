@@ -27,7 +27,7 @@
 	
 <!--  Apartid de aquí -->	
 
- <body class="bg-blue-50">
+ <body>
     <div class="m-4">
       <div class="credit-card w-full sm:w-auto shadow-lg mx-auto rounded-xl bg-white" x-data="creditCard">
         <header class="flex flex-col justify-center items-center">
@@ -127,7 +127,7 @@
             </div>
         <div class="mt-6 p-4">
           <button
-            class="submit-button px-4 py-3 rounded-full bg-blue-300 text-blue-900 focus:ring focus:outline-none w-full text-xl font-semibold transition-colors"
+            class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
             x-bind:disabled="!isValid"
             x-on:click="onSubmit()"
           >Alta tarjeta

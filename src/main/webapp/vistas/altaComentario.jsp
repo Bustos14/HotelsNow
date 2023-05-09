@@ -32,7 +32,7 @@
 	</div>
     <input type="hidden" name="idHotel" value='${comentarioNuevo.hotele.idHotel}'/>
     <input type="hidden" name="username" value='${comentarioNuevo.usuario.username}'/>
-    <button type="submit" id="guardar-btn" class="bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded" disabled>Guardar comentario</button>
+    <button type="submit" id="guardar-btn" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" disabled>Guardar comentario</button>
   </form>
 </div>
 

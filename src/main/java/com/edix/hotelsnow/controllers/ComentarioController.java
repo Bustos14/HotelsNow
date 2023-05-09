@@ -188,7 +188,7 @@ public class ComentarioController {
 		model.addAttribute("hotelesConComentarios", cdao.mostrarTodos());
 		model.addAttribute("mensaje", "Todos los comentarios");
 		
-		return "comentariosHotel";
+		return "listadoComentarios";
 	}
 	
 	/**
