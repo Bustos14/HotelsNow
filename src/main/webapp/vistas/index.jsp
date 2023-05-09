@@ -11,7 +11,7 @@
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
-<body >
+<body class="bg-gray-100">
 	<jsp:include page="navbar.jsp"></jsp:include>
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">

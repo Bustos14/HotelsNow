@@ -12,7 +12,7 @@
 	rel="stylesheet">
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
-<body>
+<body class="bg-gray-100">
 
 	<!-- component -->
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.js" defer></script>

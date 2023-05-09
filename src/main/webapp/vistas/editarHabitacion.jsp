@@ -12,7 +12,7 @@
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" 	rel="stylesheet"
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />>
 </head>
-<body>
+<body class="bg-gray-100">
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
 	<div class="w-4/5 mx-auto">

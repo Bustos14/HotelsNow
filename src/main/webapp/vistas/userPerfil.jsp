@@ -14,7 +14,7 @@
 	rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
-<body >
+<body class="bg-gray-100">
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
 	
