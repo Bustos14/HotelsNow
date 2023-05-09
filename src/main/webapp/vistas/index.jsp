@@ -8,8 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Bienvenido a HotelsNow</title>
-<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
-	rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body >
@@ -20,8 +19,8 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
-	<div class="p-16">
-	<div class="p-8 bg-white shadow mt-24">
+	<div class="p-8">
+	<div class="p-8 bg-white shadow">
 		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
 	 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
 	  type="button">Buscar por:<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>

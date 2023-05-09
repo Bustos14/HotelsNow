@@ -9,6 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Insert title here</title>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.4/flowbite.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 
@@ -62,7 +63,7 @@
 				  </li>
 			    <li>
 			      <form action="/logout" method="post">
-			        <button type="submit" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cerrar sesión</button>
+			        <button type="submit" class="inline-block rounded py-2 px-3 mr-1 text-white bg-ffc36d hover:bg-yellow-300 focus:bg-yellow-400">Cerrar sesión</button>
 			      </form>
 			    </li>
 			  </sec:authorize>
@@ -77,12 +78,11 @@
 
 			</ul>
 			
+			
 			<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" 
-            class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-gray-900 
-            rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-indigo-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-indigo-500 dark:focus:text-white 
-            dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent">Opciones <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>
+            class="inline-block rounded py-2 px-4 text-ffc36d bg-white mr-2" style="box-shadow: 0px 0px 0px 2px #ffc36d;">Opciones 
+            </button>
             <!-- Dropdown menu -->
             	<div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                 <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">

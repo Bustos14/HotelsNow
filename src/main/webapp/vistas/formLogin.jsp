@@ -8,8 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>registro/inicio</title>
-<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
-	rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body style="background-color: #eee;">
 <section class="bg-gray-50 dark:bg-gray-900">

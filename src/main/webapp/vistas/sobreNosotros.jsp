@@ -12,6 +12,7 @@
 	</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -26,7 +27,7 @@
 	</c:if>
 	
 <!--  Apartid de aquí -->	
-
+<div class="p-8">
 <section class="text-gray-600 body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
@@ -91,7 +92,7 @@
     </div>
   </div>
 </section>
-
+</div>
 
 
 

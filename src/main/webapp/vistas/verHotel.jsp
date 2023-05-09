@@ -10,6 +10,7 @@
 <title>Detalles del hotel</title>
 <link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
 	rel="stylesheet">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 </head>

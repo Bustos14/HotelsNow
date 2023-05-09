@@ -10,9 +10,8 @@
 	<title>
 		Contacto
 	</title>
-<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css"
-	rel="stylesheet">
-	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
+<link href="https://unpkg.com/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body>
 	<jsp:include page="navbar.jsp"></jsp:include>
@@ -24,9 +23,10 @@
 	    <strong class="font-bold">¡Atención!</strong>
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
-	</c:if>
-	<div class="p-8 bg-white shadow mt-24">  
+	</c:if> 
 <!--  Apartid de aquí -->	
+	<div class="p-8">
+	<div class="p-8 bg-white shadow"> 
 <section class="text-gray-600 body-font relative" >
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-12">
@@ -87,7 +87,7 @@
 </section>
 </div>
 
-
+</div>
 
 
 
