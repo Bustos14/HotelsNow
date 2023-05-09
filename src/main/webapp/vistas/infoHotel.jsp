@@ -33,76 +33,52 @@
 		<div class="bg-white rounded-lg shadow overflow-hidden">
 	<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
 			<div class="w-2/3">
-			<div class="container mx-auto mt-8 max-w-3xl">
-				<div class="bg-white rounded-lg shadow overflow-hidden">
-			<div class="px-4 py-5 sm:px-6">
-				<h2 class="text-lg leading-6 font-medium text-gray-900">
-					Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel}</span>
-				</h2>
-				<p class="mt-1 max-w-2xl text-sm text-gray-500">
-					Aquí puedes encontrar la información detallada del hotel.
-				</p>
-			</div>
-			<div class="border-t border-gray-200">
-				<dl>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<img class="h-auto max-w-lg rounded-lg" src="/recursos/${hotel.img}" alt="image description">
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm font-medium text-gray-500">
-							Nombre:
-						</dt>
-						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-							<c:out value="${hotel.nombreHotel}" />
-						</dd>
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm font-medium text-gray-500">
-							Ciudad:
-						</dt>
-						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-							<c:out value="${hotel.ciudadHotel}" />
-						</dd>
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm font-medium text-gray-500">
-							Dirección:
-						</dt>
-						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-							<c:out value="${hotel.direccionHotel}" />
-						</dd>
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm font-medium text-gray-500">
-							Teléfono:
-						</dt>
-						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-							<c:out value="${hotel.telefonoHotel}" />
-						</dd>
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm font-medium text-gray-500">
-							Correo Electrónico:
-						</dt>
-						<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-							<c:out value="${hotel.correoElectronicoHotel }" />
-						</dd>
-					</div>
-					<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-					    <dt class="text-sm leading-5 font-medium text-gray-500">
-					    	Disponibilidad
-					    </dt>
-					    <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">
-					        <span class="${hotel.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
-					            ${hotel.disponible == 1 ? 'Disponible' : 'No disponible'}
-					        </span>
-					    </dd>
-					</div>
-		
-				</dl>
-			</div>					
-		</div>				
-			</div>
+			
+											
+											<div class="container mx-auto px-20">
+								
+								<div style='background-color:rgb(255, 255, 255)'>
+								<div class="relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
+								  <div class="items-center text-center xs:flex xs:text-left xs:space-x-10">
+								    <img class=" imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="/recursos/${hotel.img}" alt="${hotel.nombreHotel}" height="122" width="300px">
+								    <div class="flex-1 leading-chillaxed">
+						      <div class="mb-4">
+								      <h2 class="text-lg leading-6 font-medium text-gray-900">
+													Detalles del hotel <strong class="block text-lg">${hotel.nombreHotel}</strong>
+												</h2>
+												<p class="mt-1 max-w-2xl text-sm text-gray-500">
+													Aquí puedes encontrar la información detallada del hotel.
+												</p>
+								      </div>
+								      <ul>
+								        <li>
+								          <a href="tel:+31620842105" class="inline-block h-12 -my-4 xs:h-auto underline hover:no-underline">
+								            <svg class="inline-block w-4 h-4 mr-3 opacity-40" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+								            </svg>${hotel.telefonoHotel}
+								          </a>
+								        </li>
+								        <li>
+								          <svg class="inline-block w-4 h-4 mr-3 opacity-40" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+								          </svg>
+								          <a class="inline-block h-12 -my-4 xs:h-auto underline hover:no-underline" href="mailto:john@doe.com">${hotel.correoElectronicoHotel }</a>
+								        </li>
+								        <li>
+								        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 22" stroke-width="1.5" stroke="currentColor" class="inline-block w-5 h-3 mr-3 -mt-1 opacity-40">
+										  <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+										  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+										</svg>
+								          <p class="inline-block h-12 -my-4 xs:h-auto underline hover:no-underline" ><c:out value="${hotel.ciudadHotel}" /></p>
+								        </li>
+								      </ul>
+								    </div>
+								  </div>
+								  <div class="absolute ${hotel.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} bottom-0 left-0 w-full h-2 "></div>
+								</div>
+								</div>
+			</div>	
+
 			</div>
 			<div class="w-1/3 p-4">
 			<div  class="flex flex-wrap">
@@ -180,17 +156,8 @@
 	</div>
 		</div>
 	
-	
-	
-	
-	
-	
-	
-	
-	---------------------------------------------
-	
 </div>
-										
+					
 					      			 		
 
 	
