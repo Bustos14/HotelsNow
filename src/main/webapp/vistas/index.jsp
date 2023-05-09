@@ -22,7 +22,7 @@
 	</c:if>
 	<div class="p-16">
 	<div class="p-8 bg-white shadow mt-24">
-		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:outline-none
+		<button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
 	 focus:ring-indigo-300 font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800"
 	  type="button">Buscar por:<svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
 	<div class="p-16">
@@ -90,7 +90,7 @@
             
             <div class="flex p-2">
             <form method="GET" action="/hotel/info/${hotel.idHotel }">
-    			<button type="submit" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-indigo-700 rounded-lg hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">
+    			<button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-2 focus:outline-none hover:bg-indigo-600 rounded text-lg">
       					  INFO 
 	        		<svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 	           			<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
@@ -101,7 +101,7 @@
 			<div class="flex p-2">
 				<sec:authorize access="hasAnyAuthority('ROLE_SUPERADMIN', 'ROLE_ADMIN')">
 					<div class="relative inline-block">
-					  <button id="dropdown-btn-${hotel.idHotel}" class="py-2 px-4 bg-gray-200 text-sm text-gray-800 font-semibold rounded-lg shadow-md hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-75" 
+					  <button id="dropdown-btn-${hotel.idHotel}" class="flex mx-auto text-white bg-ffc36d border-0 py-2 px-2 focus:outline-none hover:bg-ffc36d rounded text-lg"
 					    onclick="toggleDropdown('dropdown-${hotel.idHotel}')">
 					  Acciones
 					</button>
