@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
@@ -39,7 +40,8 @@ public class HoteleController {
 	private HabitacioneDao habdao;
 	@Autowired
 	private UsuarioDao udao;
-	
+	@Autowired
+	private ComentarioDao cdao;
 	// M√©todo para obtener una lista de provincias espa√±olas
     private List<String> getProvincias() {
     	   return Arrays.asList("¡lava", "Albacete", "Alicante", "AlmerÌa", "Asturias", "¡Åvila", "Badajoz", "Barcelona",
@@ -147,7 +149,9 @@ public class HoteleController {
 			System.out.println(habitacioneList);
 			session.setAttribute("idHotel", idHotel);
 			model.addAttribute("listaHabs", habitacioneList);
-			model.addAttribute("mensaje", "Aqu√≠ tienes la informaci√≥n del hotel: "+hdao.buscarUno(idHotel).getNombreHotel());
+			
+			model.addAttribute("hotelesConComentarios", cdao.findByHotele_IdHotel(idHotel));
+			model.addAttribute("mensaje", "AquÌ tienes la informaciÛn del hotel: "+hdao.buscarUno(idHotel).getNombreHotel());
 			return "infoHotel";
 		}
 		
