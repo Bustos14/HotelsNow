@@ -143,7 +143,7 @@ public class ComentarioController {
 		if(existeReserva!=null) {
 			if(cdao.crearComentario(c) != null && existeReserva.getFechaSalida().before(new Date())) {
 				attr.addFlashAttribute("mensaje", "Comentario creado correctamente");
-				return "redirect:/comentario/comentarios/"+c.getHotele().getIdHotel();
+				return "redirect:/hotel/info/"+h.getIdHotel();
 			}
 
 		}

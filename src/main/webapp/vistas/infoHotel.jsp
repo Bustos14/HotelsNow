@@ -24,8 +24,6 @@
 	  </div>
 	</c:if>
 	
-	
-<<<<<<< Updated upstream
 		<button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
 			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
 			<a href="/">Volver</a>
@@ -33,12 +31,10 @@
 	
 	
 		<div class="bg-white rounded-lg shadow overflow-hidden">
-=======
 	<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
 			<div class="w-2/3">
 			<div class="container mx-auto mt-8 max-w-3xl">
 				<div class="bg-white rounded-lg shadow overflow-hidden">
->>>>>>> Stashed changes
 			<div class="px-4 py-5 sm:px-6">
 				<h2 class="text-lg leading-6 font-medium text-gray-900">
 					Detalles del hotel <span class="text-lg font-bold">${hotel.nombreHotel}</span>
@@ -102,36 +98,38 @@
 					        </span>
 					    </dd>
 					</div>
-					
-					<div class="text-center">
-					    <button class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-					    	<a href="/comentario/comentarios/${hotel.idHotel}">Ver comentarios</a>
-					    </button>
-					</div>			
+		
 				</dl>
 			</div>					
 		</div>				
 			</div>
 			</div>
-			<div class="w-1/3 p-4" >
-					<c:forEach var="comentario" items="${hotelesConComentarios}">
-								<h2 class="text-l font-bold">Autor: ${comentario.usuario.username}</h2>
-								<hr>
-								<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden ">
-									<div class="w-1/3">
-						        		<img class="h-full rounded-t-lg object-cover" src="/recursos/${hotel.img}" alt="imagen-hotel-${hotel.ciudadHotel}"/>
-									</div>
-									<div class="w-2/3 p-3">
-										<p class="text-sm text-gray-500"> Fecha: ${comentario.fechaComentario}</p>
-										<p class="text-base">${comentario.mensaje}</p>
-									</div>
-								</div>
-				</c:forEach>	
+			<div class="w-1/3 p-4">
+			<div  class="flex flex-wrap">
+			<div class="w-full h-3/4 overflow-y-auto max-h-96">
+				  <c:forEach var="comentario" items="${hotelesConComentarios}">
+				    <h2 class="text-l font-bold">Autor: ${comentario.usuario.username}</h2>
+				    <hr>
+				    <div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
+				      <div class="w-1/3">
+				        <img class="h-full rounded-t-lg object-cover" src="/recursos/${hotel.img}" alt="imagen-hotel-${hotel.ciudadHotel}" />
+				      </div>
+				      <div class="w-2/3 p-3">
+				        <p class="text-sm text-gray-500"> Fecha: ${comentario.fechaComentario}</p>
+				        <p class="text-base">${comentario.mensaje}</p>
+				      </div>
+				    </div>
+				  </c:forEach>
+				</div>
+				<div class=" w-full h-1/4" >
+					<jsp:include page="altaComentario.jsp"></jsp:include>
+				</div>
+			</div>
 			</div>		
 		</div>
 		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500 p-4 mb-4">
 
-	<h2 class="text-center text-3xl font-semibold mb-6">Lista de habitaciones del hotel</h2>
+	<h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
 	
 	<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
 	    <div class="flex justify-center">
