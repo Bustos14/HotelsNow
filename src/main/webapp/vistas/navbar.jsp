@@ -68,10 +68,10 @@
 			  </sec:authorize>
 			  <sec:authorize access="!isAuthenticated()">
 			    <li>
-			      <a href="/login" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Inicia sesión</a>
+			      <a href="/login" class="inline-block rounded py-2 px-4 text-ffc36d bg-white mr-2" style="box-shadow: 0px 0px 0px 2px #ffc36d;">Inicia sesión</a>
 			    </li>
 			    <li>
-			      <a href="/registro" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Regístrate</a>
+			      <a href="/registro" class="inline-block rounded py-2 px-4 text-white bg-ffc36d hover:bg-yellow-300 focus:bg-yellow-400">Regístrate</a>
 			    </li>
 			  </sec:authorize>
 

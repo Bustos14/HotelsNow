@@ -15,5 +15,12 @@
 	}
 	
 	.bg-ffc36d {
-	  background-color: #ffc36d;
+	 	background-color: #ffc36d;
 	}
+	.text-ffc36d {
+	 	color: #ffc36d;
+	}
+	.border-ffc36d{
+		border-color: #ffc36d;
+	}
+	
