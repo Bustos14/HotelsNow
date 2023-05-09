@@ -26,6 +26,10 @@
 <!--  Apartid de aquí -->	
 
 <div class="w-4/5 mx-auto">
+<button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
+			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+			<a href="/">Volver</a>
+		</button>
     <div class="container mx-auto mt-8 max-w-3xl" >
         <div class="bg-white rounded-lg shadow overflow-hidden">
             <div class="px-4 py-5 sm:px-6">
