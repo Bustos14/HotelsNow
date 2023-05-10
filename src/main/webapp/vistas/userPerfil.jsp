@@ -73,31 +73,42 @@
 		</div>  
 			<div class="mt-20 text-center border-b pb-12">   
 			  <c:forEach var="user" items="usuario">
-			    <div class="mb-4">
-			      <label for="nombre" class="block font-bold mb-2">Nombre:</label>
-			      <input disabled id="inputNombre" type="text" name="nombre" id="nombre" value="${usuario.nombre}" 
-			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
-			    </div>
-			    <div class="mb-4">
-			      <label for="username" class="block font-bold mb-2">Username:</label>
-			      <input readonly id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
-			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
-			    </div>
-			    <div class="mb-4">
-			      <label for="apellidos" class="block font-bold mb-2">Apellidos:</label>
-			      <input disabled id="inputApellidos" type="text" name="apellidos" id="apellidos" value="${usuario.apellidos}" 
-			      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
-			    </div>
-			    <div class="mb-4">
-			      <label for="fechaNacimiento" class="block font-bold mb-2">Fecha de nacimiento:</label>
-			      <input disabled type="text" name="fechaNacimiento" id="fechaNacimiento" value="${usuario.fechaNacimiento}" 
-			      class="w-full rounded-lg border-none border-gray-400focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  text-center" disabled>
-			    </div>
-			    <div class="mb-4">
-			      <label for="fechaRegistro" class="block font-bold mb-2">Fecha de registro:</label>
-			      <input disabled type="text" name="fechaRegistro" id="fechaRegistro" value="${usuario.fechaRegistro}" 
-			      class="w-full rounded-lg border-none border-gray-400focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50  text-center" disabled>
-			    </div>
+			   <div class="grid grid-cols-2 gap-4">
+  <div>
+    <div class="mb-4">
+      <label for="nombre" class="block font-bold mb-2 text-indigo-500">Nombre:</label>
+      <input disabled id="inputNombre" type="text" name="nombre" id="nombre" value="${usuario.nombre}" 
+      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+    </div>
+    <div class="mb-4">
+      <label for="username" class="block font-bold mb-2 text-indigo-500">Username: (no se puede modificar)</label>
+      <input readonly id="inputUsername" type="text" name="username" id="username" value="${usuario.username}" 
+      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+    </div>
+    <div class="mb-4">
+    	<label reandonly class="block font-bold mb-2 text-indigo-500">HotelsNow</label>
+    	<img class="w-10 h-10 mx-auto block" src="${pageContext.request.contextPath}/img/hotel-test.png" alt="Icono de fecha de registro">
+    </div>
+  </div>
+  <div>
+    <div class="mb-4">
+      <label for="apellidos" class="block font-bold mb-2 text-indigo-500">Apellidos:</label>
+      <input disabled id="inputApellidos" type="text" name="apellidos" id="apellidos" value="${usuario.apellidos}" 
+      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-center">
+    </div>
+    <div class="mb-4">
+      <label for="fechaNacimiento" class="block font-bold mb-2 text-indigo-500">Fecha de nacimiento:</label>
+      <input disabled type="text" name="fechaNacimiento" id="fechaNacimiento" value="${usuario.fechaNacimiento}" 
+      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-gray-700 text-center" disabled>
+    </div>
+    <div class="mb-4">
+      <label for="fechaRegistro" class="block font-bold mb-2 text-indigo-500">Fecha de registro:</label>
+      <input disabled type="text" name="fechaRegistro" id="fechaRegistro" value="${usuario.fechaRegistro}" 
+      class="w-full rounded-lg border-none border-gray-400 focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 text-gray-700 text-center" disabled>
+    </div>
+  </div>
+</div>
+
 			    </form>
 			  </c:forEach> 
 			</div> 
