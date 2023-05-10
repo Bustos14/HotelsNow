@@ -106,15 +106,16 @@
 		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500 p-4 mb-4">
 
 	<h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
-	
-	<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
-	    <div class="flex justify-center">
-	        <button type="submit"
-	                class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-	            Nueva habitación 
-	        </button>
-	    </div>
-	</form>
+	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
+		<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
+		    <div class="flex justify-center">
+		        <button type="submit"
+		                class="flex mx-auto mt-5 text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+		            Nueva habitación 
+		        </button>
+		    </div>
+		</form>
+	</sec:authorize>
 	<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 		<c:forEach var="habitacion" items="${listaHabs}">
 			<div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
