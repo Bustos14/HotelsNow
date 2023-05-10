@@ -73,7 +73,7 @@
 		</div>  
 			<div class="mt-20 text-center border-b pb-12">   
 			  <c:forEach var="user" items="usuario">
-			   <div class="grid grid-cols-2 gap-4">
+			   <div class="grid grid-cols-2">
   <div>
     <div class="mb-4">
       <label for="nombre" class="block font-bold mb-2 text-indigo-500">Nombre:</label>
