@@ -49,12 +49,16 @@ public class ReservaController {
 	 * 
 	 * @param session -> Para poder meter en sesión el id de la reserva
 	 * @param idHab -> el id que vamos a meter en sesión
+	 * @param Model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista de reserva
 	 */
 	@GetMapping("/reservar/{id}")
-	public String reservar(HttpSession session, @PathVariable("id") int idHab) {
+	public String reservar(HttpSession session, @PathVariable("id") int idHab,Model model) {
 		System.out.println(idHab);
 		session.setAttribute("idHab", idHab);
+		Habitacione h = habdao.buscarUna(idHab);
+		model.addAttribute("habitacion", h);
+		
 		return "reservaForm";
 	}
 	

@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" />
 </head>
 <body class="bg-gray-100">
-	<jsp:include page="navbar.jsp"></jsp:include>
+<jsp:include page="infoHabitacion.jsp"></jsp:include>
 	
 	
 	<div class="w-4/5 mx-auto">
@@ -35,8 +35,7 @@
 			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
 			<a href="/">Volver</a>
 		</button>
-  <!-- Author: FormBold Team -->
-  <!-- Learn More: https://formbold.com -->
+		
   <div class="mx-auto w-full max-w-[550px]">
     <form action="/reserva/reservar" method="POST">
       <div class="-mx-3 flex flex-wrap">
