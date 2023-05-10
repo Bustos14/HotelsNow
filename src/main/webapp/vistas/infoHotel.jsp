@@ -30,7 +30,7 @@
 		</button>
 	
 	
-		<div class="rounded-lg shadow overflow-hidden">
+		<div class="rounded-lg  overflow-hidden">
 	<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
 			<div class="w-2/3">
 				<div class="container mx-auto px-20">
