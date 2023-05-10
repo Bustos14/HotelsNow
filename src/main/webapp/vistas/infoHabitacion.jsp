@@ -33,54 +33,39 @@
 			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
 			<a href="/">Volver</a>
 		</button>
-  <div class="container mx-auto mt-8 max-w-3xl">
-    <div class="bg-white rounded-lg shadow overflow-hidden">
-      <div class="px-4 py-5 sm:px-6">
-        <h2 class="text-lg leading-6 font-medium text-gray-900">
-          Detalles de la habitación <span class="text-lg font-bold">${ habitacion.tipoHabitacion }</span>
-        </h2>
-        <p class="mt-1 max-w-2xl text-sm text-gray-500">Aquí puedes encontrar la información detallada de la habitación.</p>
+<div class="container mx-auto px-4 py-8 max-w-4xl">
+  <div class="max-w-400 mx-auto flex items-center justify-center">
+    <div class="flex flex-col justify-between bg-white rounded-lg shadow-lg">
+      <div>
+        <img src="/recursos/${habitacion.img}" class="h-auto w-full object-cover rounded-t-lg" style="max"alt="Room image">
+        <div class="px-4 py-5 sm:px-6">
+          <h2 class="text-2xl font-bold text-gray-800">${habitacion.tipoHabitacion}</h2>
+          <p class="mt-1 text-sm text-gray-500">${habitacion.nombreHabitacion}</p>
+        </div>
+        <div class="border-t border-gray-200 px-4 py-5 sm:px-6">
+          <h3 class="text-lg font-medium text-gray-900">Detalles de la habitación</h3>
+          <dl class="mt-2 grid grid-cols-1 gap-x-4 gap-y-8 sm:grid-cols-2">
+            <div class="sm:col-span-1">
+              <dt class="text-sm font-medium text-gray-500">ID de la habitación</dt>
+              <dd class="mt-1 text-sm text-gray-900">${ habitacion.idHabitacion }</dd>
+            </div>
+            <div class="sm:col-span-1">
+              <dt class="text-sm font-medium text-gray-500">Precio por noche</dt>
+              <dd class="mt-1 text-sm text-gray-900">$${ habitacion.precioNoche }</dd>
+            </div>
+            <div class="sm:col-span-1">
+              <dt class="text-sm font-medium text-gray-500">Nombre del hotel</dt>
+              <dd class="mt-1 text-sm text-gray-900">${ habitacion.hotele.nombreHotel }</dd>
+            </div>
+            <div class="sm:col-span-1">
+              <dt class="text-sm font-medium text-gray-500">Disponible</dt>
+              <dd class="mt-1 text-sm text-gray-900"><span class="px-2 py-1 text-white font-bold rounded-full ${habitacion.disponible == 1 ? 'bg-green-500' : 'bg-red-500'}">${habitacion.disponible == 1 ? 'Disponible' : 'No disponible'}</span></dd>
+            </div>
+          </dl>
+        </div>
       </div>
-      <div class="border-t border-gray-200">
-        <dl>
-		<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-			<img class="h-auto max-w-lg rounded-lg" src="/recursos/${habitacion.img}" alt="image description">
-		</div>
-		<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-			<dt class="text-sm font-medium text-gray-500">
-				Nombre habitación
-			</dt>
-			<dd class="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-1">
-				<c:out value="${habitacion.nombreHabitacion}" />
-			</dd>
-		</div>
-          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">ID de la habitación</dt>
-            <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.idHabitacion }</dd>
-          </div>
-          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">Tipo de habitación</dt>
-            <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.tipoHabitacion }</dd>
-          </div>
-          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">Precio por noche</dt>
-            <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.precioNoche }</dd>
-          </div>
-          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-            <dt class="text-sm leading-5 font-medium text-gray-500">Nombre del hotel</dt>
-            <dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">${ habitacion.hotele.nombreHotel }</dd>
-          </div> 
-          <div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-						<dt class="text-sm leading-5 font-medium text-gray-500">
-							Disponible</dt>
-						<dd class="mt-1 text-sm leading-5 text-gray-900 sm:mt-0 sm:col-span-1">
-							<span
-								class="${habitacion.disponible == 1 ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
-								${habitacion.disponible == 1 ? 'Disponible' : 'No disponible'} </span>
-						</dd>
-		  </div>
           <div class="mt-2 flex justify-center space-x-2 mb-4">
-
+<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
 	<form method="GET" action="/habitacion/editar/${habitacion.idHabitacion }">
             
 	     <button type="submit"  class="flex mx-auto text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
@@ -99,12 +84,13 @@
 			</svg>
        	</button>
 	</form>
+</sec:authorize>
 </div>      
 
 
+	</div>
 
 <!-- No borrar </div> -->
-	</div>
 	<script>
   // Obtener el elemento del alert
   const alert = document.getElementById('alert');
