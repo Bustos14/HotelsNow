@@ -126,7 +126,7 @@
 		<c:forEach var="habitacion" items="${listaHabs}">
 		
 		
-<div class="container mx-auto px-20">
+<div class="container mx-auto">
 						<div style='background-color:rgb(255, 255, 255)'>
 								<div class="mt-10 relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
 								  <div class="items-center text-center xs:flex xs:text-left xs:space-x-10">
