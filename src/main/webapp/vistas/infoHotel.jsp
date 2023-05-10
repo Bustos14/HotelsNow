@@ -106,9 +106,7 @@
 			</div>
 			</div>		
 		</div>
-		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500 p-4 mb-4">
-
-
+		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2  p-4 mb-4">
 <h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
 		<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
