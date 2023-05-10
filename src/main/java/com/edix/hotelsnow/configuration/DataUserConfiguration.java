@@ -54,8 +54,8 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 				"/recursos/**")
 		.permitAll()
 		
-		//  Las autorizaciones sobre urls para ROLES
-		//	.antMatchers("/eliminarProducto/**").hasAnyAuthority("ROLE_ADMIN")
+	//  Las autorizaciones sobre urls para ROLES
+		.antMatchers("/habitacion/alta/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_SUPERADMIN")
   
 	  // Todas las demás URLs de la Aplicación requieren autenticación
 		 .anyRequest().authenticated()
