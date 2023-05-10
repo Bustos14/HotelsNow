@@ -132,15 +132,12 @@ public class HomeController {
 		usuario.addRol(rol);
 		usuario.setEnabled(true);
 		usuario.setFechaRegistro(new Date());
-		usuario.setFechaNacimiento(new Date());
-		usuario.setApellidos(usuario.getNombre());
 		usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
-		//usuario.setFechaNacimiento(new Date());
-		/*if(!mayorEdad(usuario.getFechaNacimiento())) {
+		if(!mayorEdad(usuario.getFechaNacimiento())) {
 			model.addAttribute("mensaje", "Debes ser mayor de edad, para registrarte");
 			return "/registroUsuario";
-		}*/
-		//if(mayorEdad(usuario.getFechaNacimiento())) {
+		}
+		if(mayorEdad(usuario.getFechaNacimiento())) {
 			if (udao.registro(usuario)) {
 		 		return "redirect:/login";
 		 	}
@@ -148,12 +145,12 @@ public class HomeController {
 		 		model.addAttribute("mensaje", "ya existe como usuario");
 		 		return "registro";
 		 	}
-		}/*else {
+		}else {
 			model.addAttribute("mensaje", "Debe ser mayor de edad");
 			return "registro";
 
-		}*/
-//	}
+		}
+	}
 
 	/**
 	 * Método para ir al formulario
