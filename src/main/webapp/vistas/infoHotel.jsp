@@ -15,7 +15,7 @@
 <body class="bg-gray-100">
 	<jsp:include page="navbar.jsp"></jsp:include>
 	
-	<div class="w-4/5 mx-auto">
+	
 	
 	<c:if test="${not empty mensaje}">
 	  <div id="alert" class="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded relative" role="alert">
@@ -23,7 +23,7 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
-	
+	<div class="p-8 w-4/5 mx-auto">
 		<button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
 			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
 			<a href="/">Volver</a>
@@ -38,9 +38,9 @@
 											<div class="container mx-auto px-20">
 								
 								<div style='background-color:rgb(255, 255, 255)'>
-								<div class="relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
+								<div class="mt-10 relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
 								  <div class="items-center text-center xs:flex xs:text-left xs:space-x-10">
-								    <img class=" imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="/recursos/${hotel.img}" alt="${hotel.nombreHotel}" height="122" width="300px">
+								    <img class="rounded-lg shadow-md imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="/recursos/${hotel.img}" alt="${hotel.nombreHotel}" height="122" width="300px">
 								    <div class="flex-1 leading-chillaxed">
 						      <div class="mb-4">
 								      <h2 class="text-lg leading-6 font-medium text-gray-900">
@@ -157,7 +157,7 @@
 		</div>
 	
 </div>
-					
+			</div>		
 					      			 		
 
 	
