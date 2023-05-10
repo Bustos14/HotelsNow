@@ -33,14 +33,17 @@
 		<div class="bg-white rounded-lg shadow overflow-hidden">
 	<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
 			<div class="w-2/3">
-			
-											
-											<div class="container mx-auto px-20">
-								
-								<div style='background-color:rgb(255, 255, 255)'>
+				<div class="container mx-auto px-20">
+						<div style='background-color:rgb(255, 255, 255)'>
 								<div class="mt-10 relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
 								  <div class="items-center text-center xs:flex xs:text-left xs:space-x-10">
-								    <img class="rounded-lg shadow-md imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="/recursos/${hotel.img}" alt="${hotel.nombreHotel}" height="122" width="300px">
+								  <c:if test="${empty hotel.img}">
+								      <img class="rounded-lg shadow-md imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="${pageContext.request.contextPath}/img/hotel-test.png"  alt="${hotel.nombreHotel}" height="122" width="300px">
+									</c:if>
+									<c:if test="${not empty hotel.img}">
+									      <img class="rounded-lg shadow-md imgContainer w-24 h-full mx-auto mb-4 -mt-12 transform -translate-y-2 xs:mb-0 xs:mt-0 xs:mx-none md:w-32" src="/recursos/${hotel.img}" alt="${hotel.nombreHotel}" height="122" width="300px">
+									</c:if>
+								
 								    <div class="flex-1 leading-chillaxed">
 						      <div class="mb-4">
 								      <h2 class="text-lg leading-6 font-medium text-gray-900">
@@ -105,7 +108,8 @@
 		</div>
 		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2 border-gray-500 p-4 mb-4">
 
-	<h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
+
+<h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
 		<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
 		    <div class="flex justify-center">
@@ -116,43 +120,58 @@
 		    </div>
 		</form>
 	</sec:authorize>
+
+	
 	<div class="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 		<c:forEach var="habitacion" items="${listaHabs}">
-			<div class="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 sm:w-full">
-				<a href="/habitacion/info/${habitacion.idHabitacion }">
-					<img class="rounded-t-lg " src="/recursos/${habitacion.img}" alt="imagen-hotel->${habitacion.nombreHabitacion}" style="max-width: 100%; height: 300px; width: 100%;"/>
-				</a> 
-				<div class="p-5">      
-					<a href="/habitacion/info/${habitacion.idHabitacion}">
-						<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >${habitacion.nombreHabitacion} </h5>
-					</a>
-					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.tipoHabitacion}</p>
-					<p class="mb-3 font-normal text-gray-700 dark:text-gray-400">${habitacion.precioNoche}&euro;</p>
-				</div>
-<div class="px-4 py-5 sm:grid sm:grid-cols-2 sm:gap-4 sm:px-6">
-    <div class="mt-2 flex justify-start">    
-        <div class="flex items-center space-x-2">
-            <p class="text-gray-600 dark:text-gray-300 text-sm ">
-                <span class="${habitacion.disponible == 1 ? 'bg-green-200 text-green-800 ' : 'bg-red-200 text-red-800'} font-bold py-1 px-3 rounded-full">
-                    ${habitacion.disponible == 1 ? 'Disponible' : 'No_disponible'}
-                </span>
-            </p>
-            <div class="flex flex-col justify-center">
-            <form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
-                <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                    Reservar
-                </button>
-            </form>
-            <form method="GET" action="/habitacion/info/${habitacion.idHabitacion}">
-                <button type="submit" class="flex mx-auto mt-2 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-                    Detalles
-                </button>
-            </form>
-            </div>
-        </div>
-    </div>
-</div>
-			</div>
+		
+		
+<div class="container mx-auto px-20">
+						<div style='background-color:rgb(255, 255, 255)'>
+								<div class="mt-10 relative max-w-xl p-8 mx-auto mb-8 text-purple-800 bg-white rounded-md shadow-2xl" style="cursor: auto;">
+								  <div class="items-center text-center xs:flex xs:text-left xs:space-x-10">
+								    <a href="/habitacion/info/${habitacion.idHabitacion }">
+								    <c:if test="${empty habitacion.img}">
+								    <img class="rounded-t-lg " src="${pageContext.request.contextPath}/img/hotel-test.png" alt="imagen-hotel->${habitacion.nombreHabitacion}" style="max-width: 100%; height: 200px; width: 100%;"/>
+									</c:if>
+									<c:if test="${not empty habitacion.img}">
+									  <img class="rounded-t-lg " src="/recursos/${habitacion.img}" alt="imagen-hotel->${habitacion.nombreHabitacion}" style="max-width: 100%; height: 200px; width: 100%;"/>
+									</c:if>
+									</a> 
+								    <div class="flex-1 leading-chillaxed">
+						      <div class="mb-4">
+								    	<a href="/habitacion/info/${habitacion.idHabitacion}">
+											<h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white" >${habitacion.nombreHabitacion} </h5>
+										</a>
+								      </div>
+								      <ul>
+								        <li>
+								          <svg class="inline-block w-4 h-4 mr-3 opacity-40" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+											  <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+											</svg>
+											${habitacion.tipoHabitacion}
+								        </li>
+								        <li>
+								        <svg class="inline-block w-4 h-4 mr-3 opacity-40" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+ 											<path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+									</svg>${habitacion.precioNoche}&euro;
+								        </li>
+								        <li>
+								        <div style="padding:10px">
+									        <form method="GET" action="/reserva/reservar/${habitacion.idHabitacion}">
+								                <button type="submit" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
+								                    Reservar
+								                </button>
+								            </form>
+							            </div>
+								        </li>
+								      </ul>
+								    </div>
+								  </div>
+								  <div class="absolute ${habitacion.disponible == 1 ? 'bg-green-200 text-green-800 ' : 'bg-red-200 text-red-800'} bottom-0 left-0 w-full h-2 "></div>
+								</div>
+								</div>
+			</div>	
 		</c:forEach>
 	</div>
 		</div>
