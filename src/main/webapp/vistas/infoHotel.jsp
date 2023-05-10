@@ -30,7 +30,7 @@
 		</button>
 	
 	
-		<div class="bg-white rounded-lg shadow overflow-hidden">
+		<div class="rounded-lg shadow overflow-hidden">
 	<div class="flex items-center bg-white shadow-md rounded-md overflow-hidden">
 			<div class="w-2/3">
 				<div class="container mx-auto px-20">
@@ -106,7 +106,7 @@
 			</div>
 			</div>		
 		</div>
-		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2  p-4 mb-4">
+		<div class="container mx-auto mt-6 relative overflow-x-auto shadow-md sm:rounded-lg border-2  p-4 bg-white">
 <h2 class="text-center text-3xl font-semibold mb-6">Habitaciones</h2>
 	<sec:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPERADMIN')">
 		<form method="GET" action="/habitacion/alta/${hotel.idHotel}">
