@@ -32,7 +32,13 @@
 	</button>
 
 
+<div class="text-center ml-2 inline-block">
+    <button class="flex mx-auto mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
+    	<a href="/tarjeta/alta">Nueva tarjeta</a>
+    </button>
+</div>
 <div class="flex mt-10 flex-wrap">
+
   
     <c:forEach var="tarjeta" items="${todasTarjetas}">
     <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg" style="margin: 2px;">
@@ -96,11 +102,6 @@
 
 </div>
 
-<div class="text-center mb-10">
-    <button class="flex mx-auto mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
-    	<a href="/tarjeta/alta">Nueva tarjeta</a>
-    </button>
-</div>
 
 
 
