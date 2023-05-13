@@ -26,44 +26,81 @@
 	</c:if>
 	
 <!--  Apartid de aquí -->	
+	<button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
+		<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+		<a href="/">Volver</a>
+	</button>
 
 
-<table class="mt-6 min-w-full divide-y divide-gray-200">
-<button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
-			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
-			<a href="/">Volver</a>
-		</button>
-  <thead class="bg-gray-50">
-    <tr>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nombre del titular</th>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Número de tarjeta</th>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fecha de caducidad</th>
-      <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">CVV</th>
-      <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Acciones</th>
-    </tr>
-  </thead>
-  <tbody class="bg-white divide-y divide-gray-200">
+<div class="m-4 flex flex-wrap">
+  
     <c:forEach var="tarjeta" items="${todasTarjetas}">
-      <tr>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${tarjeta.nombreTitular}</td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${tarjeta.numeroTarjeta}</td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">${tarjeta.fechaCaducidad}</td>
-        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${tarjeta.cvv}</td>
-        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-          <a href="/tarjeta/editar/${tarjeta.idTarjetaBancaria}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
-          <a href="/tarjeta/eliminar/${tarjeta.idTarjetaBancaria}" class="text-red-600 hover:text-red-900 ml-4">Eliminar</a>
-        </td>
-      </tr>
+    <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg w-1/3" style="margin: 2px;">
+    		 <div
+            class="relative"
+            x-show="card === 'front'"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+          >
+            <img class="w-full h-auto" src="https://www.computop-paygate.com/Templates/imagesaboutYou_desktop/images/svg-cards/card-visa-front.png" alt="front credit card">
+            <div class="front bg-transparent text-lg w-full text-white px-12 absolute left-0 bottom-12">
+              <p class="number mb-5 sm:text-xl" x-text="cardNumber !== '' ? cardNumber : '0000 0000 0000 0000'"></p>
+              <div class="flex flex-row justify-between">
+                <p x-text="cardholder !== '' ? cardholder : 'Card holder'"></p>
+                <div class="">
+                  <span x-text="expired.month"></span>
+                  <span x-show="expired.month !== ''">/</span>
+                  <span x-text="expired.year"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="flex">
+            <li class="mx-2">
+              <img class="w-16" src="https://www.computop-paygate.com/Templates/imagesaboutYou_desktop/images/computop.png" alt="" />
+            </li>
+            <li class="mx-2">
+              <img class="w-14" src="https://www.computop-paygate.com/Templates/imagesaboutYou_desktop/images/verified-by-visa.png" alt="" />
+            </li>
+            <li class="ml-5">
+              <img class="w-7" src="https://www.computop-paygate.com/Templates/imagesaboutYou_desktop/images/mastercard-id-check.png" alt="" />
+            </li>
+          </ul>
+        <div class="mt-4 p-4">
+          	<h1 class="text-xl font-semibold text-gray-700 text-center">Tarjeta de crédito</h1>
+         <div class="">
+		  <div class="my-3">
+		    <label class="text-gray-700 font-bold" for="nombreTitular">Nombre del titular: </label>
+		    <span class="text-gray-700" id="nombreTitular">${tarjeta.nombreTitular}</span>
+		  </div>
+		  <div class="my-3">
+		    <label class="text-gray-700 font-bold" for="numeroTarjeta">Número de tarjeta: </label>
+		    <span class="text-gray-700" id="numeroTarjeta">${tarjeta.numeroTarjeta}</span>
+		  </div>
+		  <div class="my-3 flex flex-col">
+		    <label class="text-gray-700 font-bold" for="fechaCaducidad">Fecha de caducidad: </label>
+		    <span class="text-gray-700" id="fechaCaducidad">${tarjeta.fechaCaducidad}</span>
+		  </div>
+		  <div class="my-3">
+		    <label class="text-gray-700 font-bold" for="cvv">CVV: </label>
+		    <span class="text-gray-700" id="cvv">${tarjeta.cvv}</span>
+		  </div>
+		  <a href="/tarjeta/editar/${tarjeta.idTarjetaBancaria}" class="inline-block w-auto mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Editar</a>
+		  <a href="/tarjeta/eliminar/${tarjeta.idTarjetaBancaria}" class="inline-block w-auto mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg ml-4">Eliminar</a>
+		</div>
+       </div>
+       </div>
     </c:forEach>
-  </tbody>
-</table>
 
-<div class="text-center">
+
+</div>
+
+<div class="text-center mb-10">
     <button class="flex mx-auto mt-5 text-white bg-green-500 border-0 py-2 px-8 focus:outline-none hover:bg-green-600 rounded text-lg">
     	<a href="/tarjeta/alta">Nueva tarjeta</a>
     </button>
 </div>
-
 
 
 
