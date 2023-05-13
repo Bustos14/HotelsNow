@@ -25,9 +25,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
+import com.edix.hotelsnow.dao.SolicitudDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
 import com.edix.hotelsnow.entitybeans.Habitacione;
 import com.edix.hotelsnow.entitybeans.Hotele;
+import com.edix.hotelsnow.entitybeans.Role;
+import com.edix.hotelsnow.entitybeans.SolicitudHotele;
 import com.edix.hotelsnow.entitybeans.Usuario;
 
 @Controller
@@ -42,6 +45,9 @@ public class HoteleController {
 	private UsuarioDao udao;
 	@Autowired
 	private ComentarioDao cdao;
+	@Autowired
+	private SolicitudDao sdao;
+	
 	// M√©todo para obtener una lista de provincias espa√±olas
     private List<String> getProvincias() {
     	   return Arrays.asList("¡lava", "Albacete", "Alicante", "AlmerÌa", "Asturias", "¡Åvila", "Badajoz", "Barcelona",
@@ -87,31 +93,25 @@ public class HoteleController {
 	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
 	 */
 	@PostMapping("/alta")
-	public String altaHotel(@ModelAttribute Hotele h, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
-	
-		  if(!image.isEmpty()) { 
-			String rutaAbsoluta = "C:\\Hotel\\recursos\\";
-			try {
-				Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		        String username = auth.getName();
-		        Usuario u = udao.buscarUsuario(username);
-				byte[] bytesImg = image.getBytes();
-				Path rutaCompleta = Paths.get(rutaAbsoluta + "//" + image.getOriginalFilename());
-				Files.createDirectories(rutaCompleta.getParent());
-				Files.write(rutaCompleta, bytesImg);
-				byte disponible = 1;
-				h.setDisponible(disponible);
-				h.setImg(image.getOriginalFilename());
-				h.setUsuario(u);
-				if(hdao.altaHotel(h)!=null) {
-					attr.addFlashAttribute("mensaje", "Hotel creado correctamente");
-					return "redirect:/";
+	public String altaHotel(@ModelAttribute Hotele hotel, RedirectAttributes attr, @RequestParam("file") MultipartFile image) {
+			SolicitudHotele sHotel = new SolicitudHotele();
+			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	        String username = auth.getName();
+	        Usuario user = udao.buscarUsuario(username);
+			if(hotel!= null && user != null) {
+				sHotel.setIdHotelSolicitado(hotel.getIdHotel());
+				sHotel.setCorreoElectronicoHotel(hotel.getCorreoElectronicoHotel());
+				sHotel.setDireccionHotel(hotel.getDireccionHotel());
+				sHotel.setTelefonoHotel(hotel.getTelefonoHotel());
+				sHotel.setCiudadHotel(hotel.getCiudadHotel());
+				sHotel.setNombreHotel(hotel.getNombreHotel());
+				sHotel.setUsuario(user);
+				if(user.getEnabled()) {
+					if(sdao.altaSolicitud(sHotel)!=null) {
+						return "redirect:/";
+					}
 				}
-			}catch(Exception e) {
-				e.printStackTrace();
-			}		
-		}
-		
+			}
 		return "redirect:/altaHotel";
 	}
 	

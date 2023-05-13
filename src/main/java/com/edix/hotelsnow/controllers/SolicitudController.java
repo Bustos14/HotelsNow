@@ -138,7 +138,7 @@ public class SolicitudController {
 	            	hotel.setTelefonoHotel(sHotel.getTelefonoHotel());
 	            	hotel.setUsuario(sHotel.getUsuario());
 	            	if(hdao.altaHotel(hotel)!=null) {
-	            		if(hotel.getUsuario().getEnabled()!=true) {
+	            		if(!hotel.getUsuario().getEnabled()) {
 	            			hotel.getUsuario().setEnabled(true);
 		            		udao.modificarUsuario(hotel.getUsuario());
 	            		}
@@ -148,9 +148,12 @@ public class SolicitudController {
 	            	}
 	            } else if (action.equals("denegar")) {
 	            	if(sdao.denegarSolicitud(sHotel.getIdHotelSolicitado())==true){
-	            		if(udao.eliminarUsuario(sHotel.getUsuario().getUsername())==true){
-		            		System.out.println("Solicitud eliminada");
-		            	} 
+	            		if(!sHotel.getUsuario().getEnabled()) {
+	            			if(udao.eliminarUsuario(sHotel.getUsuario().getUsername())==true){
+			            		System.out.println("Solicitud eliminada");
+			            	} 
+	            		}
+	            		
 	            	}
 	            	
 	            }
