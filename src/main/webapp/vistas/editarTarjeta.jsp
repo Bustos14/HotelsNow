@@ -93,7 +93,7 @@
   </div>
 </form>
 <div class="flex items-center justify-center mt-3">
-  <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver atrás</a>
+  <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">Volver atrás</a>
 </div>
 
 </div>
