@@ -26,12 +26,37 @@
 	</c:if>
 	
 <!--  Apartid de aquí -->	
+<div class="p-8 mt-10 bg-white">
 
 <div class="flex flex-col items-center justify-center h-full">
+
+
 <button class="fixed bottom-4 mb-5 right-4 z-10 flex items-center justify-center text-white bg-ffc36d border-0 py-2 px-8 focus:outline-none hover:bg-yellow-300 rounded text-lg">
 			<svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
 			<a href="/">Volver</a>
 		</button>
+		
+
+    		 <div
+            class="relative"
+            x-show="card === 'front'"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+          >
+            <img class="w-full h-auto" src="https://www.computop-paygate.com/Templates/imagesaboutYou_desktop/images/svg-cards/card-visa-front.png" alt="front credit card">
+            <div class="front bg-transparent text-lg w-full text-white px-12 absolute left-0 bottom-12">
+              <p class="number mb-5 sm:text-xl" x-text="cardNumber !== '' ? cardNumber : '0000 0000 0000 0000'"></p>
+              <div class="flex flex-row justify-between">
+                <p x-text="cardholder !== '' ? cardholder : 'Card holder'"></p>
+                <div class="">
+                  <span x-text="expired.month"></span>
+                  <span x-show="expired.month !== ''">/</span>
+                  <span x-text="expired.year"></span>
+                </div>
+              </div>
+            </div>
+          </div>
   <h3 class="text-3xl font-bold text-gray-800 mb-4">Propietario de la tarjeta: ${tarjetaEditar.usuario.username}</h3>
 </div>
 
@@ -71,7 +96,7 @@
   <a href="/usuario/misTarjetas/${tarjetaEditar.usuario.username}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Volver atrás</a>
 </div>
 
-
+</div>
 
 
 

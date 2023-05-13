@@ -32,10 +32,10 @@
 	</button>
 
 
-<div class="m-4 flex flex-wrap">
+<div class="flex mt-10 flex-wrap">
   
     <c:forEach var="tarjeta" items="${todasTarjetas}">
-    <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg w-1/3" style="margin: 2px;">
+    <div class="bg-white max-w-sm rounded overflow-hidden shadow-lg" style="margin: 2px;">
     		 <div
             class="relative"
             x-show="card === 'front'"
@@ -69,7 +69,7 @@
           </ul>
         <div class="mt-4 p-4">
           	<h1 class="text-xl font-semibold text-gray-700 text-center">Tarjeta de crédito</h1>
-         <div class="">
+         <div class="p-4">
 		  <div class="my-3">
 		    <label class="text-gray-700 font-bold" for="nombreTitular">Nombre del titular: </label>
 		    <span class="text-gray-700" id="nombreTitular">${tarjeta.nombreTitular}</span>
