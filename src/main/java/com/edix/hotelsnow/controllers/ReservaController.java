@@ -45,10 +45,10 @@ public class ReservaController {
 	HabitacioneDao habdao;
 	
 	/**
-	 * M茅todo que muestra la vista con el formulario de reserva
+	 * M閠odo que muestra la vista con el formulario de reserva
 	 * 
-	 * @param session -> Para poder meter en sesi贸n el id de la reserva
-	 * @param idHab -> el id que vamos a meter en sesi贸n
+	 * @param session -> Para poder meter en sesi髇 el id de la reserva
+	 * @param idHab -> el id que vamos a meter en sesi髇
 	 * @param Model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista de reserva
 	 */
@@ -63,14 +63,14 @@ public class ReservaController {
 	}
 	
 	/**
-	 * M茅todo por el cual se hace efectivo el reservar
+	 * M閠odo por el cual se hace efectivo el reservar
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param entrada -> Parametro para saber la fecha de la entrada en la habitaci贸n
-	 * @param salida -> Parametro para saber la fecha de salida de la habitaci贸n
+	 * @param entrada -> Parametro para saber la fecha de la entrada en la habitaci髇
+	 * @param salida -> Parametro para saber la fecha de salida de la habitaci髇
 	 * @param horario -> Parametro para saber la hora de llegada al hotel
 	 * @param numero -> Parametro que determina el numero de huespedes en la habitacion
-	 * @param session -> Para poder meter en sesi贸n informaci贸n importante y poder recuperarla cuando sea necesario
+	 * @param session -> Para poder meter en sesi髇 informaci髇 importante y poder recuperarla cuando sea necesario
 	 * @param atrr -> Para redirigir despues de un POST
 	 * @return -> Redirigimos al perfil del usuario
 	 */
@@ -78,7 +78,6 @@ public class ReservaController {
 	public String reservar(Model model, @RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session, RedirectAttributes atrr ) {
 		Reserva r = new Reserva();
 		Integer idHotel = (Integer) session.getAttribute("idHotel");
-		System.out.println((Integer) session.getAttribute("idHab"));
 		int idHabitacion =  (Integer) session.getAttribute("idHab");
 		Integer numeroHuesped = Integer.parseInt(numero);
 		Habitacione hab = habdao.buscarUna(idHabitacion);
@@ -107,7 +106,7 @@ public class ReservaController {
 	}
 	
 	/**
-	 * M茅todo realizado para cancelar uan reserva, buscada por id
+	 * M閠odo realizado para cancelar uan reserva, buscada por id
 	 * 
  	 * @param idReserva -> parametro para buscar la reserva por id
 	 * @param model -> Usado para poder pasar atributos a las vistas
@@ -124,7 +123,7 @@ public class ReservaController {
 	}
 	
 	/**
-	 * M茅todo para ir a la vista, donde podemos ver todas las reservas
+	 * M閠odo para ir a la vista, donde podemos ver todas las reservas
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve una vista con todas las reservas
@@ -137,18 +136,5 @@ public class ReservaController {
 		return "listadoReservas";
 	}
 	
-	//M茅todo necesario para formatear fechas
-			@InitBinder
-			public void initBinder(WebDataBinder webdataBinder) {
-				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-				webdataBinder
-				.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
-			}
-			public boolean mayorEdad(Date feNac) {
-				 Date fechaActual = new Date();
-			        long edadEnMilisegundos = fechaActual.getTime() - feNac.getTime();
-			        long edadEnAnios = edadEnMilisegundos / (365 * 24 * 60 * 60 * 1000L);
-			        return edadEnAnios >= 18;
-			}
 	
 }

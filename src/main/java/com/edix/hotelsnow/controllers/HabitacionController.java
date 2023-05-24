@@ -54,7 +54,7 @@ public class HabitacionController {
 	}
 	
 	/**
-	 * MÃ©todo usado para mostrar la vista con la información de una habitación de hotel buscado por idHabitacion
+	 * Método usado para mostrar la vista con la información de una habitación de hotel buscado por idHabitacion
 	 * 
 	 * @param idHabitacion -> Parámetro para buscar por idHabitación entre todas las que tenemos
 	 * @param model -> Usado para poder pasar atributos a las vistas

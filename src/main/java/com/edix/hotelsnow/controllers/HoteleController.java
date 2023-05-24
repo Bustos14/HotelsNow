@@ -48,7 +48,7 @@ public class HoteleController {
 	@Autowired
 	private SolicitudDao sdao;
 	
-	// MÃ©todo para obtener una lista de provincias espaÃ±olas
+	//no hace falta javadoc
     private List<String> getProvincias() {
     	   return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
                    "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca",
@@ -60,7 +60,7 @@ public class HoteleController {
     }
 	
 	/**
-	 * MÃ©todo usado para devolver la lista de todos los hoteles.
+	 * Método usado para devolver la lista de todos los hoteles.
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return vista listado de todos los hoteles
@@ -72,24 +72,24 @@ public class HoteleController {
 	}
 	
 	/**
-	 * MÃ©todo usado para devolver la vista de altaHotel
+	 * Método usado para devolver la vista de altaHotel
 	 * 
-	 * @return -> Nos envÃ­a a la vista para dar alta al hotel
+	 * @return -> Nos envía a la vista para dar alta al hotel
 	 */
 	@GetMapping("/alta")
 	public String irAltaHotel(Model model) {
-		// AÃ±adimos la lista de provincias al modelo
+		//Añadimos la lista de provincias al modelo
         model.addAttribute("provincias", getProvincias());
         
 		return "altaHotel";
 	}
 	
 	/**
-	 * MÃ©todo para realizar el alta de un hotel
+	 * Método para realizar el alta de un hotel
 	 * 
 	 * @param h -> Es el hotel que recibimos del formulario
-	 * @param attr -> lo usamos para redirigir informaciÃ³n, cuando se usa POST
-	 * @return -> Si todo va bien nos redirige a la pÃ¡gina principal y vemos como se ha creado
+	 * @param attr -> lo usamos para redirigir información, cuando se usa POST
+	 * @return -> Si todo va bien nos redirige a la página principal y vemos como se ha creado
 	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
 	 */
 	@PostMapping("/alta")
@@ -116,7 +116,7 @@ public class HoteleController {
 	}
 	
 	/**
-	 * MÃ©todo para eliminar un hotel con el id como parÃ¡metro
+	 * Método para eliminar un hotel con el id como parámetro
 	 * 
 	 * @param idHotel -> Es el id del hotel que se desea eliminar
 	 * @param attr -> Usado para redirigir el mensaje a la vista
@@ -134,11 +134,11 @@ public class HoteleController {
 	}
 	
 	/**
-	 * MÃ©todo para obtener la vista con la informaciÃ³n de un hotel buscado por id como parÃ¡metro
+	 * Método para obtener la vista con la información de un hotel buscado por id como parámetro
 	 * 
 	 * @param idHotel -> Parametro para realizar la busqueda del hotel
 	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param session -> Usado para meter en sesiÃ³n atributos que depuÃ©s nos harÃ¡n falta
+	 * @param session -> Usado para meter en sesión atributos que después nos harán falta
 	 * @return -> Devolvemos la vista infoHotel
 	 */
 	@GetMapping("/info/{id}")
@@ -164,9 +164,9 @@ public class HoteleController {
 	}
 	
 	/**
-	 * MÃ©todo para devolver la vista editar hotel
+	 * Método para devolver la vista editar hotel
 	 * 
-	 * @param idHotel -> ParÃ¡metro para realizar la busqueda del hotel
+	 * @param idHotel -> Parámetro para realizar la busqueda del hotel
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista editarHotel
 	 */
@@ -181,12 +181,12 @@ public class HoteleController {
 	}
 	
 	/**
-	 * MÃ©todo para hacer efectivo el editar Hotel
+	 * Método para hacer efectivo el editar Hotel
 	 * 
 	 * @param hotelEditar -> Es la entidad que hemos pasado por los parametros del formulario de editar
 	 * @param attr -> Para redirigir después de un POST
 	 * @param image -> Para tratar la imagen del formulario
-	 * @return -> Devuelve la vista de editar y asÃ­ comprobamos que los cambios se han realizado exitosamente.
+	 * @return -> Devuelve la vista de editar y así comprobamos que los cambios se han realizado exitosamente.
 	 */
 	@PostMapping("/editar")
 	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr , @RequestParam("file") MultipartFile image) {

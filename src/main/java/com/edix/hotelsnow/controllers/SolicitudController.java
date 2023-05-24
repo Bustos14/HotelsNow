@@ -24,13 +24,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.Utils;
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.RoleDao;
 import com.edix.hotelsnow.dao.SolicitudDao;
 import com.edix.hotelsnow.dao.UsuarioDao;
-import com.edix.hotelsnow.entitybeans.Comentario;
 import com.edix.hotelsnow.entitybeans.Hotele;
 import com.edix.hotelsnow.entitybeans.Role;
 import com.edix.hotelsnow.entitybeans.SolicitudHotele;
@@ -61,31 +61,22 @@ public class SolicitudController {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	// M√©todo para obtener una lista de provincias espa√±olas
-    private List<String> getProvincias() {
-    	   return Arrays.asList("¡lava", "Albacete", "Alicante", "AlmerÌa", "Asturias", "¡Åvila", "Badajoz", "Barcelona",
-                   "Burgos", "C·ceres", "C·diz", "Cantabria", "CastellÛn", "Ciudad Real", "CÛrdoba", "Cuenca",
-                   "Gerona", "Granada", "Guadalajara", "Guip˙zcua", "Huelva", "Huesca", "Islas Baleares", "JaÈn",
-                   "La Coru√±a", "La Rioja", "Las Palmas", "LeÛn", "LÈrida", "Lugo", "Madrid", "M·laga", "Murcia",
-                   "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
-                   "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
-                   "Zamora", "Zaragoza");
-    }
-    
+	@Autowired
+	private Utils utils;
 	/**
-	 * M√©todo usado para ir a la vista altaSolicitud
+	 * MÈtodo usado para ir a la vista altaSolicitud
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devolvemos la vista altaSolicitud
 	 */
 	@GetMapping("/altaSolicitud")
 	public String irAltaComentario(Model model) {
-	     model.addAttribute("provincias", getProvincias());
+	     model.addAttribute("provincias", utils.getProvincias());
 		return "altaSolicitud";
 	}
 	
 	/**
-	 * M√©todo usado para realizar efectivo el alta de un comentario
+	 * MÈtodo usado para realizar efectivo el alta de un comentario
 	 * 
 	 * @param attr -> Para poder redirigir despues de un POST
 	 * @param hotel -> Entidad que se genera a partir de los campos del formulario
@@ -117,9 +108,9 @@ public class SolicitudController {
 	
 	
 	/**
-	 * M√©todo usado para realizar la acci√≥n del usuario
+	 * MÈtodo usado para realizar la acciÛn del usuario
 	 * 
-	 * @param action -> La acci√≥n que ha seleccionado (aceptar o denegar)
+	 * @param action -> La acciÛn que ha seleccionado (aceptar o denegar)
 	 * @param idSolicitud -> con el id buscamos la solicitud que precisa de aceptar o denegar
 	 * @return -> Devolvemos la vista verSolicitudes para comprobar que se ha realizado el cambio
 	 */
@@ -159,13 +150,5 @@ public class SolicitudController {
 	            }
 	        }
             return "redirect:/usuario/verSolicitudes";
-	}
-	
-	//M√©todo necesario para formatear fechas
-	@InitBinder
-	public void initBinder(WebDataBinder webdataBinder) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		webdataBinder
-		.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
 	}
 }

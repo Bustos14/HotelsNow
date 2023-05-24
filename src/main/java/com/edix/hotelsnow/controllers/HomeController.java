@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.Utils;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
 import com.edix.hotelsnow.dao.RoleDao;
@@ -44,9 +45,10 @@ public class HomeController {
 	private PasswordEncoder passwordEncoder;
 	@Autowired
 	private HabitacioneDao habdao;
-	
+	@Autowired
+	private Utils utils;
 	/** 
-	 * MÃ©todo para devolver la vista index
+	 * Método para devolver la vista index
 	 * 
 	 * @param model -> para enviar la lista de los hoteles
 	 * @return vista Index (mostramos los hoteles en cards)
@@ -74,7 +76,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃ©todo para devolver la vista SobreNosotros
+	 * MÃétodo para devolver la vista SobreNosotros
 	 * 
 	 * @return -> Devuelve la vista sobre nosotros
 	 */
@@ -84,7 +86,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃ©todo para devolver la vista contacto
+	 * Método para devolver la vista contacto
 	 * 
 	 * @return -> Devuelve la vista contacto
 	 */
@@ -94,7 +96,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃ©todo para devolver la vista servicios
+	 * Método para devolver la vista servicios
 	 * 
 	 * @return -> Devuelve la vista servicios 
 	 */
@@ -104,7 +106,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃ©todo para devolver la vista de registro
+	 * Método para devolver la vista de registro
 	 *  
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista de registro
@@ -119,11 +121,11 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃ©todo de registrar un usuario pero sÃ³lo para usuarios que tengan el ROL Administrador
+	 * Método de registrar un usuario pero sólo para usuarios que tengan el ROL Administrador
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @param usuario -> La entidad que registramos en el formulario
-	 * @param ratt -> Para redirigir despuÃ©s de un mÃ©todo POST
+	 * @param ratt -> Para redirigir despuÃ©s de un método POST
 	 * @return -> Redirige al login
 	 */
 	@PostMapping("/registro")
@@ -133,11 +135,11 @@ public class HomeController {
 		usuario.setEnabled(true);
 		usuario.setFechaRegistro(new Date());
 		usuario.setContrasena(passwordEncoder.encode(usuario.getContrasena()));
-		if(!mayorEdad(usuario.getFechaNacimiento())) {
+		if(!utils.mayorEdad(usuario.getFechaNacimiento())) {
 			model.addAttribute("mensaje", "Debes ser mayor de edad, para registrarte");
 			return "/registroUsuario";
 		}
-		if(mayorEdad(usuario.getFechaNacimiento())) {
+		if(utils.mayorEdad(usuario.getFechaNacimiento())) {
 			if (udao.registro(usuario)) {
 		 		return "redirect:/login";
 		 	}
@@ -153,7 +155,7 @@ public class HomeController {
 	}
 
 	/**
-	 * MÃ©todo para ir al formulario
+	 * Método para ir al formulario
 	 * 
 	 * @return -> Devuelve la vista del formulario de login
 	 */
@@ -162,6 +164,14 @@ public class HomeController {
 		return "formLogin";
 	}
 	
+	/**
+	 * Realiza una búsqueda de hoteles según el tipo y criterio de búsqueda proporcionados.
+	 *
+	 * @param tipo         el tipo de búsqueda (nombre o ciudad)
+	 * @param inputSearch  el criterio de búsqueda
+	 * @param model        el objeto Model para agregar el resultado de la búsqueda
+	 * @return el nombre de la vista a la que se redirige después de la búsqueda (en este caso, "index")
+	 */
 	@GetMapping("/search")
 	public String busqueda(@RequestParam(name="tipo") String tipo, @RequestParam(name="inputSearch")String inputSearch, Model model) {
 		List<Hotele> listaHoteles= new ArrayList<Hotele>();
@@ -180,6 +190,15 @@ public class HomeController {
 		model.addAttribute("listaHoteles", listaHoteles);
 		return "index";
 	}
+	
+	/**
+	 * Realiza una búsqueda de hoteles por tipo.
+	 *
+	 * @param tipo   el tipo de habitación a buscar
+	 * @param model  el objeto Model para agregar el resultado de la búsqueda
+	 * @return el nombre de la vista a la que se redirige después de la búsqueda (en este caso, "index")
+	 */
+	
 	@GetMapping("/tipo/{tipo}")
 	public String buscarPorTipo(@PathVariable ("tipo") String tipo, Model model) {
 		List<Hotele> listaHoteles= habdao.findByHabTipo(tipo);
@@ -189,27 +208,6 @@ public class HomeController {
 		model.addAttribute("listaHoteles", listaHoteles);
 		return "index";
 	}
-	//MÃ©todo necesario para formatear fechas
-		@InitBinder
-		public void initBinder(WebDataBinder webdataBinder) {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			webdataBinder
-			.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
-		}
 		
-		/**
-		 * Determina si una persona es mayor de edad a partir de su fecha de nacimiento.
-		 *
-		 * @param feNac la fecha de nacimiento de la persona
-		 * @return true si la persona es mayor de edad, false si es menor de edad
-		 */
-		public boolean mayorEdad(Date feNac) {
-			Date fechaActual = new Date();
-			
-	        long edadEnMilisegundos = fechaActual.getTime() - feNac.getTime();
-		    // Convierte la diferencia a aÃ±os dividiÃ©ndola por el nÃºmero de milisegundos en un aÃ±o.
-	        long edadEnAnios = edadEnMilisegundos / (365 * 24 * 60 * 60 * 1000L);
-	        return edadEnAnios >= 18;
-		}
 		
 }
