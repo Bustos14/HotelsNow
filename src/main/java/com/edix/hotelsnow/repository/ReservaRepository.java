@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.edix.hotelsnow.entitybeans.Habitacione;
 import com.edix.hotelsnow.entitybeans.Reserva;
 import com.edix.hotelsnow.entitybeans.Usuario;
 

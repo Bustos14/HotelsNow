@@ -14,8 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.InitBinder;	
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +53,7 @@ public class ComentarioController {
 	
 	
 	/**
-	 * MÃ©todo por el cual mostramos la vista donde tendremos un listado de todos los comentarios
+	 * Método por el cual mostramos la vista donde tendremos un listado de todos los comentarios
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista listadoComentarios
@@ -66,10 +65,10 @@ public class ComentarioController {
 	}
 	
 	/**
-	 * MÃ©todo usado para devolver la vista del formulario para dar de alta un comentario
+	 * Método usado para devolver la vista del formulario para dar de alta un comentario
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param session -> Usado para poder obtener el idHotel que esta en sesiÃ³n
+	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
 	 * @return -> Devuelve la vista altaComentario si todo ha ido bien, si no redirige al home
 	 */
 	@GetMapping("/altaComentario")
@@ -81,7 +80,7 @@ public class ComentarioController {
 	    List<Reserva> reserva = rdao.buscarPorUsuario(u); 
 	    Integer idHotel = (Integer) session.getAttribute("idHotel");
 	    if (idHotel == null) {
-	        // Manejar el caso en que el atributo no existe en la sesiÃ³n
+	        // Manejar el caso en que el atributo no existe en la sesión
 	        return "redirect:/";
 	    }
     	System.out.println("El id del hotel es = "+idHotel);
@@ -97,11 +96,11 @@ public class ComentarioController {
 	}
 	
 	/**
-	 * MÃ©todo usado en el formulario para hacer efectivo el alta de un comentario
+	 * Método usado en el formulario para hacer efectivo el alta de un comentario
 	 * 
-	 * @param mensaje -> Es el parÃ¡metro que recibimos a travÃ©s del formulario.
-	 * @param attr -> Usado para redirigir despÃºes de un POST
-	 * @param session -> Usado para poder obtener el idHotel que esta en sesiÃ³n
+	 * @param mensaje -> Es el parámetro que recibimos a través del formulario.
+	 * @param attr -> Usado para redirigir despues de un POST
+	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
 	 * @return
 	 */
 	@PostMapping("/altaComentario")
@@ -109,7 +108,7 @@ public class ComentarioController {
 		Comentario c = new Comentario();
 		Integer idHotel = (Integer) session.getAttribute("idHotel");
         if (idHotel == null) {
-            // Manejar el caso en que el atributo no existe en la sesiÃ³n
+            // Manejar el caso en que el atributo no existe en la sesión
             return "redirect:/";
         }
 		Hotele h = hdao.buscarUno(idHotel);
@@ -152,9 +151,9 @@ public class ComentarioController {
 	}
 	
 	/**
-	 * MÃ©todo usado para obtener los comentarios por el idHotel del hotel que se busca
+	 * Método usado para obtener los comentarios por el idHotel del hotel que se busca
 	 * 
-	 * @param idHotel -> ParÃ¡metro para realizar la bÃºsqueda de sus comentarios
+	 * @param idHotel -> Parámetro para realizar la búsqueda de sus comentarios
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista de los comentarios de un hotel buscado por idHotel
 	 */
@@ -177,10 +176,10 @@ public class ComentarioController {
 	}
 	
 	/**
-	 * MÃ©todo para obtener todos los comentarios y poder pintarlos en la vista
+	 * Método para obtener todos los comentarios y poder pintarlos en la vista
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Se devuelve la vista para que el superAdming pueda gestionar los comentarios de la web.
+	 * @return -> Se devuelve la vista para que el superAdmin pueda gestionar los comentarios de la web.
 	 */
 	@GetMapping("/verComentarios")
 	public String verTodosComentariosSuperAdmin(Model model) {
@@ -192,10 +191,10 @@ public class ComentarioController {
 	}
 	
 	/**
-	 * MÃ©todo usado para eliminar un comentario del hotel desde la vista del superadmin
+	 * Método usado para eliminar un comentario del hotel desde la vista del superadmin
 	 * 
-	 * @param idComentario -> ParÃ¡metro para poder localizar el comentario por id
-	 * @param attr -> Se usa para poder redirigir informaciÃ³n despues de usar un POST
+	 * @param idComentario -> Parámetro para poder localizar el comentario por id
+	 * @param attr -> Se usa para poder redirigir información despues de usar un POST
 	 * @return -> Devuelve la vista donde mostramos los comentarios en tarjetas
 	 */
 	@PostMapping("/procederEliminar/{id}")
@@ -212,7 +211,13 @@ public class ComentarioController {
 		return "redirect:/comentario/verComentarios";
 	}
 	
-	//MÃ©todo necesario para formatear fechas
+
+	/**
+	 * Método usado para el formateo e interpretración de fechas.
+	 * @param webdataBinder -> DataBinder especial para el enlace de datos desde parámetros de solicitud web a objetos JavaBean.
+	 *
+	 */
+	
 	@InitBinder
 	public void initBinder(WebDataBinder webdataBinder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

@@ -2,9 +2,6 @@ package com.edix.hotelsnow.entitybeans;
 
 import java.io.Serializable;
 import javax.persistence.*;
-
-import org.springframework.ui.Model;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;

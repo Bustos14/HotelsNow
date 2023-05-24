@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.edix.hotelsnow.entitybeans.Hotele;
-import com.edix.hotelsnow.entitybeans.Usuario;
 
 public interface HoteleRepository extends JpaRepository<Hotele, Integer>{
 
@@ -21,8 +20,8 @@ public interface HoteleRepository extends JpaRepository<Hotele, Integer>{
 	Hotele findByCorreoElectronicoHotel(String correoElectronicoHotel);
 	
 	/**
-	 * @param ciudadHotel -> buscamos hoteles por la  ciudad pasada por parÃ¡metro
-	 * @return -> Devuelve una lista con los hoteles que coinciden con la ciudad pasada por parÃ¡metro
+	 * @param ciudadHotel -> buscamos hoteles por la  ciudad pasada por parámetro
+	 * @return -> Devuelve una lista con los hoteles que coinciden con la ciudad pasada por parámetro
 	 */
 		@Query("SELECT h FROM Hotele h WHERE h.ciudadHotel LIKE %:ciudad%")
 		List<Hotele> findByCiudadHotel(@Param("ciudad")String ciudadHotel);
