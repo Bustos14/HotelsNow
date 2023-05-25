@@ -52,9 +52,9 @@ public class UsuarioController {
 	private HoteleDao hdao;
 	
 	/**
-	 * MÃ©todo usado para mostrar la vista con el perfil de usuario, con username como parametro de busqueda
+	 * Método usado para mostrar la vista con el perfil de usuario, con username como parametro de búsqueda
 	 * 
-	 * @param username -> Parametro para buscar el perfil a mostrar del usuario
+	 * @param username -> Parámetro para buscar el perfil a mostrar del usuario
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devolvemos la vista del perfil de usuario
 	 */
@@ -79,7 +79,7 @@ public class UsuarioController {
 	}
 	
 	/**
-	 * MÃ©todo que hace efectivo la modificaciÃ³n del perfil de usuario
+	 * Método que hace efectivo la modificación del perfil de usuario
 	 * 
 	 * @param usuario -> son los parametros modificados en el formulario de modificar
 	 * @param attr -> Para redirigir despues de un POST
@@ -104,7 +104,7 @@ public class UsuarioController {
 	}
 	
 	/**
-	 * MÃ©todo para ver todos los usuarios
+	 * Método para ver todos los usuarios
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve una vista con todos los usuarios
@@ -119,7 +119,7 @@ public class UsuarioController {
 	}
 	
 	/**
-	 * MÃ©todo que devuelve la vista con las solicitudes de alta de hoteles que tenemos pendientes
+	 * Método que devuelve la vista con las solicitudes de alta de hoteles que tenemos pendientes
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @return -> Devuelve la vista con todas las solicitudes
@@ -132,11 +132,11 @@ public class UsuarioController {
 	}
 	
 	/**
-	 * MÃ©todo para ver mis reservas
+	 * Método para ver mis reservas
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @param auth -> Para obtener el usaurio
-	 * @return -> Devuelve la vista con la informaciÃ³n de mis reservas
+	 * @return -> Devuelve la vista con la información de mis reservas
 	 */
 	@GetMapping("/misReservas")
 	public String verMisReservas(Model model, Authentication auth) {
@@ -149,11 +149,11 @@ public class UsuarioController {
 	}
 	
 	/**
-	 * Metodo usado para devolver la vista con mis comentarios
+	 * Método usado para devolver la vista con mis comentarios
 	 * 
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @param auth -> Para obetner el usaurio
-	 * @return -> Devolvemos la vista con la informaciÃ³n de mis comentarios
+	 * @return -> Devolvemos la vista con la información de mis comentarios
 	 */
 	@GetMapping("/misComentarios")
 	public String verMisComentarios(Model model, Authentication auth) {
@@ -167,12 +167,12 @@ public class UsuarioController {
 	
 	/* TARJETAS */
 	/**
-	 * MÃ©todo usado para devolver la informaciÃ³n de las tarjetas con username como parametro
+	 * Método usado para devolver la información de las tarjetas con username como parametro
 	 * 
 	 * @param auth -> Para obtener al usuario
 	 * @param model -> Usado para poder pasar atributos a las vistas
 	 * @param username -> Parametro para buscar las tarjetas del usuario por username
-	 * @return -> Devuelve la vista de la informaciÃ³n de las tarjetas
+	 * @return -> Devuelve la vista de la información de las tarjetas
 	 */
 	@GetMapping("/misTarjetas/{username}")
 	public String misTarjetas(Authentication auth, Model model, @PathVariable("username") String username) {
@@ -186,7 +186,7 @@ public class UsuarioController {
 	
 	
 	/**
-	 * MÃ©todo par devolver la vista con el formulario de alta de la tarjeta
+	 * Método par devolver la vista con el formulario de alta de la tarjeta
 	 * @return -> Devolvemos la vista del formulario para el altaTarjeta
 	 */
 	@GetMapping("/alta")
@@ -199,7 +199,7 @@ public class UsuarioController {
 	
 	
 	/**
-	 * MÃ©todo realizado para llevar acabo el altaTarjeta
+	 * Método realizado para llevar acabo el altaTarjeta
 	 * 
 	 * @param auth -> Con el obtenemos el usuario que hace el alta tarjeta
 	 * @param tarjeta -> La entidad que se rellena con los campos del formulario de alta
@@ -225,16 +225,6 @@ public class UsuarioController {
 	
 	}
 	
-	
-	/* FIN TARJETAS */
-	
-	
-
-	
-	
-	
-
-	//MÃ©todo necesario para formatear fechas
 		@InitBinder
 		public void initBinder(WebDataBinder webdataBinder) {
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");

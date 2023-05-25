@@ -3,17 +3,22 @@ package com.edix.hotelsnow.controllers;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.edix.hotelsnow.Utils;
 import com.edix.hotelsnow.dao.ComentarioDao;
 import com.edix.hotelsnow.dao.HabitacioneDao;
 import com.edix.hotelsnow.dao.HoteleDao;
@@ -47,17 +53,8 @@ public class HoteleController {
 	private ComentarioDao cdao;
 	@Autowired
 	private SolicitudDao sdao;
-	
-	//no hace falta javadoc
-    private List<String> getProvincias() {
-    	   return Arrays.asList("¡lava", "Albacete", "Alicante", "AlmerÌa", "Asturias", "¡Åvila", "Badajoz", "Barcelona",
-                   "Burgos", "C·ceres", "C·diz", "Cantabria", "CastellÛn", "Ciudad Real", "CÛrdoba", "Cuenca",
-                   "Gerona", "Granada", "Guadalajara", "Guip˙zcua", "Huelva", "Huesca", "Islas Baleares", "JaÈn",
-                   "La Coru√±a", "La Rioja", "Las Palmas", "LeÛn", "LÈrida", "Lugo", "Madrid", "M·laga", "Murcia",
-                   "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
-                   "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
-                   "Zamora", "Zaragoza");
-    }
+	@Autowired
+	private Utils utils;
 	
 	/**
 	 * MÈtodo usado para devolver la lista de todos los hoteles.
@@ -79,7 +76,7 @@ public class HoteleController {
 	@GetMapping("/alta")
 	public String irAltaHotel(Model model) {
 		//AÒadimos la lista de provincias al modelo
-        model.addAttribute("provincias", getProvincias());
+        model.addAttribute("provincias", utils.getProvincias());
         
 		return "altaHotel";
 	}
@@ -175,7 +172,7 @@ public class HoteleController {
 		Hotele h = hdao.buscarUno(idHotel);
 		model.addAttribute("hotel",h);
 		// A√±adimos la lista de provincias al modelo
-        model.addAttribute("provincias", getProvincias());
+        model.addAttribute("provincias", utils.getProvincias());
 		
 		return "editarHotel";
 	}
@@ -199,7 +196,6 @@ public class HoteleController {
 		h.setDireccionHotel(hotelEditar.getDireccionHotel());
 		h.setDisponible(hotelEditar.getDisponible());
 		h.setTelefonoHotel(hotelEditar.getTelefonoHotel());
-		System.out.println("holaaaa"+image.getOriginalFilename().isBlank());
 	if(!image.getOriginalFilename().isBlank()) {
 		try {
 			String rutaAbsoluta = "C:/Hotel/recursos";
@@ -222,6 +218,13 @@ public class HoteleController {
 	}
 		
 		return "redirect:/";
+	}
+	
+	@InitBinder
+	public void initBinder(WebDataBinder webdataBinder) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		webdataBinder
+		.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
 	}
 	
 }

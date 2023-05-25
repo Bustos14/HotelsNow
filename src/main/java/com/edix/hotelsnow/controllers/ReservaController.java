@@ -136,5 +136,12 @@ public class ReservaController {
 		return "listadoReservas";
 	}
 	
+	@InitBinder
+	public void initBinder(WebDataBinder webdataBinder) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		webdataBinder
+		.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
+	}
+	
 	
 }

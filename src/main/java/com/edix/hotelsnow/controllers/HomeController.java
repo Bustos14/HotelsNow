@@ -76,7 +76,7 @@ public class HomeController {
 	}
 	
 	/**
-	 * MÃétodo para devolver la vista SobreNosotros
+	 * Método para devolver la vista SobreNosotros
 	 * 
 	 * @return -> Devuelve la vista sobre nosotros
 	 */
@@ -208,6 +208,11 @@ public class HomeController {
 		model.addAttribute("listaHoteles", listaHoteles);
 		return "index";
 	}
-		
+	@InitBinder
+	public void initBinder(WebDataBinder webdataBinder) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		webdataBinder
+		.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
+	}
 		
 }

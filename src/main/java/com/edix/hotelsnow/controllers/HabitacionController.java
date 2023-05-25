@@ -4,16 +4,21 @@ import java.nio.file.AccessDeniedException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -191,6 +196,12 @@ public class HabitacionController {
 			attr.addFlashAttribute("mensaje", "No eliminado, problemas");
 			return "redirect:/";
 		}
+	}
+	@InitBinder
+	public void initBinder(WebDataBinder webdataBinder) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		webdataBinder
+		.registerCustomEditor(Date.class, new CustomDateEditor(sdf, false));
 	}
 	
 }

@@ -35,7 +35,7 @@ public class TarjetaBancariaController {
 	private UsuarioDao udao;
 	
 	/**
-	 * Metodo que nos muestra la vista alta tarjeta
+	 * Método que nos muestra la vista alta tarjeta.
 	 * @return -> Devolvemos la vista altaTarjeta
 	 */
 	@GetMapping("/alta")
@@ -47,10 +47,10 @@ public class TarjetaBancariaController {
 	
 	
 	/**
-	 * Metodo que nos muestra todas las tarjetas que se han creado
+	 * Método que nos muestra todas las tarjetas que se han creado.
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve todas las tarjetas
+	 * @param model -> Usado para poder pasar atributos a las vistas.
+	 * @return -> Devuelve todas las tarjetas.
 	 */
 	@GetMapping("/tarjetas")
 	public String todasTarjetas(Model model) {
@@ -64,11 +64,11 @@ public class TarjetaBancariaController {
 	
 	
 	/**
-	 * MÃ©todo para mostrar la informaciÃ³n de una tarjeta buscada por id
+	 * Método para mostrar la información de una tarjeta buscada por id.
 	 * 
 	 * @param id -> Parametro para buscar la tarjeta
 	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devolvemos la vista con la informaciÃ³n de la tarjeta
+	 * @return -> Devolvemos la vista con la información de la tarjeta
 	 */
 	@GetMapping("/verTarjeta/{id}")
 	public String irDetalleTarjeta(@PathVariable("id") int id, Model model) {
@@ -83,7 +83,7 @@ public class TarjetaBancariaController {
 	
 
 	/**
-	 * Metodo para eliminar una tarjeta
+	 * Método para eliminar una tarjeta.
 	 * 
 	 * @param auth -> Para obtener el usuario
 	 * @param idTarjeta -> Parametro para buscar la tarjeta a elimianr
@@ -110,7 +110,7 @@ public class TarjetaBancariaController {
 	}
 	
 	/**
-	 * MÃ©todo para llevar a cabo el alta de una tarjeta
+	 * Método para llevar a cabo el alta de una tarjeta
 	 * 
 	 * @param auth -> Para obtener el usuario que realiza el alta de la tarjeta
 	 * @param tarjeta -> Es la entidad que se rellena con los parametros del formulario de alta
@@ -147,7 +147,7 @@ public class TarjetaBancariaController {
 	
 	
 	/**
-	 * Metodo para editar la tarjeta
+	 * Método para editar la tarjeta
 	 * 
 	 * @param tarjeta -> Entidad que queremos modificar, parametros pasados por el formulario de editar
 	 * @param attr -> Para redirigir despues de un POST
@@ -181,9 +181,6 @@ public class TarjetaBancariaController {
 	}
 	
 	
-	
-	
-	//MÃ©todo necesario para formatear fechas
 	@InitBinder
 	public void initBinder(WebDataBinder webdataBinder) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
