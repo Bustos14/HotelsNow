@@ -49,8 +49,8 @@ public class HabitacionController {
 	/**
 	 * Método usado para pasar mostrar las habitacioens que tenemos dada de alta
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devolvemos la vista listadoHabitaciones
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @return  Devolvemos la vista listadoHabitaciones
 	 */
 	@GetMapping("/all")
 	public String listadoHabitaciones(Model model) {
@@ -61,8 +61,8 @@ public class HabitacionController {
 	/**
 	 * Método usado para mostrar la vista con la información de una habitación de hotel buscado por idHabitacion
 	 * 
-	 * @param idHabitacion -> Parámetro para buscar por idHabitación entre todas las que tenemos
-	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param idHabitacion  Parámetro para buscar por idHabitación entre todas las que tenemos
+	 * @param model Usado para poder pasar atributos a las vistas
 	 * @return Devuelve la vista con la informaicón de una habitación buscada por idHabitación
 	 */
 	@GetMapping("/info/{id}")
@@ -76,9 +76,9 @@ public class HabitacionController {
 	/**
 	 * Método usado para devolver la vista en el que mostraremos un formulario para dar de alta una habitación
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param idHotel -> Parámetro para saber a que hotel pertenece la habitación que vamos a crear
-	 * @return -> Devuelve la vista altaHabitación donde podremos rellenar el formulario
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @param idHotel Parámetro para saber a que hotel pertenece la habitación que vamos a crear
+	 * @return Devuelve la vista altaHabitación donde podremos rellenar el formulario
 	 */
 	@GetMapping("/alta/{idHotel}")
 	public String irAltaHabitacion(Model model, @PathVariable("idHotel")int idHotel) {
@@ -91,10 +91,10 @@ public class HabitacionController {
 	/**
 	 * Método usado para devolver la vista de editarHabitación.
 	 *  
-	 * @param idHabitacion -> Parámetro para poder buscar la habitación que deseamos modificar
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param session -> Usado para meter en sesión la idHabitación el idHotel
-	 * @return -> Devolvemos la vista editarHabitación, para poder editarla.
+	 * @param idHabitacion Parámetro para poder buscar la habitación que deseamos modificar
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param session Usado para meter en sesión la idHabitación el idHotel
+	 * @return Devolvemos la vista editarHabitación, para poder editarla.
 	 */
 	@GetMapping("/editar/{idHabitacion}")
 	public String irEditarHabitacion(@PathVariable("idHabitacion") int idHabitacion, Model model, HttpSession session) {
@@ -108,12 +108,11 @@ public class HabitacionController {
 	/**
 	 * MÃ©todo usado para hacer efectivo la modificación realizada en el formulario
 	 *  
-	 * @param habitacion -> Es el objeto Habitacione que se crea con los parámetros del formulario
-	 * @param session -> Lo usamos para recuperar los parámetros que nos hacen falta que tenemos en sesión.
-	 * @param attr -> Usado para redigir despues de un POST
-	 * @param image -> Para poder tratar los archivos de imagen, que en este caso es de habitación
-	 * @return -> Devuelve la vista de información de la habitación, para así poder corroborar los cambios
-	 * @throws Exception -> Excepción producida por la no posible carga de la imagen
+	 * @param habitacion Es el objeto Habitacione que se crea con los parámetros del formulario
+	 * @param session Lo usamos para recuperar los parámetros que nos hacen falta que tenemos en sesión.
+	 * @param attr Usado para redigir despues de un POST
+	 * @param image Para poder tratar los archivos de imagen, que en este caso es de habitación
+	 * @return Devuelve la vista de información de la habitación, para así poder corroborar los cambios
 	 */
 	@PostMapping("/editar")
 	public String editarHabitacion(@ModelAttribute Habitacione habitacion, HttpSession session, RedirectAttributes attr, @RequestParam("file") MultipartFile image) throws AccessDeniedException {
@@ -146,11 +145,11 @@ public class HabitacionController {
 	/**
 	 * Método para hacer efectiva el alta de una habitación nueva
 	 * 
-	 * @param h -> h es el modelo de nuestra entidad Habitacione, que se rellena con los campos del formulario
-	 * @param attr -> Para redirigir después de un metodo POST
-	 * @param image -> Para tratar los archivos de imagen
-	 * @param idHotel -> Para poder asignar la habitación al hotel correspondiente
-	 * @return -> Devuelve al alta de habitación, por si queremos realizar otra alta.
+	 * @param h   es el modelo de nuestra entidad Habitacione, que se rellena con los campos del formulario
+	 * @param attr  Para redirigir después de un metodo POST
+	 * @param image  Para tratar los archivos de imagen
+	 * @param idHotel  Para poder asignar la habitación al hotel correspondiente
+	 * @return  Devuelve al alta de habitación, por si queremos realizar otra alta.
 	 */
 	@PostMapping("/alta")
 	public String altaHabitacion(@ModelAttribute Habitacione h, RedirectAttributes attr, @RequestParam("file") MultipartFile image, @RequestParam("hotelId") int idHotel) {
@@ -183,9 +182,9 @@ public class HabitacionController {
 	/**
 	 * Método para realizar el delete de una habitación
 	 * 
-	 * @param idHabitacion -> Para poder localizar la habitación a eliminar
-	 * @param attr -> Para redirigir despuÃ©s de un método POST
-	 * @return -> Devuelve al home
+	 * @param idHabitacion  Para poder localizar la habitación a eliminar
+	 * @param attr  Para redirigir despuÃ©s de un método POST
+	 * @return  Devuelve al home
 	 */
 	@PostMapping("/eliminar/{id}")
 	public String eliminarHabitacion(@PathVariable("id") int idHabitacion, RedirectAttributes attr) {

@@ -47,10 +47,10 @@ public class ReservaController {
 	/**
 	 * Método que muestra la vista con el formulario de reserva
 	 * 
-	 * @param session -> Para poder meter en sesión el id de la reserva
-	 * @param idHab -> el id que vamos a meter en sesión
-	 * @param Model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista de reserva
+	 * @param session  Para poder meter en sesión el id de la reserva
+	 * @param idHab el id que vamos a meter en sesión
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return  Devuelve la vista de reserva
 	 */
 	@GetMapping("/reservar/{id}")
 	public String reservar(HttpSession session, @PathVariable("id") int idHab,Model model) {
@@ -65,14 +65,14 @@ public class ReservaController {
 	/**
 	 * Método por el cual se hace efectivo el reservar
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param entrada -> Parametro para saber la fecha de la entrada en la habitación
-	 * @param salida -> Parametro para saber la fecha de salida de la habitación
-	 * @param horario -> Parametro para saber la hora de llegada al hotel
-	 * @param numero -> Parametro que determina el numero de huespedes en la habitacion
-	 * @param session -> Para poder meter en sesión información importante y poder recuperarla cuando sea necesario
-	 * @param atrr -> Para redirigir despues de un POST
-	 * @return -> Redirigimos al perfil del usuario
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param entrada Parámetro para saber la fecha de la entrada en la habitación
+	 * @param salida Parámetro para saber la fecha de salida de la habitación
+	 * @param horario Parámetro para saber la hora de llegada al hotel
+	 * @param numero  Parámetro que determina el numero de huespedes en la habitacion
+	 * @param session Para poder meter en sesión información importante y poder recuperarla cuando sea necesario
+	 * @param atrr  Para redirigir despues de un POST
+	 * @return  Redirigimos al perfil del usuario
 	 */
 	@PostMapping("/reservar")
 	public String reservar(Model model, @RequestParam("entrada") Date entrada, @RequestParam("salida") Date salida, @RequestParam("checkin") String horario, @RequestParam("huesped") String numero, HttpSession session, RedirectAttributes atrr ) {
@@ -108,9 +108,9 @@ public class ReservaController {
 	/**
 	 * Método realizado para cancelar uan reserva, buscada por id
 	 * 
- 	 * @param idReserva -> parametro para buscar la reserva por id
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista de misReservas
+ 	 * @param idReserva  parametro para buscar la reserva por id
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @return  Devuelve la vista de misReservas
 	 */
 	@GetMapping("/cancelar/{id}")
 	public String cancelar(@PathVariable("id") int idReserva, Model model) {
@@ -125,8 +125,8 @@ public class ReservaController {
 	/**
 	 * Método para ir a la vista, donde podemos ver todas las reservas
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve una vista con todas las reservas
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @return  Devuelve una vista con todas las reservas
 	 */
 	@GetMapping("/verTodas")
 	public String verTodasReservas(Model model) {

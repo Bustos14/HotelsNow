@@ -50,7 +50,8 @@ public class HomeController {
 	/** 
 	 * Método para devolver la vista index
 	 * 
-	 * @param model -> para enviar la lista de los hoteles
+	 * @param model para enviar la lista de los hoteles
+	 * @param session guardado de sesión
 	 * @return vista Index (mostramos los hoteles en cards)
 	 */
 	@GetMapping
@@ -78,7 +79,7 @@ public class HomeController {
 	/**
 	 * Método para devolver la vista SobreNosotros
 	 * 
-	 * @return -> Devuelve la vista sobre nosotros
+	 * @return Devuelve la vista sobre nosotros
 	 */
 	@GetMapping("/sobreNosotros")
 	public String sobreNosotros() {
@@ -98,7 +99,7 @@ public class HomeController {
 	/**
 	 * Método para devolver la vista servicios
 	 * 
-	 * @return -> Devuelve la vista servicios 
+	 * @return Devuelve la vista servicios 
 	 */
 	@GetMapping("/servicios")
 	public String servicios() {
@@ -108,8 +109,8 @@ public class HomeController {
 	/**
 	 * Método para devolver la vista de registro
 	 *  
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista de registro
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devuelve la vista de registro
 	 */
 	@GetMapping("/registro")
 	public String registro(Model model) {
@@ -123,10 +124,10 @@ public class HomeController {
 	/**
 	 * Método de registrar un usuario pero sólo para usuarios que tengan el ROL Administrador
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param usuario -> La entidad que registramos en el formulario
-	 * @param ratt -> Para redirigir despuÃ©s de un método POST
-	 * @return -> Redirige al login
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param usuario La entidad que registramos en el formulario
+	 * @param ratt Para redirigir despuÃ©s de un método POST
+	 * @return Redirige al login
 	 */
 	@PostMapping("/registro")
 	public String proregistrar( Model model, Usuario usuario, RedirectAttributes ratt) {

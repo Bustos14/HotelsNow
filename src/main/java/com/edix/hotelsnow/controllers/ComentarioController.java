@@ -55,8 +55,8 @@ public class ComentarioController {
 	/**
 	 * Método por el cual mostramos la vista donde tendremos un listado de todos los comentarios
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista listadoComentarios
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @return  Devuelve la vista listadoComentarios
 	 */
 	@GetMapping("/all")
 	public String verTodosComentarios(Model model) {
@@ -67,9 +67,9 @@ public class ComentarioController {
 	/**
 	 * Método usado para devolver la vista del formulario para dar de alta un comentario
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
-	 * @return -> Devuelve la vista altaComentario si todo ha ido bien, si no redirige al home
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @param session  Usado para poder obtener el idHotel que esta en sesión
+	 * @return  Devuelve la vista altaComentario si todo ha ido bien, si no redirige al home
 	 */
 	@GetMapping("/altaComentario")
 	public String irAltaComentario(Model model, HttpSession session) {
@@ -98,9 +98,9 @@ public class ComentarioController {
 	/**
 	 * Método usado en el formulario para hacer efectivo el alta de un comentario
 	 * 
-	 * @param mensaje -> Es el parámetro que recibimos a través del formulario.
-	 * @param attr -> Usado para redirigir despues de un POST
-	 * @param session -> Usado para poder obtener el idHotel que esta en sesión
+	 * @param mensaje  Es el parámetro que recibimos a través del formulario.
+	 * @param attr  Usado para redirigir despues de un POST
+	 * @param session  Usado para poder obtener el idHotel que esta en sesión
 	 * @return
 	 */
 	@PostMapping("/altaComentario")
@@ -153,9 +153,9 @@ public class ComentarioController {
 	/**
 	 * Método usado para obtener los comentarios por el idHotel del hotel que se busca
 	 * 
-	 * @param idHotel -> Parámetro para realizar la búsqueda de sus comentarios
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista de los comentarios de un hotel buscado por idHotel
+	 * @param idHotel  Parámetro para realizar la búsqueda de sus comentarios
+	 * @param model  Usado para poder pasar atributos a las vistas
+	 * @return Devuelve la vista de los comentarios de un hotel buscado por idHotel
 	 */
 	@GetMapping("/comentarios/{idHotel}")
 	public String verComentariosHotel(@PathVariable("idHotel") int idHotel, Model model) {
@@ -178,8 +178,8 @@ public class ComentarioController {
 	/**
 	 * Método para obtener todos los comentarios y poder pintarlos en la vista
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Se devuelve la vista para que el superAdmin pueda gestionar los comentarios de la web.
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Se devuelve la vista para que el superAdmin pueda gestionar los comentarios de la web.
 	 */
 	@GetMapping("/verComentarios")
 	public String verTodosComentariosSuperAdmin(Model model) {
@@ -193,9 +193,9 @@ public class ComentarioController {
 	/**
 	 * Método usado para eliminar un comentario del hotel desde la vista del superadmin
 	 * 
-	 * @param idComentario -> Parámetro para poder localizar el comentario por id
-	 * @param attr -> Se usa para poder redirigir información despues de usar un POST
-	 * @return -> Devuelve la vista donde mostramos los comentarios en tarjetas
+	 * @param idComentario Parámetro para poder localizar el comentario por id
+	 * @param attr Se usa para poder redirigir información despues de usar un POST
+	 * @return Devuelve la vista donde mostramos los comentarios en tarjetas
 	 */
 	@PostMapping("/procederEliminar/{id}")
 	public String eliminarComentarioSuperAdmin(@RequestParam("idComentario") int idComentario, RedirectAttributes attr) {
@@ -214,7 +214,7 @@ public class ComentarioController {
 
 	/**
 	 * Método usado para el formateo e interpretración de fechas.
-	 * @param webdataBinder -> DataBinder especial para el enlace de datos desde parámetros de solicitud web a objetos JavaBean.
+	 * @param webdataBinder  DataBinder especial para el enlace de datos desde parámetros de solicitud web a objetos JavaBean.
 	 *
 	 */
 	

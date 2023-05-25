@@ -59,7 +59,7 @@ public class HoteleController {
 	/**
 	 * Método usado para devolver la lista de todos los hoteles.
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
+	 * @param model Usado para poder pasar atributos a las vistas
 	 * @return vista listado de todos los hoteles
 	 */
 	@GetMapping("/all")
@@ -84,9 +84,10 @@ public class HoteleController {
 	/**
 	 * Método para realizar el alta de un hotel
 	 * 
-	 * @param h -> Es el hotel que recibimos del formulario
-	 * @param attr -> lo usamos para redirigir información, cuando se usa POST
-	 * @return -> Si todo va bien nos redirige a la página principal y vemos como se ha creado
+	 * @param hotel Es el hotel que recibimos del formulario
+	 * @param attr lo usamos para redirigir información, cuando se usa POST
+	 * @param image imagen elegida para mostrar en el hotel
+	 * @return Si todo va bien nos redirige a la página principal y vemos como se ha creado
 	 * 				en cambio, si no, nos redirige de nuevo al formulario de alta
 	 */
 	@PostMapping("/alta")
@@ -115,9 +116,9 @@ public class HoteleController {
 	/**
 	 * Método para eliminar un hotel con el id como parámetro
 	 * 
-	 * @param idHotel -> Es el id del hotel que se desea eliminar
-	 * @param attr -> Usado para redirigir el mensaje a la vista
-	 * @return -> redireccionamos al home ("/")
+	 * @param idHotel Es el id del hotel que se desea eliminar
+	 * @param attr Usado para redirigir el mensaje a la vista
+	 * @return redireccionamos al home ("/")
 	 */
 	@PostMapping("/eliminar/{id}")
 	public String irEliminarHotel(@PathVariable("id") int idHotel, RedirectAttributes attr) {
@@ -133,10 +134,10 @@ public class HoteleController {
 	/**
 	 * Método para obtener la vista con la información de un hotel buscado por id como parámetro
 	 * 
-	 * @param idHotel -> Parametro para realizar la busqueda del hotel
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param session -> Usado para meter en sesión atributos que después nos harán falta
-	 * @return -> Devolvemos la vista infoHotel
+	 * @param idHotel Parametro para realizar la busqueda del hotel
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param session Usado para meter en sesión atributos que después nos harán falta
+	 * @return Devolvemos la vista infoHotel
 	 */
 	@GetMapping("/info/{id}")
 	public String irInfo(@PathVariable("id") int idHotel, Model model, HttpSession session) {
@@ -163,9 +164,9 @@ public class HoteleController {
 	/**
 	 * Método para devolver la vista editar hotel
 	 * 
-	 * @param idHotel -> Parámetro para realizar la busqueda del hotel
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista editarHotel
+	 * @param idHotel Parámetro para realizar la busqueda del hotel
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devuelve la vista editarHotel
 	 */
 	@GetMapping("/editar/{id}")
 	public String irEditar(@PathVariable("id") int idHotel, Model model) {
@@ -180,10 +181,10 @@ public class HoteleController {
 	/**
 	 * Método para hacer efectivo el editar Hotel
 	 * 
-	 * @param hotelEditar -> Es la entidad que hemos pasado por los parametros del formulario de editar
-	 * @param attr -> Para redirigir después de un POST
-	 * @param image -> Para tratar la imagen del formulario
-	 * @return -> Devuelve la vista de editar y así comprobamos que los cambios se han realizado exitosamente.
+	 * @param hotelEditar Es la entidad que hemos pasado por los parametros del formulario de editar
+	 * @param attr Para redirigir después de un POST
+	 * @param image Para tratar la imagen del formulario
+	 * @return Devuelve la vista de editar y así comprobamos que los cambios se han realizado exitosamente.
 	 */
 	@PostMapping("/editar")
 	public String editarHotel(@ModelAttribute Hotele hotelEditar, RedirectAttributes attr , @RequestParam("file") MultipartFile image) {

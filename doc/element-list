@@ -1,0 +1,7 @@
+com.edix.hotelsnow
+com.edix.hotelsnow.configuration
+com.edix.hotelsnow.controllers
+com.edix.hotelsnow.dao
+com.edix.hotelsnow.entitybeans
+com.edix.hotelsnow.repository
+com.edix.hotelsnow.tools

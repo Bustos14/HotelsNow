@@ -66,8 +66,8 @@ public class SolicitudController {
 	/**
 	 * Método usado para ir a la vista altaSolicitud
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devolvemos la vista altaSolicitud
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devolvemos la vista altaSolicitud
 	 */
 	@GetMapping("/altaSolicitud")
 	public String irAltaComentario(Model model) {
@@ -78,10 +78,10 @@ public class SolicitudController {
 	/**
 	 * Método usado para realizar efectivo el alta de un comentario
 	 * 
-	 * @param attr -> Para poder redirigir despues de un POST
-	 * @param hotel -> Entidad que se genera a partir de los campos del formulario
-	 * @param user -> Persona que realiza el comentario
-	 * @return -> Devuelve a la vista de alta comentario por si quisierasmo dejar otro nuevo
+	 * @param attr Para poder redirigir despues de un POST
+	 * @param hotel Entidad que se genera a partir de los campos del formulario
+	 * @param user Persona que realiza el comentario
+	 * @return Devuelve a la vista de alta comentario por si quisierasmo dejar otro nuevo
 	 */
 	@PostMapping("/altaSolicitud")
 	public String guardarComentario( RedirectAttributes attr, @ModelAttribute Hotele hotel, @ModelAttribute Usuario user) {
@@ -110,9 +110,9 @@ public class SolicitudController {
 	/**
 	 * Método usado para realizar la acción del usuario
 	 * 
-	 * @param action -> La acción que ha seleccionado (aceptar o denegar)
-	 * @param idSolicitud -> con el id buscamos la solicitud que precisa de aceptar o denegar
-	 * @return -> Devolvemos la vista verSolicitudes para comprobar que se ha realizado el cambio
+	 * @param action La acción que ha seleccionado (aceptar o denegar)
+	 * @param idSolicitud con el id buscamos la solicitud que precisa de aceptar o denegar
+	 * @return Devolvemos la vista verSolicitudes para comprobar que se ha realizado el cambio
 	 */
 	@PostMapping("/accion")
 	public String realizarAccionSolicitud(@RequestParam("accion") String action,@RequestParam("id_solicitud") String idSolicitud ) {

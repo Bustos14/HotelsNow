@@ -35,8 +35,14 @@ public class Utils {
 		        return edadEnAnios >= 18;
 			}
 			
+			
+			/**
+			 * Listado de ciudades disponibles
+			 *
+			 * @return retorna un listado de ciudades
+			 */
 			 public List<String> getProvincias() {
-		    	   return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
+		    	   return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
 		                   "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca",
 		                   "Gerona", "Granada", "Guadalajara", "Guipúzcua", "Huelva", "Huesca", "Islas Baleares", "Jaén",
 		                   "La CoruÃ±a", "La Rioja", "Las Palmas", "León", "Lérida", "Lugo", "Madrid", "Málaga", "Murcia",

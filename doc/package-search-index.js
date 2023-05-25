@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.edix.hotelsnow"},{"l":"com.edix.hotelsnow.configuration"},{"l":"com.edix.hotelsnow.controllers"},{"l":"com.edix.hotelsnow.dao"},{"l":"com.edix.hotelsnow.entitybeans"},{"l":"com.edix.hotelsnow.repository"},{"l":"com.edix.hotelsnow.tools"}];updateSearchResults();

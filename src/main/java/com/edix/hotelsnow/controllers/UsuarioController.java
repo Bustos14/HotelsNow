@@ -54,9 +54,9 @@ public class UsuarioController {
 	/**
 	 * Método usado para mostrar la vista con el perfil de usuario, con username como parametro de búsqueda
 	 * 
-	 * @param username -> Parámetro para buscar el perfil a mostrar del usuario
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devolvemos la vista del perfil de usuario
+	 * @param username Parámetro para buscar el perfil a mostrar del usuario
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devolvemos la vista del perfil de usuario
 	 */
 	@GetMapping("/perfil/{username}")
 	public String irPerfil(@PathVariable("username") String username, Model model) {
@@ -81,9 +81,9 @@ public class UsuarioController {
 	/**
 	 * Método que hace efectivo la modificación del perfil de usuario
 	 * 
-	 * @param usuario -> son los parametros modificados en el formulario de modificar
-	 * @param attr -> Para redirigir despues de un POST
-	 * @return -> Devolvemos la vista del perfil de usuario
+	 * @param usuario son los parametros modificados en el formulario de modificar
+	 * @param attr Para redirigir despues de un POST
+	 * @return Devolvemos la vista del perfil de usuario
 	 */
 	@PostMapping("/modificarPerfil")
 	public String modificarPerfil(Usuario usuario, RedirectAttributes attr) {
@@ -106,8 +106,8 @@ public class UsuarioController {
 	/**
 	 * Método para ver todos los usuarios
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve una vista con todos los usuarios
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devuelve una vista con todos los usuarios
 	 */
 	@GetMapping("/verTodos")
 	public String verTodosUsuarios(Model model) {
@@ -121,8 +121,8 @@ public class UsuarioController {
 	/**
 	 * Método que devuelve la vista con las solicitudes de alta de hoteles que tenemos pendientes
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devuelve la vista con todas las solicitudes
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devuelve la vista con todas las solicitudes
 	 */
 	@GetMapping("/verSolicitudes")
 	public String verTodasSolicitudes(Model model) {
@@ -134,9 +134,9 @@ public class UsuarioController {
 	/**
 	 * Método para ver mis reservas
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param auth -> Para obtener el usaurio
-	 * @return -> Devuelve la vista con la información de mis reservas
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param auth Para obtener el usaurio
+	 * @return Devuelve la vista con la información de mis reservas
 	 */
 	@GetMapping("/misReservas")
 	public String verMisReservas(Model model, Authentication auth) {
@@ -151,9 +151,9 @@ public class UsuarioController {
 	/**
 	 * Método usado para devolver la vista con mis comentarios
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param auth -> Para obetner el usaurio
-	 * @return -> Devolvemos la vista con la información de mis comentarios
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param auth Para obetner el usaurio
+	 * @return Devolvemos la vista con la información de mis comentarios
 	 */
 	@GetMapping("/misComentarios")
 	public String verMisComentarios(Model model, Authentication auth) {
@@ -169,10 +169,10 @@ public class UsuarioController {
 	/**
 	 * Método usado para devolver la información de las tarjetas con username como parametro
 	 * 
-	 * @param auth -> Para obtener al usuario
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @param username -> Parametro para buscar las tarjetas del usuario por username
-	 * @return -> Devuelve la vista de la información de las tarjetas
+	 * @param auth Para obtener al usuario
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @param username Parametro para buscar las tarjetas del usuario por username
+	 * @return Devuelve la vista de la información de las tarjetas
 	 */
 	@GetMapping("/misTarjetas/{username}")
 	public String misTarjetas(Authentication auth, Model model, @PathVariable("username") String username) {
@@ -187,7 +187,7 @@ public class UsuarioController {
 	
 	/**
 	 * Método par devolver la vista con el formulario de alta de la tarjeta
-	 * @return -> Devolvemos la vista del formulario para el altaTarjeta
+	 * @return Devolvemos la vista del formulario para el altaTarjeta
 	 */
 	@GetMapping("/alta")
 	public String irAltaTarjeta() {
@@ -201,10 +201,10 @@ public class UsuarioController {
 	/**
 	 * Método realizado para llevar acabo el altaTarjeta
 	 * 
-	 * @param auth -> Con el obtenemos el usuario que hace el alta tarjeta
-	 * @param tarjeta -> La entidad que se rellena con los campos del formulario de alta
-	 * @param attr -> Para redirigir despues de un POST
-	 * @return -> Devolvemos la visdta de mis tarjetas
+	 * @param auth Con el obtenemos el usuario que hace el alta tarjeta
+	 * @param tarjeta La entidad que se rellena con los campos del formulario de alta
+	 * @param attr Para redirigir despues de un POST
+	 * @return Devolvemos la visdta de mis tarjetas
 	 */
 	@PostMapping("/alta")
 	public String altaTarjeta(Authentication auth, TarjetasBancaria tarjeta, RedirectAttributes attr) {

@@ -36,7 +36,7 @@ public class TarjetaBancariaController {
 	
 	/**
 	 * Método que nos muestra la vista alta tarjeta.
-	 * @return -> Devolvemos la vista altaTarjeta
+	 * @return Devolvemos la vista altaTarjeta
 	 */
 	@GetMapping("/alta")
 	public String irAltaTarjeta() {
@@ -49,8 +49,8 @@ public class TarjetaBancariaController {
 	/**
 	 * Método que nos muestra todas las tarjetas que se han creado.
 	 * 
-	 * @param model -> Usado para poder pasar atributos a las vistas.
-	 * @return -> Devuelve todas las tarjetas.
+	 * @param model Usado para poder pasar atributos a las vistas.
+	 * @return Devuelve todas las tarjetas.
 	 */
 	@GetMapping("/tarjetas")
 	public String todasTarjetas(Model model) {
@@ -66,9 +66,9 @@ public class TarjetaBancariaController {
 	/**
 	 * Método para mostrar la información de una tarjeta buscada por id.
 	 * 
-	 * @param id -> Parametro para buscar la tarjeta
-	 * @param model -> Usado para poder pasar atributos a las vistas
-	 * @return -> Devolvemos la vista con la información de la tarjeta
+	 * @param id Parametro para buscar la tarjeta
+	 * @param model Usado para poder pasar atributos a las vistas
+	 * @return Devolvemos la vista con la información de la tarjeta
 	 */
 	@GetMapping("/verTarjeta/{id}")
 	public String irDetalleTarjeta(@PathVariable("id") int id, Model model) {
@@ -85,9 +85,9 @@ public class TarjetaBancariaController {
 	/**
 	 * Método para eliminar una tarjeta.
 	 * 
-	 * @param auth -> Para obtener el usuario
-	 * @param idTarjeta -> Parametro para buscar la tarjeta a elimianr
-	 * @return -> Devolvemos la vista de mis tarjetas
+	 * @param auth Para obtener el usuario
+	 * @param idTarjeta Parametro para buscar la tarjeta a elimianr
+	 * @return Devolvemos la vista de mis tarjetas
 	 */
 	@GetMapping("/eliminar/{id}")
 	public String eliminar(Authentication auth,@PathVariable("id") int idTarjeta) {
@@ -112,10 +112,10 @@ public class TarjetaBancariaController {
 	/**
 	 * Método para llevar a cabo el alta de una tarjeta
 	 * 
-	 * @param auth -> Para obtener el usuario que realiza el alta de la tarjeta
-	 * @param tarjeta -> Es la entidad que se rellena con los parametros del formulario de alta
-	 * @param attr -> Para redirigir despues de un POST
-	 * @return -> Devuelve la vista de mistarjetas para que las veamos
+	 * @param auth Para obtener el usuario que realiza el alta de la tarjeta
+	 * @param tarjeta Es la entidad que se rellena con los parametros del formulario de alta
+	 * @param attr Para redirigir despues de un POST
+	 * @return Devuelve la vista de mistarjetas para que las veamos
 	 */
 	@PostMapping("/alta")
 	public String altaTarjeta(Authentication auth,TarjetasBancaria tarjeta, RedirectAttributes attr) {
@@ -149,9 +149,9 @@ public class TarjetaBancariaController {
 	/**
 	 * Método para editar la tarjeta
 	 * 
-	 * @param tarjeta -> Entidad que queremos modificar, parametros pasados por el formulario de editar
-	 * @param attr -> Para redirigir despues de un POST
-	 * @param auth -> Para obtener el usuario
+	 * @param tarjeta Entidad que queremos modificar, parametros pasados por el formulario de editar
+	 * @param attr Para redirigir despues de un POST
+	 * @param auth Para obtener el usuario
 	 * @return -> Devolvemos la vista mis tarjetas para corroborar los cambios
 	 */
 	@PostMapping("/editar")
