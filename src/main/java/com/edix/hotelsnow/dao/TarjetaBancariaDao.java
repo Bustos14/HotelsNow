@@ -11,16 +11,16 @@ public interface TarjetaBancariaDao {
 	/**
 	 * Crea y almacena una nueva tarjeta bancaria en la base de datos.
 	 *
-	 * @param -> tarjeta la tarjeta bancaria a crear y almacenar
-	 * @return -> el ID de la nueva tarjeta bancaria creada y almacenada
+	 * @param -> Tarjeta la tarjeta bancaria a crear y almacenar
+	 * @return -> El ID de la nueva tarjeta bancaria creada y almacenada
 	 */
 	int nuevaTarjeta(TarjetasBancaria tarjeta);
 
 	/**
 	 * Modifica una tarjeta bancaria existente en la base de datos.
 	 *
-	 * @param -> tarjeta la tarjeta bancaria a modificar y actualizar
-	 * @return -> el n煤mero de filas afectadas por la operaci贸n de actualizaci贸n (debe ser 1 si la actualizaci贸n fue exitosa)
+	 * @param -> Tarjeta la tarjeta bancaria a modificar y actualizar
+	 * @return -> El n鷐ero de filas afectadas por la operaci髇 de actualizaci髇 (debe ser 1 si la actualizaci髇 fue exitosa)
 	 */
 	int modificarTarjeta(TarjetasBancaria tarjeta);
 
@@ -28,7 +28,7 @@ public interface TarjetaBancariaDao {
 	 * Elimina una tarjeta bancaria de la base de datos con el ID especificado.
 	 *
 	 * @param -> idTarjeta el ID de la tarjeta bancaria a eliminar
-	 * @return -> el n煤mero de filas afectadas por la operaci贸n de eliminaci贸n (debe ser 1 si la eliminaci贸n fue exitosa)
+	 * @return -> el n鷐ero de filas afectadas por la operaci髇 de eliminaci髇 (debe ser 1 si la eliminaci髇 fue exitosa)
 	 */
 	int eliminarTarjeta(int idTarjeta);
 
@@ -43,7 +43,7 @@ public interface TarjetaBancariaDao {
 	/**
 	 * Devuelve una lista de todas las tarjetas bancarias almacenadas en la base de datos.
 	 *
-	 * @return -> una lista de todas las tarjetas bancarias, o una lista vac铆a si no hay tarjetas bancarias en la base de datos
+	 * @return -> una lista de todas las tarjetas bancarias, o una lista vac韆 si no hay tarjetas bancarias en la base de datos
 	 */
 	List<TarjetasBancaria> todas();
 
@@ -51,7 +51,7 @@ public interface TarjetaBancariaDao {
 	 * Devuelve una lista de todas las tarjetas bancarias asociadas con el nombre de usuario especificado.
 	 *
 	 * @param -> username el nombre de usuario asociado con las tarjetas bancarias a buscar
-	 * @return -> una lista de todas las tarjetas bancarias asociadas con el nombre de usuario especificado, o una lista vac铆a si no se encuentra ninguna tarjeta bancaria con ese nombre de usuario
+	 * @return -> una lista de todas las tarjetas bancarias asociadas con el nombre de usuario especificado, o una lista vac韆 si no se encuentra ninguna tarjeta bancaria con ese nombre de usuario
 	 */
 	List<TarjetasBancaria> findByUsername(String username);
 

@@ -10,15 +10,15 @@ public interface HoteleDao {
 	/**
 	 * Devuelve una lista de todos los hoteles almacenados en la base de datos.
 	 *
-	 * @return -> una lista de todos los hoteles, o una lista vacÃ­a si no hay hoteles en la base de datos
+	 * @return -> una lista de todos los hoteles, o una lista vacía si no hay hoteles en la base de datos
 	 */
 	List<Hotele> mostrarTodos();
 
 	/**
-	 * Busca y devuelve un hotel especÃ­fico de la base de datos.
+	 * Busca y devuelve un hotel específico de la base de datos.
 	 *
 	 * @param -> idHotel el ID del hotel a buscar
-	 * @return -> el hotel encontrado, o null si no se encuentra ningÃºn hotel con ese ID
+	 * @return -> el hotel encontrado, o null si no se encuentra ningún hotel con ese ID
 	 */
 	Hotele buscarUno(int idHotel);
 
@@ -39,10 +39,10 @@ public interface HoteleDao {
 	Hotele altaHotel(Hotele hotel);
 
 	/**
-	 * Elimina un hotel especÃ­fico de la base de datos.
+	 * Elimina un hotel específico de la base de datos.
 	 *
 	 * @param -> idHotel el ID del hotel a eliminar
-	 * @return -> true si se eliminÃ³ el hotel, o false si no se encontrÃ³ ningÃºn hotel con ese ID
+	 * @return -> true si se eliminó el hotel, o false si no se encontró ningún hotel con ese ID
 	 */
 	boolean eliminarHotel(int idHotel);
 
@@ -50,31 +50,31 @@ public interface HoteleDao {
 	 * Modifica un hotel existente en la base de datos.
 	 *
 	 * @param -> hotel el hotel modificado
-	 * @return -> true si se actualizÃ³ el hotel correctamente, o false si no se encontrÃ³ ningÃºn hotel con ese ID
+	 * @return -> true si se actualizó el hotel correctamente, o false si no se encontró ningún hotel con ese ID
 	 */
 	boolean modificarHotel(Hotele hotel);
 
 	/**
-	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad especÃ­fica.
+	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad específica.
 	 *
 	 * @param -> ciudadHotel la ciudad para buscar hoteles
-	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacÃ­a si no hay hoteles en esa ciudad
+	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacía si no hay hoteles en esa ciudad
 	 */
 	List<Hotele> findByCiudadHotele(String ciudadHotel);
 	/**
-	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad especÃ­fica.
+	 * Busca y devuelve una lista de hoteles que se encuentren en una ciudad específica.
 	 *
 	 * @param -> ciudadHotel la ciudad para buscar hoteles
-	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacÃ­a si no hay hoteles en esa ciudad
+	 * @return -> una lista de hoteles en la ciudad especificada, o una lista vacía si no hay hoteles en esa ciudad
 	 */
 	List<Hotele> findByNombreHotele(String nombreHotele);
 
 
 	/**
-	 * Busca y devuelve una lista de hoteles propiedad de un usuario especÃ­fico.
+	 * Busca y devuelve una lista de hoteles propiedad de un usuario específico.
 	 *
 	 * @param -> usuario el usuario para buscar hoteles propiedad
-	 * @return -> una lista de hoteles propiedad del usuario especificado, o una lista vacÃ­a si el usuario no tiene hoteles propiedad
+	 * @return -> una lista de hoteles propiedad del usuario especificado, o una lista vacía si el usuario no tiene hoteles propiedad
 	 */
 	List<Hotele> buscarPorUsuario(Usuario usuario);
 

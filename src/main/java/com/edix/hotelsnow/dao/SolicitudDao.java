@@ -9,7 +9,7 @@ public interface SolicitudDao {
 	/**
 	 * Devuelve una lista de todas las solicitudes de hoteles almacenadas en la base de datos.
 	 *
-	 * @return -> una lista de todas las solicitudes de hoteles, o una lista vacÃ­a si no hay solicitudes de hoteles en la base de datos
+	 * @return -> una lista de todas las solicitudes de hoteles, o una lista vacía si no hay solicitudes de hoteles en la base de datos
 	 */
 	List<SolicitudHotele> mostrarTodas();
 
@@ -30,10 +30,10 @@ public interface SolicitudDao {
 	SolicitudHotele altaSolicitud(SolicitudHotele solicitud);
 
 	/**
-	 * Niega una solicitud de hotel especÃ­fica de la base de datos.
+	 * Niega una solicitud de hotel específica de la base de datos.
 	 *
 	 * @param -> idSolicitud el ID de la solicitud a negar
-	 * @return -> true si se negÃ³ la solicitud, o false si no se encontrÃ³ ninguna solicitud con ese ID
+	 * @return -> true si se negó la solicitud, o false si no se encontró ninguna solicitud con ese ID
 	 */
 	boolean denegarSolicitud(int idSolicitud);
 

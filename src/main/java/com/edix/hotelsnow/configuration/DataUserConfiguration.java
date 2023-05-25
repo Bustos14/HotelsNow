@@ -35,11 +35,11 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 	@Override protected void configure(HttpSecurity http) throws Exception {		
 		http .csrf().disable() 
 		.authorizeRequests() 
-		// Los directorios est谩ticos no requieren autenticacion 
+		// Los directorios est醫icos no requieren autenticacion 
 		.antMatchers("/bootstrap/**", "/img/**", "/css/**", "js/**").permitAll()
 		.antMatchers("/rest/demo-bcrypt/**").permitAll()
   
-		// Las vistas p煤blicas no requieren autenticaci贸n
+		// Las vistas p鷅licas no requieren autenticaci贸n
 		.antMatchers("/", "/login", "/registro","/search",
 				//provisional para probar que funciona
 				"/listadoHoteles","/test","/","/sobreNosotros", "/servicios", "/contacto",
@@ -59,7 +59,7 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
 		.antMatchers("/habitacion/eliminar/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_SUPERADMIN")
 		.antMatchers("/habitacion/editar/**").hasAnyAuthority("ROLE_ADMIN", "ROLE_SUPERADMIN")
   
-	  // Todas las dem谩s URLs de la Aplicaci贸n requieren autenticaci贸n
+	  // Todas las dem醩 URLs de la Aplicaci髇 requieren autenticaci髇
 		 .anyRequest().authenticated()
 		 .and().formLogin().loginPage("/login").defaultSuccessUrl("/").permitAll()  
 		 .and().logout().permitAll();
@@ -67,7 +67,7 @@ import org.springframework.security.web.firewall.StrictHttpFirewall;
   }
 
 		/**
-		 * @return Contrase帽a encriptada con BCrypt
+		 * @return Contrase馻 encriptada con BCrypt
 		 */
 		@Bean
 		public PasswordEncoder passwordEncoder() {
