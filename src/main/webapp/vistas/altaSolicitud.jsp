@@ -27,9 +27,9 @@
 	    <span class="block sm:inline">${mensaje}</span>
 	  </div>
 	</c:if>
-
-<div class="container mx-auto">
- <div class="relative flex flex-wrap">
+<div class="bg-white">
+<div class="container mx-auto ">
+ <div class="relative flex flex-wrap bg-white">
             <div class="w-full relative">
                 <div class="md:mt-6">
                 
@@ -46,9 +46,9 @@
              </div>
              </div>
              </div>
- <form class="mt-8" x-data="{password: '',password_confirm: ''}" method="POST" action="/solicitud/altaSolicitud">
+ <form class="mt-8 bg-white" x-data="{password: '',password_confirm: ''}" method="POST" action="/solicitud/altaSolicitud">
   <div class="grid grid-cols-4 gap-6">
-    <div>1</div>
+    <div></div>
     <div><div class="max-w-sm mx-auto px-6">
   
         <div class="relative flex flex-wrap">
@@ -163,17 +163,17 @@
                 bg-white border-2 border-gray-300 placeholder-gray-600 shadow-md focus:placeholder-gray-500 focus:bg-white focus:border-gray-600 focus:outline-none" id="telefono-hotel" name="telefonoHotel" type="text" placeholder="Ingrese el teléfono del hotel">
     </div>
     </div>
+    
             </div>
-        </div>
-    </div></div>
-    <div></div>
-  </div>
-  <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
+            <div class="bg-white">
+    <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg"
         x-bind:disabled="password.length < 8 || password.length > 20 || password != password_confirm" type ="submit">
                                 Enviar solicitud
                             </button>
+  </div>
+
                         </div>
-                    <div class="text-sm font-semibold block  py-6 flex justify-center">
+                    <div class="text-sm font-semibold block  py-6 flex justify-center bg-white">
                         <a href="/login"
                            class="text-black font-normal border-b-2 border-gray-200 hover:border-teal-500">¿Ya eres miembro?
                             <span class="text-black font-semibold">
@@ -181,7 +181,12 @@
 					        </span>
                         </a>
                     </div>
+        </div>
+    </div>
+    </div>
+  </div>
   </form>
+  </div>
 </div>
 
 <script>

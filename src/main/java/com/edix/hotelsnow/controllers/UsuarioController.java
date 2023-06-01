@@ -112,7 +112,7 @@ public class UsuarioController {
 	@GetMapping("/verTodos")
 	public String verTodosUsuarios(Model model) {
 		
-		model.addAttribute("usuarios", udao.buscarPorRol("ROLE_CLIENTE"));
+		model.addAttribute("usuarios", udao.buscarPorRol("ROLE_USUARIO"));
 		model.addAttribute("admins", udao.buscarPorRol("ROLE_ADMIN"));
 		
 		return "listadoUsuarios";

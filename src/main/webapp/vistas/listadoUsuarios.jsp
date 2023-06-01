@@ -33,7 +33,7 @@
 			<a href="/">Volver</a>
 		</button>
 
-<table class="w-full">
+<table class="w-full bg-white">
   <thead>
     <tr class="bg-gray-200">
       <th class="py-2 px-4">Nombre de usuario</th>
@@ -57,7 +57,7 @@
 </table>
 
 <h2 class="text-2xl font-bold mb-4">Usuarios con rol ADMIN</h2>
-<table class="w-full">
+<table class="w-full bg-white">
   <thead>
     <tr class="bg-gray-200">
       <th class="py-2 px-4">Nombre de usuario</th>

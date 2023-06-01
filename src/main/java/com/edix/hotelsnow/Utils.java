@@ -44,10 +44,10 @@ public class Utils {
 			 * @return retorna un listado de ciudades
 			 */
 			 public List<String> getProvincias() {
-		    	   return Arrays.asList("ï¿½lava", "Albacete", "Alicante", "Almerï¿½a", "Asturias", "ï¿½vila", "Badajoz", "Barcelona",
-		                   "Burgos", "Cï¿½ceres", "Cï¿½diz", "Cantabria", "Castellï¿½n", "Ciudad Real", "Cï¿½rdoba", "Cuenca",
-		                   "Gerona", "Granada", "Guadalajara", "Guipï¿½zcua", "Huelva", "Huesca", "Islas Baleares", "Jaï¿½n",
-		                   "La CoruÃ±a", "La Rioja", "Las Palmas", "Leï¿½n", "Lï¿½rida", "Lugo", "Madrid", "Mï¿½laga", "Murcia",
+		    	   return Arrays.asList("Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz", "Barcelona",
+		                   "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real", "Córdoba", "Cuenca",
+		                   "Gerona", "Granada", "Guadalajara", "Guipúzcua", "Huelva", "Huesca", "Islas Baleares", "Jaï¿½n",
+		                   "La CoruÃ±a", "La Rioja", "Las Palmas", "León", "Lérida", "Lugo", "Madrid", "Málaga", "Murcia",
 		                   "Navarra", "Orense", "Palencia", "Pontevedra", "Salamanca", "Santa Cruz de Tenerife", "Segovia",
 		                   "Sevilla", "Soria", "Tarragona", "Teruel", "Toledo", "Valencia", "Valladolid", "Vizcaya",
 		                   "Zamora", "Zaragoza");
