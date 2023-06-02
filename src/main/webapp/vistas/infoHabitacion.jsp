@@ -37,7 +37,13 @@
   <div class="max-w-400 mx-auto flex items-center justify-center">
     <div class="flex flex-col justify-between bg-white rounded-lg shadow-lg">
       <div>
-        <img src="/recursos/${habitacion.img}" class="h-auto w-full object-cover rounded-t-lg" style="max"alt="Room image">
+        <c:if test="${empty habitacion.img}">
+			<img src="${pageContext.request.contextPath}/img/hotel-test.png" class="h-auto w-full object-cover rounded-t-lg" style="max"alt="Room image">
+		</c:if>
+		<c:if test="${not empty habitacion.img}">
+			<img src="/recursos/${habitacion.img}" class="h-auto w-full object-cover rounded-t-lg" style="max"alt="Room image">
+		</c:if>
+        
         <div class="px-4 py-5 sm:px-6">
           <h2 class="text-2xl font-bold text-gray-800">${habitacion.tipoHabitacion}</h2>
           <p class="mt-1 text-sm text-gray-500">${habitacion.nombreHabitacion}</p>
